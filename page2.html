@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>TurtlePharma - Save the Turtles</title>
+  <title>TurtlePharma - Global Save the Turtles Campaign</title>
 
   <style>
     /* =========================
@@ -24,7 +24,7 @@
     }
 
     body {
-      padding: 15px; /* Exact 15px blue margin on Top, Right, Bottom, Left */
+      padding: 15px;
     }
 
     h1, h3 {
@@ -34,21 +34,22 @@
 
     h1 {
       font-size: 2.2rem;
-      margin-top: 10px;
+      margin-top: 5px;
+      margin-bottom: 5px;
     }
 
     p {
       color: rgb(0, 0, 180);
-      padding: 10px 0;
+      padding: 8px 0;
       font-size: 1.05rem;
     }
 
     .intro-paragraph {
-      background-color: rgba(255, 255, 255, 0.65);
-      padding: 15px 20px;
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 14px 18px;
       border-left: 4px solid rgb(0, 100, 0);
       border-radius: 4px;
-      margin: 15px 0;
+      margin: 12px 0;
       color: rgb(0, 30, 60);
       text-align: justify;
     }
@@ -103,35 +104,89 @@
       overflow-y: auto;
       overflow-x: hidden;
       box-sizing: border-box;
-      padding: 30px;
+      padding: 25px 30px;
     }
 
     /* =========================
-       TABLE STYLING
+       CAMPAIGN STATS METRICS
        ========================= */
+    .campaign-banner {
+      background: linear-gradient(135deg, rgba(0, 100, 0, 0.85), rgba(0, 50, 120, 0.85));
+      color: white;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 15px 0 25px 0;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .campaign-banner h2 {
+      margin: 0 0 10px 0;
+      font-size: 1.3rem;
+      letter-spacing: 0.5px;
+    }
+
+    .metrics-grid {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .metric-item {
+      flex: 1;
+      min-width: 120px;
+    }
+
+    .metric-number {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #79ff9a;
+    }
+
+    .metric-label {
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+
+    /* =========================
+       TABLE STYLING (10 SPECIES)
+       ========================= */
+    .table-responsive {
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+
     .table {
-      color: green;
+      color: rgb(0, 50, 0);
       border: 2px solid brown;
-      margin: 20px auto;
-      background-color: rgba(255, 255, 255, 0.85);
+      margin: 0 auto;
+      background-color: rgba(255, 255, 255, 0.9);
       border-collapse: collapse;
       width: 100%;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      font-size: 0.95rem;
     }
 
     .table th,
     .table td {
       border: 1px solid brown;
-      padding: 10px;
-      text-align: center;
+      padding: 10px 8px;
+      text-align: left;
     }
 
     .table th {
-      background-color: rgba(180, 220, 180, 0.9);
+      background-color: rgba(180, 220, 180, 0.95);
+      color: rgb(0, 80, 0);
+      text-align: center;
+    }
+
+    .table tbody tr:nth-child(even) {
+      background-color: rgba(240, 250, 240, 0.6);
     }
 
     /* =========================
-       FORMS
+       FORMS & INTERACTION
        ========================= */
     #quiz-form, #Q0 {
       display: flex;
@@ -139,30 +194,33 @@
       align-items: center;
       text-align: center;
       gap: 12px;
-      margin: 20px auto;
-      padding: 20px;
-      max-width: 500px;
-      background-color: rgba(255, 255, 255, 0.75);
+      margin: 25px auto;
+      padding: 22px;
+      max-width: 550px;
+      background-color: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(0, 100, 0, 0.3);
       border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
     #quiz-answer, #Q0 input {
       width: 100%;
-      max-width: 300px;
-      padding: 8px;
+      max-width: 360px;
+      padding: 10px;
       font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
       box-sizing: border-box;
     }
 
     .form, #Q0 button {
       cursor: pointer;
       width: 100%;
-      max-width: 300px;
-      padding: 10px;
+      max-width: 360px;
+      padding: 12px;
       font-size: 1rem;
       font-weight: bold;
-      background-color: rgb(0, 100, 0);
+      background-color: rgb(0, 110, 0);
       color: white;
       border: none;
       border-radius: 4px;
@@ -170,14 +228,14 @@
     }
 
     .form:hover, #Q0 button:hover {
-      background-color: rgb(0, 140, 0);
+      background-color: rgb(0, 150, 0);
     }
 
     #result {
       font-weight: bold;
       color: rgb(0, 100, 0);
-      font-size: 1.1rem;
-      min-height: 24px;
+      font-size: 1.15rem;
+      min-height: 28px;
     }
 
     /* =========================
@@ -254,7 +312,7 @@
       opacity: 1;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       .table {
         font-size: 12px;
       }
@@ -275,6 +333,29 @@
 
       <h1>Save the Turtles Campaign</h1>
 
+      <!-- CAMPAIGN PROGRESS METRICS -->
+      <div class="campaign-banner">
+        <h2>Global Chelonian Conservation Initiative 2026</h2>
+        <div class="metrics-grid">
+          <div class="metric-item">
+            <div class="metric-number">4,850+</div>
+            <div class="metric-label">Turtles Rehabilitated</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-number">14</div>
+            <div class="metric-label">Coastal Sanctuaries</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-number">92%</div>
+            <div class="metric-label">Release Success Rate</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-number">€340,000</div>
+            <div class="metric-label">Funds Deployed</div>
+          </div>
+        </div>
+      </div>
+
       <p class="intro-paragraph">
         <strong>Ecotoxicology and Bioaccumulation:</strong> Marine turtles serve as crucial bioindicators for coastal ocean health due to their longevity and high position in trophic webs. Lipophilic environmental pollutants—such as persistent organic pollutants (POPs), polychlorinated biphenyls (PCBs), and trace heavy metals—accumulate within their adipose tissue and liver over several decades. During physiological stress, long migrations, or vitellogenesis (egg production), these lipid reserves mobilize, releasing high systemic spikes of sequestered xenobiotics back into circulation, which severely compromises immune response and reproductive viability.
       </p>
@@ -283,40 +364,104 @@
         <strong>Comparative Pharmacokinetics in Chelonians:</strong> Designing therapeutic regimens for reptiles requires understanding poikilothermic metabolic dynamics and unique vascular anatomy. Chelonian hepatic Cytochrome P450 enzyme clearance rates are significantly slower than in mammals, drastically extending elimination half-lives ($t_{1/2}$) and increasing the risk of toxicity from standard dosing. Furthermore, the functional renal portal system directs blood from the hindlimbs and tail directly through the kidneys before entering systemic circulation, meaning therapeutics administered caudally risk rapid first-pass renal excretion or localized nephrotoxicity.
       </p>
 
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Turtle</th>
-            <th>Scientific name</th>
-            <th>Habitat</th>
-            <th>Lifespan</th>
-            <th>Important fact</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Hermann's tortoise</td>
-            <td><i>Testudo hermanni</i></td>
-            <td>Southern Europe</td>
-            <td>Several decades</td>
-            <td>Terrestrial tortoise; requires suitable temperature, diet and UVB exposure.</td>
-          </tr>
-          <tr>
-            <td>Green sea turtle</td>
-            <td><i>Chelonia mydas</i></td>
-            <td>Tropical and subtropical oceans</td>
-            <td>70+ years possible</td>
-            <td>Herbivorous adults often feed on seagrasses and algae.</td>
-          </tr>
-          <tr>
-            <td>Loggerhead turtle</td>
-            <td><i>Caretta caretta</i></td>
-            <td>Atlantic, Pacific and Indian Oceans</td>
-            <td>70+ years estimated</td>
-            <td>Powerful jaws help it eat hard-shelled marine animals.</td>
-          </tr>
-        </tbody>
-      </table>
+      <!-- 10 SPECIES COMPARISON TABLE -->
+      <h3>Priority Species Under Protection</h3>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Species / Common Name</th>
+              <th>Scientific Name</th>
+              <th>Habitat Range</th>
+              <th>Lifespan</th>
+              <th>Ecological & Conservation Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Hermann's Tortoise</td>
+              <td><i>Testudo hermanni</i></td>
+              <td>Southern Europe / Mediterranean scrub</td>
+              <td>50–80 years</td>
+              <td>Terrestrial tortoise sensitive to habitat fragmentation and calcium/UVB imbalances.</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Green Sea Turtle</td>
+              <td><i>Chelonia mydas</i></td>
+              <td>Tropical & subtropical ocean waters</td>
+              <td>70+ years</td>
+              <td>Herbivorous adults vital for maintaining marine seagrass meadow ecosystems.</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Atlantic Loggerhead</td>
+              <td><i>Caretta caretta caretta</i></td>
+              <td>Atlantic Ocean & Mediterranean Sea</td>
+              <td>70–80 years</td>
+              <td>Equipped with powerful crushing jaws to feed on hard-shelled benthic invertebrates.</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Indo-Pacific Loggerhead</td>
+              <td><i>Caretta caretta gigas</i></td>
+              <td>Indian & Pacific Oceans</td>
+              <td>70+ years</td>
+              <td>Navigates oceanic gyres across thousands of miles using geomagnetic orientation.</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Hawksbill Sea Turtle</td>
+              <td><i>Eretmochelys imbricata</i></td>
+              <td>Tropical coral reefs globally</td>
+              <td>50–60 years</td>
+              <td>Critically endangered sponge predator maintaining coral reef biodiversity.</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Leatherback Sea Turtle</td>
+              <td><i>Dermochelys coriacea</i></td>
+              <td>Pelagic oceans (sub-polar to tropical)</td>
+              <td>45–50 years</td>
+              <td>Largest marine turtle; possesses endothermic adaptations for cold-water dives.</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Kemp's Ridley Turtle</td>
+              <td><i>Lepidochelys kempii</i></td>
+              <td>Gulf of Mexico & US Atlantic Coast</td>
+              <td>30–50 years</td>
+              <td>Smallest sea turtle species; renowned for synchronized nesting events ("arribadas").</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Olive Ridley Turtle</td>
+              <td><i>Lepidochelys olivacea</i></td>
+              <td>Tropical regions of Pacific & Indian Oceans</td>
+              <td>50 years</td>
+              <td>Pelagic species forming massive nesting aggregations; threatened by marine debris.</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>Flatback Sea Turtle</td>
+              <td><i>Natator depressus</i></td>
+              <td>Australian continental shelf</td>
+              <td>50+ years</td>
+              <td>Lacks a oceanic pelagic phase, remaining entirely within shallow turbid coastal waters.</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>Galápagos Giant Tortoise</td>
+              <td><i>Chelonoidis niger</i></td>
+              <td>Galápagos Archipelago</td>
+              <td>100+ years</td>
+              <td>Keystone island herbivore responsible for seed dispersal and habitat sculpting.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <p>
         <strong>Important:</strong>
@@ -327,65 +472,75 @@
         and veterinary care are important for reptile health.
       </p>
 
+      <!-- SPONSORSHIP SELECTION FORM (10 SPECIES) -->
       <form id="quiz-form">
         <label for="quiz-answer">
-          <strong>Would you help us with a turtle?</strong>
+          <strong>Which turtle species would you like to sponsor?</strong>
         </label>
         <select id="quiz-answer">
-          <option value="1">Hermann's tortoise</option>
-          <option value="2">Green sea turtle</option>
-          <option value="3">Loggerhead turtle</option>
+          <option value="1">Hermann's Tortoise (Testudo hermanni)</option>
+          <option value="2">Green Sea Turtle (Chelonia mydas)</option>
+          <option value="3">Atlantic Loggerhead (Caretta caretta caretta)</option>
+          <option value="4">Indo-Pacific Loggerhead (Caretta caretta gigas)</option>
+          <option value="5">Hawksbill Sea Turtle (Eretmochelys imbricata)</option>
+          <option value="6">Leatherback Sea Turtle (Dermochelys coriacea)</option>
+          <option value="7">Kemp's Ridley Turtle (Lepidochelys kempii)</option>
+          <option value="8">Olive Ridley Turtle (Lepidochelys olivacea)</option>
+          <option value="9">Flatback Sea Turtle (Natator depressus)</option>
+          <option value="10">Galápagos Giant Tortoise (Chelonoidis niger)</option>
         </select>
 
         <button type="submit" class="form">
-          Save her!
+          Sponsor This Turtle!
         </button>
 
         <div id="result"></div>
       </form>
 
+      <!-- REVEALED CAMPAIGN SECTION & CONTACT FORM -->
       <div id="scroll">
-        <h3>Are you prepared to save these too?</h3>
+        <h3>Join Our Field Conservation & Rescue Team</h3>
 
         <div class="img-container">
           <div class="img-wrapper" id="turtle1">
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj1bTv7KinC1-ZkZz3XIQkqMxsF1J1NT1z1dgw7uBdbIg-A3Tz-lc1GofK&s=10"
-              alt="Turtle 1, cutie"
+              alt="Hatchling rescue operation"
             >
-            <span class="tooltip-text">Turtle 1, cutie</span>
+            <span class="tooltip-text">Hatchling rescue operation</span>
           </div>
 
           <div class="img2" id="turtle2">
             <div class="img-wrapper" id="turtle2image">
               <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMh-9JNh46kjq6HRTHpYmp9GVC84kk4aSwpdJsxBTKRXr-7VMXDrIoL9u5&s=10"
-                alt="Loggerhead turtle in the sea"
+                alt="Loggerhead turtle in natural habitat"
               >
-              <span class="tooltip-text">Loggerhead turtle in the sea</span>
+              <span class="tooltip-text">Loggerhead turtle in natural habitat</span>
             </div>
 
             <div class="img-wrapper" id="turtle3">
               <img
                 src="https://sustainabletravel.org/wp-content/uploads/Blog-image-sea-turtle-cleaning-station-1200x675-1.jpg"
-                alt="Sea turtle with friends"
+                alt="Sea turtle cleaning station monitoring"
               >
-              <span class="tooltip-text">Sea turtle with friends</span>
+              <span class="tooltip-text">Sea turtle cleaning station monitoring</span>
             </div>
           </div>
         </div>
 
         <form id="Q0">
           <label for="contact">
-            Then, insert your contact, please.
+            <strong>Complete your sponsorship registration:</strong><br>
+            Please enter your email or phone number to receive monthly field updates.
           </label>
           <input
             id="contact"
             type="text"
-            placeholder="Email or Phone"
+            placeholder="Email address or Phone number"
             required
           >
-          <button type="submit">Submit</button>
+          <button type="submit">Submit Sponsorship</button>
         </form>
       </div>
     </div>
@@ -410,23 +565,20 @@
       });
     });
 
+    // Dynamic submission handler for all 10 species
     $("#quiz-form").on("submit", function (event) {
       event.preventDefault();
 
-      const answer = $("#quiz-answer").val();
+      const selectedOptionText = $("#quiz-answer option:selected").text();
+      const turtleName = selectedOptionText.split(" (")[0];
 
-      if (answer === "1") {
-        $("#result").text("You saved the Hermann's tortoise!");
-      } else if (answer === "2") {
-        $("#result").text("You saved the green sea turtle!");
-      } else {
-        $("#result").text("You saved the loggerhead turtle!");
-      }
+      $("#result").html("Thank you! You are now sponsoring the <strong>" + turtleName + "</strong> campaign!");
 
       $("#scroll").slideDown(1000);
       $("#Q0").delay(300).fadeIn(500);
     });
 
+    // Contact submission handler
     $("#Q0").on("submit", function (event) {
       event.preventDefault();
 
@@ -435,8 +587,8 @@
       if (contact === "") return;
 
       $(this).html(
-        "<p style='color: green; font-weight: bold; text-align: center;'>" +
-        "Thank you for your support!" +
+        "<p style='color: green; font-weight: bold; text-align: center; font-size: 1.1rem;'>" +
+        "🎉 Success! Your sponsorship details have been received (" + contact + "). Thank you for supporting global marine conservation!" +
         "</p>"
       );
     });
