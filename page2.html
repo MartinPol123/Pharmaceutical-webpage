@@ -5,37 +5,44 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>TurtlePharma - Global Save the Turtles Campaign</title>
+  <title>TurtlePharma - Turtle Campaign</title>
 
   <style>
     /* =========================
-       UNIFORM 15px BLUE MARGIN
+       FULL-SCREEN BACKGROUND
        ========================= */
     html, body {
       margin: 0;
       padding: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: rgb(185, 210, 255);
+      min-height: 100vh;
+      width: 100%;
       font-family: sans-serif;
       line-height: 1.6em;
-      overflow: hidden;
       box-sizing: border-box;
     }
 
     body {
-      padding: 15px;
+      background-image:
+        linear-gradient(
+          rgba(255, 255, 255, 0.82),
+          rgba(255, 255, 255, 0.88)
+        ),
+        url("https://images.pexels.com/photos/35166623/pexels-photo-35166623.jpeg");
+
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
     }
 
-    h1, h3 {
+    h1, h2, h3 {
       color: rgb(0, 0, 130);
       text-align: center;
     }
 
     h1 {
       font-size: 2.2rem;
-      margin-top: 5px;
-      margin-bottom: 5px;
+      margin-top: 10px;
     }
 
     p {
@@ -44,556 +51,616 @@
       font-size: 1.05rem;
     }
 
-    .intro-paragraph {
-      background-color: rgba(255, 255, 255, 0.7);
-      padding: 14px 18px;
-      border-left: 4px solid rgb(0, 100, 0);
-      border-radius: 4px;
-      margin: 12px 0;
-      color: rgb(0, 30, 60);
-      text-align: justify;
-    }
-
     a {
       color: rgb(0, 0, 180);
       font-weight: bold;
+      text-decoration: none;
     }
 
     a:hover,
     a:active {
-      background-color: rgb(255, 214, 255);
+      text-decoration: underline;
     }
 
     /* =========================
-       INNER CARD CONTAINER
+       TOP NAVIGATION BAR
        ========================= */
-    #cardContainer {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      border: 5px groove green;
-      box-sizing: border-box;
-      overflow: hidden;
-    }
-
-    #BGimage {
-      background-image:
-        linear-gradient(
-          rgba(255, 255, 255, 0.75),
-          rgba(255, 255, 255, 0.85)
-        ),
-        url("https://images.pexels.com/photos/35166623/pexels-photo-35166623.jpeg");
-
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      z-index: 1;
-    }
-
-    #scrollContent {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 2;
-      overflow-y: auto;
-      overflow-x: hidden;
-      box-sizing: border-box;
-      padding: 25px 30px;
-    }
-
-    /* =========================
-       CAMPAIGN STATS METRICS
-       ========================= */
-    .campaign-banner {
-      background: linear-gradient(135deg, rgba(0, 100, 0, 0.85), rgba(0, 50, 120, 0.85));
-      color: white;
-      border-radius: 8px;
-      padding: 15px;
-      margin: 15px 0 25px 0;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    }
-
-    .campaign-banner h2 {
-      margin: 0 0 10px 0;
-      font-size: 1.3rem;
-      letter-spacing: 0.5px;
-    }
-
-    .metrics-grid {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-
-    .metric-item {
-      flex: 1;
-      min-width: 120px;
-    }
-
-    .metric-number {
-      font-size: 1.6rem;
-      font-weight: bold;
-      color: #79ff9a;
-    }
-
-    .metric-label {
-      font-size: 0.85rem;
-      opacity: 0.9;
-    }
-
-    /* =========================
-       TABLE STYLING (10 SPECIES)
-       ========================= */
-    .table-responsive {
-      overflow-x: auto;
-      margin: 20px 0;
-    }
-
-    .table {
-      color: rgb(0, 50, 0);
-      border: 2px solid brown;
-      margin: 0 auto;
-      background-color: rgba(255, 255, 255, 0.9);
-      border-collapse: collapse;
-      width: 100%;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      font-size: 0.95rem;
-    }
-
-    .table th,
-    .table td {
-      border: 1px solid brown;
-      padding: 10px 8px;
-      text-align: left;
-    }
-
-    .table th {
-      background-color: rgba(180, 220, 180, 0.95);
-      color: rgb(0, 80, 0);
-      text-align: center;
-    }
-
-    .table tbody tr:nth-child(even) {
-      background-color: rgba(240, 250, 240, 0.6);
-    }
-
-    /* =========================
-       FORMS & INTERACTION
-       ========================= */
-    #quiz-form, #Q0 {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 12px;
-      margin: 25px auto;
-      padding: 22px;
-      max-width: 550px;
-      background-color: rgba(255, 255, 255, 0.85);
-      border: 1px solid rgba(0, 100, 0, 0.3);
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    #quiz-answer, #Q0 input {
-      width: 100%;
-      max-width: 360px;
-      padding: 10px;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-    }
-
-    .form, #Q0 button {
-      cursor: pointer;
-      width: 100%;
-      max-width: 360px;
-      padding: 12px;
-      font-size: 1rem;
-      font-weight: bold;
-      background-color: rgb(0, 110, 0);
-      color: white;
-      border: none;
-      border-radius: 4px;
-      transition: background-color 0.2s ease;
-    }
-
-    .form:hover, #Q0 button:hover {
-      background-color: rgb(0, 150, 0);
-    }
-
-    #result {
-      font-weight: bold;
-      color: rgb(0, 100, 0);
-      font-size: 1.15rem;
-      min-height: 28px;
-    }
-
-    /* =========================
-       IMAGE GALLERY & TOOLTIPS
-       ========================= */
-    .img-container {
+    .top-nav {
       display: flex;
       justify-content: center;
-      align-items: center;
       flex-wrap: wrap;
-      gap: 20px;
-      margin: 25px 0;
+      gap: 12px;
+      margin-bottom: 25px;
     }
 
-    .img2 {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .img-wrapper {
-      position: relative;
+    .nav-btn {
+      background-color: rgb(0, 100, 0);
+      color: white;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background-color 0.2s ease, transform 0.1s ease;
       display: inline-block;
     }
 
+    .nav-btn:hover {
+      background-color: rgb(0, 140, 0);
+      color: white;
+      text-decoration: none;
+      transform: translateY(-2px);
+    }
+
+    /* =========================
+       BOTTOM FOOTER
+       ========================= */
+    .bottom-footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 2px solid rgba(0, 100, 0, 0.3);
+      text-align: center;
+      font-size: 1.05rem;
+    }
+
+    .bottom-footer a {
+      margin: 0 12px;
+      color: rgb(0, 0, 130);
+    }
+
+    /* =========================
+       PAGE CONTAINER & CARDS
+       ========================= */
+    #scrollContent {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px 20px;
+      box-sizing: border-box;
+    }
+
+    .campaign-card {
+      background-color: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(0, 100, 0, 0.3);
+      border-radius: 8px;
+      padding: 25px;
+      margin: 20px 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+
+    /* =========================
+       SELECTOR & INPUTS
+       ========================= */
+    .selector-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    label {
+      font-weight: bold;
+      color: rgb(0, 100, 0);
+      font-size: 1.1rem;
+    }
+
+    select,
+    input[type="text"] {
+      width: 100%;
+      max-width: 450px;
+      padding: 10px 14px;
+      border: 2px solid rgb(0, 100, 0);
+      border-radius: 6px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+
+    .action-btn {
+      background-color: rgb(0, 100, 0);
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 1.05rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    .action-btn:hover {
+      background-color: rgb(0, 140, 0);
+      transform: translateY(-2px);
+    }
+
+    /* =========================
+       TURTLE IMAGE
+       ========================= */
+    #turtleImageContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 25px 0;
+    }
+
+    .img-wrapper {
+      width: 100%;
+      max-width: 500px;
+      position: relative;
+    }
+
     .img-wrapper img {
-      width: 300px;
-      max-width: 100%;
-      height: auto;
+      width: 100%;
+      height: 330px;
+      object-fit: cover;
       border-radius: 8px;
       display: block;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-      transition: transform 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: opacity 0.3s ease;
     }
 
-    .img-wrapper img:hover {
-      transform: scale(1.02);
-    }
-
-    .tooltip-text {
-      visibility: hidden;
-      width: 220px;
-      background-color: rgba(0, 0, 0, 0.90);
-      color: white;
+    .caption {
+      margin-top: 10px;
+      font-weight: bold;
+      color: rgb(0, 0, 130);
       text-align: center;
+    }
+
+    /* =========================
+       FORM VALIDATION
+       ========================= */
+    .error-msg {
+      color: rgb(200, 0, 0);
+      font-size: 0.9rem;
+      display: none;
+      margin-top: 5px;
+    }
+
+    /* =========================
+       SUCCESS MESSAGE
+       ========================= */
+    .success-msg {
+      background-color: rgba(0, 140, 0, 0.15);
+      border: 1px solid rgb(0, 140, 0);
+      color: rgb(0, 80, 0);
+      padding: 15px;
       border-radius: 6px;
-      padding: 8px 10px;
-      position: absolute;
-      bottom: calc(100% + 10px);
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 999;
-      font-size: 13px;
-      line-height: 1.3em;
-      opacity: 0;
-      transition: opacity 0.2s ease-in-out;
-      pointer-events: none;
-    }
-
-    .tooltip-text::after {
-      content: "";
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      margin-left: -6px;
-      border-width: 6px;
-      border-style: solid;
-      border-color: rgba(0, 0, 0, 0.90) transparent transparent transparent;
-    }
-
-    .img-wrapper:hover .tooltip-text {
-      visibility: visible;
-      opacity: 1;
-    }
-
-    @media (max-width: 768px) {
-      .table {
-        font-size: 12px;
-      }
-      .table th, .table td {
-        padding: 6px;
-      }
+      text-align: center;
+      margin-top: 15px;
+      display: none;
+      font-weight: bold;
     }
   </style>
 </head>
 
+
 <body>
 
-  <div id="cardContainer">
-    <div id="BGimage"></div>
+  <div id="scrollContent">
 
-    <div id="scrollContent">
-      <p><a href="index.html">&larr; Back to Main Page</a></p>
+    <!-- =========================
+         TOP NAVIGATION
+         ========================= -->
+    <nav class="top-nav">
 
-      <h1>Save the Turtles Campaign</h1>
+      <a href="index.html" class="nav-btn">
+        Main page
+      </a>
 
-      <!-- CAMPAIGN PROGRESS METRICS -->
-      <div class="campaign-banner">
-        <h2>Global Chelonian Conservation Initiative 2026</h2>
-        <div class="metrics-grid">
-          <div class="metric-item">
-            <div class="metric-number">4,850+</div>
-            <div class="metric-label">Turtles Rehabilitated</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-number">14</div>
-            <div class="metric-label">Coastal Sanctuaries</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-number">92%</div>
-            <div class="metric-label">Release Success Rate</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-number">€340,000</div>
-            <div class="metric-label">Funds Deployed</div>
-          </div>
-        </div>
-      </div>
+      <a href="career.html" class="nav-btn">
+        Career
+      </a>
 
-      <p class="intro-paragraph">
-        <strong>Ecotoxicology and Bioaccumulation:</strong> Marine turtles serve as crucial bioindicators for coastal ocean health due to their longevity and high position in trophic webs. Lipophilic environmental pollutants—such as persistent organic pollutants (POPs), polychlorinated biphenyls (PCBs), and trace heavy metals—accumulate within their adipose tissue and liver over several decades. During physiological stress, long migrations, or vitellogenesis (egg production), these lipid reserves mobilize, releasing high systemic spikes of sequestered xenobiotics back into circulation, which severely compromises immune response and reproductive viability.
-      </p>
+      <a href="rules.html" class="nav-btn">
+        Followed rules
+      </a>
 
-      <p class="intro-paragraph">
-        <strong>Comparative Pharmacokinetics in Chelonians:</strong> Designing therapeutic regimens for reptiles requires understanding poikilothermic metabolic dynamics and unique vascular anatomy. Chelonian hepatic Cytochrome P450 enzyme clearance rates are significantly slower than in mammals, drastically extending elimination half-lives ($t_{1/2}$) and increasing the risk of toxicity from standard dosing. Furthermore, the functional renal portal system directs blood from the hindlimbs and tail directly through the kidneys before entering systemic circulation, meaning therapeutics administered caudally risk rapid first-pass renal excretion or localized nephrotoxicity.
-      </p>
+      <a href="page2.html" class="nav-btn">
+        Turtle Campaign
+      </a>
 
-      <!-- 10 SPECIES COMPARISON TABLE -->
-      <h3>Priority Species Under Protection</h3>
-      <div class="table-responsive">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Species / Common Name</th>
-              <th>Scientific Name</th>
-              <th>Habitat Range</th>
-              <th>Lifespan</th>
-              <th>Ecological & Conservation Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Hermann's Tortoise</td>
-              <td><i>Testudo hermanni</i></td>
-              <td>Southern Europe / Mediterranean scrub</td>
-              <td>50–80 years</td>
-              <td>Terrestrial tortoise sensitive to habitat fragmentation and calcium/UVB imbalances.</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Green Sea Turtle</td>
-              <td><i>Chelonia mydas</i></td>
-              <td>Tropical & subtropical ocean waters</td>
-              <td>70+ years</td>
-              <td>Herbivorous adults vital for maintaining marine seagrass meadow ecosystems.</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Atlantic Loggerhead</td>
-              <td><i>Caretta caretta caretta</i></td>
-              <td>Atlantic Ocean & Mediterranean Sea</td>
-              <td>70–80 years</td>
-              <td>Equipped with powerful crushing jaws to feed on hard-shelled benthic invertebrates.</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>Indo-Pacific Loggerhead</td>
-              <td><i>Caretta caretta gigas</i></td>
-              <td>Indian & Pacific Oceans</td>
-              <td>70+ years</td>
-              <td>Navigates oceanic gyres across thousands of miles using geomagnetic orientation.</td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>Hawksbill Sea Turtle</td>
-              <td><i>Eretmochelys imbricata</i></td>
-              <td>Tropical coral reefs globally</td>
-              <td>50–60 years</td>
-              <td>Critically endangered sponge predator maintaining coral reef biodiversity.</td>
-            </tr>
-            <tr>
-              <td>6</td>
-              <td>Leatherback Sea Turtle</td>
-              <td><i>Dermochelys coriacea</i></td>
-              <td>Pelagic oceans (sub-polar to tropical)</td>
-              <td>45–50 years</td>
-              <td>Largest marine turtle; possesses endothermic adaptations for cold-water dives.</td>
-            </tr>
-            <tr>
-              <td>7</td>
-              <td>Kemp's Ridley Turtle</td>
-              <td><i>Lepidochelys kempii</i></td>
-              <td>Gulf of Mexico & US Atlantic Coast</td>
-              <td>30–50 years</td>
-              <td>Smallest sea turtle species; renowned for synchronized nesting events ("arribadas").</td>
-            </tr>
-            <tr>
-              <td>8</td>
-              <td>Olive Ridley Turtle</td>
-              <td><i>Lepidochelys olivacea</i></td>
-              <td>Tropical regions of Pacific & Indian Oceans</td>
-              <td>50 years</td>
-              <td>Pelagic species forming massive nesting aggregations; threatened by marine debris.</td>
-            </tr>
-            <tr>
-              <td>9</td>
-              <td>Flatback Sea Turtle</td>
-              <td><i>Natator depressus</i></td>
-              <td>Australian continental shelf</td>
-              <td>50+ years</td>
-              <td>Lacks a oceanic pelagic phase, remaining entirely within shallow turbid coastal waters.</td>
-            </tr>
-            <tr>
-              <td>10</td>
-              <td>Galápagos Giant Tortoise</td>
-              <td><i>Chelonoidis niger</i></td>
-              <td>Galápagos Archipelago</td>
-              <td>100+ years</td>
-              <td>Keystone island herbivore responsible for seed dispersal and habitat sculpting.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    </nav>
+
+
+    <h1>Turtle Conservation Campaign</h1>
+
+
+    <div class="campaign-card">
 
       <p>
-        <strong>Important:</strong>
-        Turtles and tortoises do not have a universal medication
-        schedule. Their veterinary treatment depends on the species,
-        environment, symptoms, diagnosis, and individual health.
-        Proper nutrition, sanitation, temperature, habitat design,
-        and veterinary care are important for reptile health.
+        As part of TurtlePharma's environmental initiative, we support
+        sea turtle marine sanctuaries across the globe. Select a specific
+        turtle species below to sponsor its protection program and receive
+        updates.
       </p>
 
-      <!-- SPONSORSHIP SELECTION FORM (10 SPECIES) -->
-      <form id="quiz-form">
-        <label for="quiz-answer">
-          <strong>Which turtle species would you like to sponsor?</strong>
+
+      <!-- =========================
+           TURTLE SELECTION
+           ========================= -->
+      <div class="selector-group">
+
+        <label for="turtleSelect">
+          Choose a Turtle Species to Save:
         </label>
-        <select id="quiz-answer">
-          <option value="1">Hermann's Tortoise (Testudo hermanni)</option>
-          <option value="2">Green Sea Turtle (Chelonia mydas)</option>
-          <option value="3">Atlantic Loggerhead (Caretta caretta caretta)</option>
-          <option value="4">Indo-Pacific Loggerhead (Caretta caretta gigas)</option>
-          <option value="5">Hawksbill Sea Turtle (Eretmochelys imbricata)</option>
-          <option value="6">Leatherback Sea Turtle (Dermochelys coriacea)</option>
-          <option value="7">Kemp's Ridley Turtle (Lepidochelys kempii)</option>
-          <option value="8">Olive Ridley Turtle (Lepidochelys olivacea)</option>
-          <option value="9">Flatback Sea Turtle (Natator depressus)</option>
-          <option value="10">Galápagos Giant Tortoise (Chelonoidis niger)</option>
+
+        <select id="turtleSelect">
+
+          <option value="0">
+            Green Sea Turtle (Chelonia mydas)
+          </option>
+
+          <option value="1">
+            Loggerhead Sea Turtle (Caretta caretta)
+          </option>
+
+          <option value="2">
+            Hawksbill Turtle (Eretmochelys imbricata)
+          </option>
+
+          <option value="3">
+            Leatherback Sea Turtle (Dermochelys coriacea)
+          </option>
+
+          <option value="4">
+            Olive Ridley Turtle (Lepidochelys olivacea)
+          </option>
+
+          <option value="5">
+            Galapagos Giant Tortoise (Chelonoidis niger)
+          </option>
+
+          <option value="6">
+            Red-Eared Slider (Trachemys scripta elegans)
+          </option>
+
+          <option value="7">
+            Eastern Box Turtle (Terrapene carolina)
+          </option>
+
+          <option value="8">
+            Painted Turtle (Chrysemys picta)
+          </option>
+
+          <option value="9">
+            Desert Tortoise (Gopherus agassizii)
+          </option>
+
         </select>
 
-        <button type="submit" class="form">
-          Sponsor This Turtle!
-        </button>
+      </div>
 
-        <div id="result"></div>
-      </form>
 
-      <!-- REVEALED CAMPAIGN SECTION & CONTACT FORM -->
-      <div id="scroll">
-        <h3>Join Our Field Conservation & Rescue Team</h3>
+      <!-- =========================
+           TURTLE IMAGE
+           ========================= -->
+      <div id="turtleImageContainer">
 
-        <div class="img-container">
-          <div class="img-wrapper" id="turtle1">
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj1bTv7KinC1-ZkZz3XIQkqMxsF1J1NT1z1dgw7uBdbIg-A3Tz-lc1GofK&s=10"
-              alt="Hatchling rescue operation"
-            >
-            <span class="tooltip-text">Hatchling rescue operation</span>
-          </div>
+        <div class="img-wrapper">
 
-          <div class="img2" id="turtle2">
-            <div class="img-wrapper" id="turtle2image">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMh-9JNh46kjq6HRTHpYmp9GVC84kk4aSwpdJsxBTKRXr-7VMXDrIoL9u5&s=10"
-                alt="Loggerhead turtle in natural habitat"
-              >
-              <span class="tooltip-text">Loggerhead turtle in natural habitat</span>
-            </div>
+          <img
+            id="turtlePhoto"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg/800px-Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg"
+            alt="Green Sea Turtle">
 
-            <div class="img-wrapper" id="turtle3">
-              <img
-                src="https://sustainabletravel.org/wp-content/uploads/Blog-image-sea-turtle-cleaning-station-1200x675-1.jpg"
-                alt="Sea turtle cleaning station monitoring"
-              >
-              <span class="tooltip-text">Sea turtle cleaning station monitoring</span>
-            </div>
-          </div>
         </div>
 
-        <form id="Q0">
-          <label for="contact">
-            <strong>Complete your sponsorship registration:</strong><br>
-            Please enter your email or phone number to receive monthly field updates.
-          </label>
-          <input
-            id="contact"
-            type="text"
-            placeholder="Email address or Phone number"
-            required
-          >
-          <button type="submit">Submit Sponsorship</button>
-        </form>
+        <div
+          class="caption"
+          id="turtleCaption">
+
+          Currently displaying: Green Sea Turtle (Chelonia mydas)
+
+        </div>
+
       </div>
+
+
+      <!-- =========================
+           SPONSORSHIP FORM
+           ========================= -->
+      <div id="sponsorshipSection">
+
+        <h3 style="margin-top: 30px;">
+          Register for Sponsorship Updates
+        </h3>
+
+
+        <form id="campaignForm">
+
+          <div class="selector-group">
+
+            <label for="contactEmail">
+              Contact Email (must contain "@"):
+            </label>
+
+            <input
+              type="text"
+              id="contactEmail"
+              placeholder="your.name@example.com"
+              required>
+
+            <span
+              class="error-msg"
+              id="emailError">
+
+              Please enter a valid email address containing the '@' symbol.
+
+            </span>
+
+
+            <button
+              type="submit"
+              class="action-btn">
+
+              Confirm Sponsorship
+
+            </button>
+
+          </div>
+
+        </form>
+
+      </div>
+
+
+      <!-- =========================
+           SUCCESS MESSAGE
+           ========================= -->
+      <div
+        class="success-msg"
+        id="formSuccess">
+
+        Thank you for your support. Our team will contact you shortly
+        with further details regarding the payment process.
+
+      </div>
+
+
     </div>
+
+
+    <!-- =========================
+         FOOTER
+         ========================= -->
+    <footer class="bottom-footer">
+
+      <a href="contacts.html">
+        Contacts
+      </a>
+
+      |
+
+      <a href="address.html">
+        Address
+      </a>
+
+      |
+
+      <a href="partners.html">
+        Partners
+      </a>
+
+    </footer>
+
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
+  <!-- =========================
+       JAVASCRIPT
+       ========================= -->
   <script>
-    $("#scroll").hide();
-    $("#Q0").hide();
 
-    document.addEventListener("DOMContentLoaded", function () {
-      const wrappers = document.querySelectorAll(".img-wrapper");
+    /*
+     * Each option corresponds directly to one image.
+     */
+    const turtleData = [
 
-      wrappers.forEach(function (wrapper) {
-        const img = wrapper.querySelector("img");
-        const tooltip = wrapper.querySelector(".tooltip-text");
+      {
+        name: "Green Sea Turtle (Chelonia mydas)",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg/800px-Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg"
+      },
 
-        if (img && tooltip) {
-          tooltip.textContent = img.alt;
+      {
+        name: "Loggerhead Sea Turtle (Caretta caretta)",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Loggerhead_sea_turtle.jpg/800px-Loggerhead_sea_turtle.jpg"
+      },
+
+      {
+        name: "Hawksbill Turtle (Eretmochelys imbricata)",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Hawksbill_Sea_Turtle_Carey_Cayman_Islands.jpg/800px-Hawksbill_Sea_Turtle_Carey_Cayman_Islands.jpg"
+      },
+
+      {
+        name: "Leatherback Sea Turtle (Dermochelys coriacea)",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Leatherback_sea_turtle_Tinglar%2C_USVI_%285839996547%29.jpg/800px-Leatherback_sea_turtle_Tinglar%2C_USVI_%285839996547%29.jpg"
+      },
+
+      {
+        name: "Olive Ridley Turtle (Lepidochelys olivacea)",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Olive_ridley_sea_turtle_crop.jpg/800px-Olive_ridley_sea_turtle_crop.jpg"
+      },
+
+      {
+        name: "Galapagos Giant Tortoise (Chelonoidis niger)",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Galapagos_giant_tortoise_Chelonoidis_nigra.jpg/800px-Galapagos_giant_tortoise_Chelonoidis_nigra.jpg"
+      },
+
+      {
+        name: "Red-Eared Slider (Trachemys scripta elegans)",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/RedEaredSlider02.jpg/800px-RedEaredSlider02.jpg"
+      },
+
+      {
+        name: "Eastern Box Turtle (Terrapene carolina)",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Terrapene_carolina_carolina_3.jpg/800px-Terrapene_carolina_carolina_3.jpg"
+      },
+
+      {
+        name: "Painted Turtle (Chrysemys picta)",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Chrysemys_picta_picta_1.jpg/800px-Chrysemys_picta_picta_1.jpg"
+      },
+
+      {
+        name: "Desert Tortoise (Gopherus agassizii)",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Gopherus_agassizii_1.jpg/800px-Gopherus_agassizii_1.jpg"
+      }
+
+    ];
+
+
+    /* =========================
+       GET HTML ELEMENTS
+       ========================= */
+
+    const turtleSelect =
+      document.getElementById("turtleSelect");
+
+    const turtlePhoto =
+      document.getElementById("turtlePhoto");
+
+    const turtleCaption =
+      document.getElementById("turtleCaption");
+
+    const campaignForm =
+      document.getElementById("campaignForm");
+
+    const sponsorshipSection =
+      document.getElementById("sponsorshipSection");
+
+    const contactEmail =
+      document.getElementById("contactEmail");
+
+    const emailError =
+      document.getElementById("emailError");
+
+    const formSuccess =
+      document.getElementById("formSuccess");
+
+
+    /* =========================
+       CHANGE TURTLE IMAGE
+       ========================= */
+
+    function changeTurtle() {
+
+      const selectedIndex =
+        parseInt(turtleSelect.value);
+
+      const selectedTurtle =
+        turtleData[selectedIndex];
+
+
+      if (!selectedTurtle) {
+        return;
+      }
+
+
+      /*
+       * Change the image according to
+       * the selected option.
+       */
+      turtlePhoto.src =
+        selectedTurtle.img;
+
+
+      /*
+       * Change the alternative text.
+       */
+      turtlePhoto.alt =
+        selectedTurtle.name;
+
+
+      /*
+       * Change the caption.
+       */
+      turtleCaption.textContent =
+        "Currently displaying: " +
+        selectedTurtle.name;
+
+    }
+
+
+    /*
+     * IMPORTANT:
+     *
+     * The image changes immediately when
+     * the user selects another turtle.
+     */
+    turtleSelect.addEventListener(
+      "change",
+      changeTurtle
+    );
+
+
+    /* =========================
+       CONFIRM SPONSORSHIP
+       ========================= */
+
+    campaignForm.addEventListener(
+      "submit",
+      function(event) {
+
+        /*
+         * Prevent the form from actually
+         * being submitted or refreshing
+         * the page.
+         */
+        event.preventDefault();
+
+
+        const email =
+          contactEmail.value.trim();
+
+
+        /*
+         * Simple validation:
+         * the email must contain @.
+         */
+        if (!email.includes("@")) {
+
+          emailError.style.display =
+            "block";
+
+          contactEmail.style.borderColor =
+            "rgb(200, 0, 0)";
+
+          return;
         }
-      });
-    });
 
-    // Dynamic submission handler for all 10 species
-    $("#quiz-form").on("submit", function (event) {
-      event.preventDefault();
 
-      const selectedOptionText = $("#quiz-answer option:selected").text();
-      const turtleName = selectedOptionText.split(" (")[0];
+        /*
+         * Hide the error.
+         */
+        emailError.style.display =
+          "none";
 
-      $("#result").html("Thank you! You are now sponsoring the <strong>" + turtleName + "</strong> campaign!");
 
-      $("#scroll").slideDown(1000);
-      $("#Q0").delay(300).fadeIn(500);
-    });
+        /*
+         * Change the border back to green.
+         */
+        contactEmail.style.borderColor =
+          "rgb(0, 100, 0)";
 
-    // Contact submission handler
-    $("#Q0").on("submit", function (event) {
-      event.preventDefault();
 
-      const contact = $("#contact").val().trim();
+        /*
+         * Hide the entire form.
+         */
+        sponsorshipSection.style.display =
+          "none";
 
-      if (contact === "") return;
 
-      $(this).html(
-        "<p style='color: green; font-weight: bold; text-align: center; font-size: 1.1rem;'>" +
-        "🎉 Success! Your sponsorship details have been received (" + contact + "). Thank you for supporting global marine conservation!" +
-        "</p>"
-      );
-    });
+        /*
+         * Show the confirmation text.
+         */
+        formSuccess.textContent =
+          "Thank you for your support. Our team will contact you shortly with further details regarding the payment process.";
+
+        formSuccess.style.display =
+          "block";
+
+      }
+    );
+
   </script>
 
 </body>
-
 </html>
