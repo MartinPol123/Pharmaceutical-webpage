@@ -8,34 +8,34 @@
   <title>TurtlePharma - Save the Turtles</title>
 
   <style>
-    body {
+    /* =========================
+       GLOBAL RESET & VIEWPORT SETUP
+       ========================= */
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100vh;
       background-color: rgb(185, 210, 255);
       font-family: sans-serif;
-      line-height: 1.5em;
-      margin: 0;
-      padding: 20px;
+      line-height: 1.6em;
+      overflow-x: hidden;
+    }
+
+    h1, h3 {
+      color: rgb(0, 0, 130);
+      text-align: center;
     }
 
     h1 {
-      color: rgb(0, 0, 130);
-      padding: 6px;
-      text-align: center;
-    }
-
-    h3 {
-      color: rgb(0, 0, 130);
-    }
-
-    #q2 {
-      clear: both;
-      text-align: center;
-      margin-top: 20px;
+      font-size: 2.2rem;
+      margin-top: 10px;
     }
 
     p {
-      clear: both;
       color: rgb(0, 0, 180);
-      padding: 10px;
+      padding: 10px 0;
+      font-size: 1.05rem;
     }
 
     a {
@@ -49,171 +49,136 @@
     }
 
     /* =========================
-       MAIN CONTAINER
+       FULL PAGE CONTAINER & BACKGROUND
        ========================= */
-
     #cardContainer {
-      width: 700px;
-      height: 536px;
+      width: 100%;
+      min-height: 100vh;
       position: relative;
-      border: 5px groove green;
-      margin: 0 auto;
-      overflow: hidden;
       box-sizing: border-box;
     }
-
-    /* =========================
-       BACKGROUND
-       ========================= */
 
     #BGimage {
       background-image:
         linear-gradient(
-          rgba(255, 255, 255, 0.7),
-          rgba(255, 255, 255, 0.8)
+          rgba(255, 255, 255, 0.75),
+          rgba(255, 255, 255, 0.85)
         ),
         url("https://images.pexels.com/photos/35166623/pexels-photo-35166623.jpeg");
 
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
+      width: 100vw;
+      height: 100vh;
       background-size: cover;
       background-position: center;
       z-index: 1;
     }
 
     /* =========================
-       SCROLLING CONTENT
+       FLUID CONTENT WRAPPER
        ========================= */
-
     #scrollContent {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      position: relative;
       z-index: 2;
-      overflow-y: auto;
-      overflow-x: hidden;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
       box-sizing: border-box;
-      padding: 15px;
     }
 
     /* =========================
-       TABLE
+       TABLE STYLING
        ========================= */
-
     .table {
       color: green;
-      border: 3px solid brown;
-      margin: 15px auto;
-      padding: 10px;
-      background-color: rgba(255, 255, 255, 0.8);
+      border: 2px solid brown;
+      margin: 20px auto;
+      background-color: rgba(255, 255, 255, 0.85);
       border-collapse: collapse;
-      width: 95%;
+      width: 100%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
     .table th,
     .table td {
       border: 1px solid brown;
-      padding: 7px;
+      padding: 10px;
       text-align: center;
     }
 
     .table th {
-      background-color: rgba(180, 220, 180, 0.8);
+      background-color: rgba(180, 220, 180, 0.9);
     }
 
     /* =========================
-       QUIZ FORM
+       QUIZ & CONTACT FORMS
        ========================= */
-
-    #quiz-form {
+    #quiz-form, #Q0 {
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      gap: 8px;
-      margin-top: 15px;
-      padding: 10px;
-      background-color: rgba(255, 255, 255, 0.55);
+      gap: 12px;
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 500px;
+      background-color: rgba(255, 255, 255, 0.75);
       border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
-    #quiz-answer {
-      width: 280px;
-      padding: 6px;
+    #quiz-answer, #Q0 input {
+      width: 100%;
+      max-width: 300px;
+      padding: 8px;
+      font-size: 1rem;
       box-sizing: border-box;
     }
 
-    .form {
+    .form, #Q0 button {
       cursor: pointer;
-      width: 280px;
-      padding: 6px 12px;
-      box-sizing: border-box;
+      width: 100%;
+      max-width: 300px;
+      padding: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      background-color: rgb(0, 100, 0);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      transition: background-color 0.2s ease;
+    }
+
+    .form:hover, #Q0 button:hover {
+      background-color: rgb(0, 140, 0);
     }
 
     #result {
       font-weight: bold;
       color: rgb(0, 100, 0);
-      margin-top: 5px;
+      font-size: 1.1rem;
       min-height: 24px;
     }
 
     /* =========================
-       SECOND FORM
+       IMAGE GALLERY & TOOLTIPS
        ========================= */
-
-    #Q0 {
-      margin-top: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 8px;
-      padding: 10px;
-      background-color: rgba(255, 255, 255, 0.55);
-      border-radius: 8px;
-    }
-
-    #Q0 input {
-      padding: 6px;
-      width: 250px;
-      box-sizing: border-box;
-    }
-
-    #Q0 button {
-      cursor: pointer;
-      padding: 6px 12px;
-    }
-
-    /* =========================
-       IMAGE CONTAINER
-       ========================= */
-
     .img-container {
-      clear: both;
       display: flex;
       justify-content: center;
-      align-items: flex-start;
-      gap: 15px;
-      margin: 15px 0;
-      position: relative;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 25px 0;
     }
 
     .img2 {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 15px;
+      gap: 20px;
     }
-
-    /* =========================
-       IMAGE + TOOLTIP
-       ========================= */
 
     .img-wrapper {
       position: relative;
@@ -222,10 +187,17 @@
 
     .img-wrapper img {
       width: 300px;
+      max-width: 100%;
       height: auto;
-      border-radius: 6px;
+      border-radius: 8px;
       display: block;
       cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      transition: transform 0.2s ease;
+    }
+
+    .img-wrapper img:hover {
+      transform: scale(1.02);
     }
 
     .tooltip-text {
@@ -237,7 +209,7 @@
       border-radius: 6px;
       padding: 8px 10px;
       position: absolute;
-      bottom: calc(100% + 8px);
+      bottom: calc(100% + 10px);
       left: 50%;
       transform: translateX(-50%);
       z-index: 999;
@@ -264,39 +236,12 @@
       opacity: 1;
     }
 
-    .img-wrapper img:hover {
-      transform: scale(1.02);
-      transition: transform 0.2s ease;
-    }
-
-    /* =========================
-       MOBILE VERSION
-       ========================= */
-
-    @media (max-width: 750px) {
-      #cardContainer {
-        width: 95%;
-      }
-
-      .img-container {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .img2 {
-        width: 100%;
-      }
-
-      .img-wrapper img {
-        max-width: 100%;
-        width: 300px;
-      }
-
+    @media (max-width: 600px) {
       .table {
-        float: none;
-        margin: 10px auto;
-        width: 100%;
-        font-size: 13px;
+        font-size: 12px;
+      }
+      .table th, .table td {
+        padding: 6px;
       }
     }
   </style>
@@ -305,18 +250,13 @@
 <body>
 
   <div id="cardContainer">
-
-    <!-- BACKGROUND -->
     <div id="BGimage"></div>
 
-    <!-- SCROLLABLE CONTENT -->
     <div id="scrollContent">
-
       <p><a href="index.html">&larr; Back to Main Page</a></p>
 
       <h1>Save the Turtles Campaign</h1>
 
-      <!-- TURTLE INFORMATION TABLE -->
       <table class="table">
         <thead>
           <tr>
@@ -352,7 +292,6 @@
         </tbody>
       </table>
 
-      <!-- IMPORTANT HEALTH NOTE -->
       <p>
         <strong>Important:</strong>
         Turtles and tortoises do not have a universal medication
@@ -362,17 +301,15 @@
         and veterinary care are important for reptile health.
       </p>
 
-      <!-- TURTLE QUIZ -->
       <form id="quiz-form">
         <label for="quiz-answer">
           <strong>Would you help us with a turtle?</strong>
-          <br>
-          <select id="quiz-answer">
-            <option value="1">Hermann's tortoise</option>
-            <option value="2">Green sea turtle</option>
-            <option value="3">Loggerhead turtle</option>
-          </select>
         </label>
+        <select id="quiz-answer">
+          <option value="1">Hermann's tortoise</option>
+          <option value="2">Green sea turtle</option>
+          <option value="3">Loggerhead turtle</option>
+        </select>
 
         <button type="submit" class="form">
           Save her!
@@ -381,15 +318,10 @@
         <div id="result"></div>
       </form>
 
-      <!-- HIDDEN CONTENT -->
       <div id="scroll">
+        <h3>Are you prepared to save these too?</h3>
 
-        <h3 id="q2">Are you prepared to save these too?</h3>
-
-        <!-- TURTLE IMAGES -->
         <div class="img-container">
-
-          <!-- TURTLE 1 -->
           <div class="img-wrapper" id="turtle1">
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj1bTv7KinC1-ZkZz3XIQkqMxsF1J1NT1z1dgw7uBdbIg-A3Tz-lc1GofK&s=10"
@@ -398,10 +330,7 @@
             <span class="tooltip-text">Turtle 1, cutie</span>
           </div>
 
-          <!-- TURTLE 2 + TURTLE 3 -->
           <div class="img2" id="turtle2">
-
-            <!-- TURTLE 2 -->
             <div class="img-wrapper" id="turtle2image">
               <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMh-9JNh46kjq6HRTHpYmp9GVC84kk4aSwpdJsxBTKRXr-7VMXDrIoL9u5&s=10"
@@ -410,7 +339,6 @@
               <span class="tooltip-text">Loggerhead turtle in the sea</span>
             </div>
 
-            <!-- TURTLE 3 -->
             <div class="img-wrapper" id="turtle3">
               <img
                 src="https://sustainabletravel.org/wp-content/uploads/Blog-image-sea-turtle-cleaning-station-1200x675-1.jpg"
@@ -418,34 +346,25 @@
               >
               <span class="tooltip-text">Sea turtle with friends</span>
             </div>
-
           </div>
-
         </div>
 
-        <!-- CONTACT FORM -->
         <form id="Q0">
           <label for="contact">
             Then, insert your contact, please.
-            <br>
-            <input
-              id="contact"
-              type="text"
-              placeholder="Email or Phone"
-              required
-            >
           </label>
-
+          <input
+            id="contact"
+            type="text"
+            placeholder="Email or Phone"
+            required
+          >
           <button type="submit">Submit</button>
         </form>
-
       </div>
-
     </div>
-
   </div>
 
-  <!-- JQUERY -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
   <script>
@@ -490,7 +409,7 @@
       if (contact === "") return;
 
       $(this).html(
-        "<p style='color: green; font-weight: bold;'>" +
+        "<p style='color: green; font-weight: bold; text-align: center;'>" +
         "Thank you for your support!" +
         "</p>"
       );
