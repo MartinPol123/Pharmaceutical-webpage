@@ -5,20 +5,33 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="referrer" content="no-referrer">
+  <meta name="description" content="TurtlePharma's sea turtle and tortoise conservation sponsorship campaign.">
 
   <title>TurtlePharma - Turtle Campaign</title>
 
   <style>
-    /* =========================
-       FULL-SCREEN BACKGROUND
-       ========================= */
+    /* =========================================================
+       GLOBAL & CSS VARIABLES
+       ========================================================= */
+    :root {
+      --primary-color: rgb(0, 100, 0);
+      --primary-hover: rgb(0, 140, 0);
+      --heading-color: rgb(0, 55, 90);
+      --text-color: rgb(35, 45, 40);
+      --muted-color: rgb(90, 100, 95);
+      --card-bg: rgba(255, 255, 255, 0.9);
+      --border-color: rgba(0, 100, 0, 0.3);
+      --error-color: rgb(180, 0, 0);
+      --success-bg: rgba(0, 140, 0, 0.15);
+      --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
 
     html, body {
       margin: 0;
       padding: 0;
       min-height: 100vh;
       width: 100%;
-      font-family: sans-serif;
+      font-family: var(--font-family);
       line-height: 1.6em;
       box-sizing: border-box;
     }
@@ -29,17 +42,24 @@
           rgba(255, 255, 255, 0.82),
           rgba(255, 255, 255, 0.88)
         ),
-        url("https://images.pexels.com/photos/35166623/pexels-photo-35166623.jpeg");
-
+        url("https://images.unsplash.com/photo-1518467166778-b88f373ffec7?auto=format&fit=crop&w=1920&q=80");
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
       background-repeat: no-repeat;
     }
 
+    /* Fixed backgrounds are unreliable on mobile browsers; fall back to scroll */
+    @media (max-width: 768px) {
+      body {
+        background-attachment: scroll;
+      }
+    }
+
     h1, h2, h3 {
-      color: rgb(0, 0, 130);
+      color: var(--heading-color);
       text-align: center;
+      margin-bottom: 12px;
     }
 
     h1 {
@@ -48,27 +68,26 @@
     }
 
     p {
-      color: rgb(0, 0, 180);
+      color: var(--text-color);
       padding: 8px 0;
       font-size: 1.05rem;
     }
 
     a {
-      color: rgb(0, 0, 180);
+      color: var(--heading-color);
       font-weight: bold;
       text-decoration: none;
     }
 
     a:hover,
-    a:active {
+    a:focus-visible {
       text-decoration: underline;
     }
 
 
-    /* =========================
+    /* =========================================================
        TOP NAVIGATION BAR
-       ========================= */
-
+       ========================================================= */
     .top-nav {
       display: flex;
       justify-content: center;
@@ -78,7 +97,7 @@
     }
 
     .nav-btn {
-      background-color: rgb(0, 100, 0);
+      background-color: var(--primary-color);
       color: white;
       padding: 10px 18px;
       border-radius: 6px;
@@ -89,36 +108,20 @@
       display: inline-block;
     }
 
-    .nav-btn:hover {
-      background-color: rgb(0, 140, 0);
+    .nav-btn:hover,
+    .nav-btn:focus-visible {
+      background-color: var(--primary-hover);
       color: white;
       text-decoration: none;
       transform: translateY(-2px);
+      outline: 2px solid var(--heading-color);
+      outline-offset: 2px;
     }
 
 
-    /* =========================
-       BOTTOM FOOTER NAVIGATION
-       ========================= */
-
-    .bottom-footer {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 2px solid rgba(0, 100, 0, 0.3);
-      text-align: center;
-      font-size: 1.05rem;
-    }
-
-    .bottom-footer a {
-      margin: 0 12px;
-      color: rgb(0, 0, 130);
-    }
-
-
-    /* =========================
+    /* =========================================================
        PAGE CONTAINER & CARD
-       ========================= */
-
+       ========================================================= */
     #scrollContent {
       width: 100%;
       max-width: 1100px;
@@ -128,8 +131,8 @@
     }
 
     .campaign-card {
-      background-color: rgba(255, 255, 255, 0.88);
-      border: 1px solid rgba(0, 100, 0, 0.3);
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
       border-radius: 8px;
       padding: 25px;
       margin: 20px 0;
@@ -137,10 +140,9 @@
     }
 
 
-    /* =========================
-       SELECTOR & INPUTS
-       ========================= */
-
+    /* =========================================================
+       SELECTOR & FORM INPUTS
+       ========================================================= */
     .selector-group {
       display: flex;
       flex-direction: column;
@@ -151,23 +153,33 @@
 
     label {
       font-weight: bold;
-      color: rgb(0, 100, 0);
+      color: var(--primary-color);
       font-size: 1.1rem;
     }
 
     select,
-    input[type="text"] {
+    input[type="email"] {
       width: 100%;
       max-width: 450px;
       padding: 10px 14px;
-      border: 2px solid rgb(0, 100, 0);
+      border: 2px solid var(--primary-color);
       border-radius: 6px;
       font-size: 1rem;
       box-sizing: border-box;
+      background-color: #ffffff;
+      color: var(--text-color);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    select:focus-visible,
+    input[type="email"]:focus-visible {
+      outline: none;
+      border-color: var(--primary-hover);
+      box-shadow: 0 0 0 3px rgba(0, 100, 0, 0.2);
     }
 
     .action-btn {
-      background-color: rgb(0, 100, 0);
+      background-color: var(--primary-color);
       color: white;
       padding: 12px 24px;
       border: none;
@@ -180,16 +192,16 @@
         transform 0.1s ease;
     }
 
-    .action-btn:hover {
-      background-color: rgb(0, 140, 0);
+    .action-btn:hover,
+    .action-btn:focus-visible {
+      background-color: var(--primary-hover);
       transform: translateY(-2px);
     }
 
 
-    /* =========================
-       TURTLE IMAGE
-       ========================= */
-
+    /* =========================================================
+       TURTLE IMAGE DISPLAY
+       ========================================================= */
     #turtleImageContainer {
       display: flex;
       flex-direction: column;
@@ -200,46 +212,59 @@
     .img-wrapper {
       width: 100%;
       max-width: 500px;
+      aspect-ratio: 500 / 330;
       position: relative;
+      background-color: #e2e8f0;
+      border-radius: 8px;
+      overflow: hidden;
     }
 
     .img-wrapper img {
       width: 100%;
-      height: 330px;
+      height: 100%;
       object-fit: cover;
       border-radius: 8px;
       display: block;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      transition: opacity 0.3s ease;
+      transition: opacity 0.25s ease-in-out;
     }
 
     .caption {
       margin-top: 10px;
       font-weight: bold;
-      color: rgb(0, 0, 130);
+      color: var(--heading-color);
+      text-align: center;
+      font-size: 1.05rem;
+    }
+
+    .photo-credit {
+      margin-top: 2px;
+      font-size: 0.8rem;
+      color: var(--muted-color);
       text-align: center;
     }
 
-
-    /* =========================
-       FORM VALIDATION
-       ========================= */
-
-    .error-msg {
-      color: rgb(200, 0, 0);
-      font-size: 0.9rem;
-      display: none;
-      margin-top: 5px;
+    .photo-credit a {
+      color: var(--muted-color);
+      font-weight: normal;
+      text-decoration: underline;
     }
 
 
-    /* =========================
-       SUCCESS MESSAGE
-       ========================= */
+    /* =========================================================
+       FORM VALIDATION & MESSAGES
+       ========================================================= */
+    .error-msg {
+      color: var(--error-color);
+      font-size: 0.95rem;
+      display: none;
+      margin-top: 5px;
+      font-weight: bold;
+    }
 
     .success-msg {
-      background-color: rgba(0, 140, 0, 0.15);
-      border: 1px solid rgb(0, 140, 0);
+      background-color: var(--success-bg);
+      border: 1px solid var(--primary-hover);
       color: rgb(0, 80, 0);
       padding: 15px;
       border-radius: 6px;
@@ -249,54 +274,46 @@
       font-weight: bold;
     }
 
+
+    /* =========================================================
+       BOTTOM FOOTER NAVIGATION
+       ========================================================= */
+    .bottom-footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 2px solid var(--border-color);
+      text-align: center;
+      font-size: 1.05rem;
+    }
+
+    .bottom-footer a {
+      margin: 0 12px;
+      color: var(--heading-color);
+    }
   </style>
 </head>
 
 
 <body>
 
-  <div id="scrollContent">
+  <main id="scrollContent">
 
-
-    <!-- =========================
-         TOP NAVIGATION
-         ========================= -->
-
-    <nav class="top-nav">
-
-      <a href="index.html" class="nav-btn">
-        Main page
-      </a>
-
-      <a href="career.html" class="nav-btn">
-        Career
-      </a>
-
-      <a href="rules.html" class="nav-btn">
-        Followed rules
-      </a>
-
-      <a href="page2.html" class="nav-btn">
-        Turtle Campaign
-      </a>
-
+    <!-- TOP NAVIGATION -->
+    <nav class="top-nav" aria-label="Main Navigation">
+      <a href="index.html" class="nav-btn">Main page</a>
+      <a href="career.html" class="nav-btn">Career</a>
+      <a href="rules.html" class="nav-btn">Followed rules</a>
+      <a href="page2.html" class="nav-btn">Turtle Campaign</a>
     </nav>
 
 
-    <!-- =========================
-         PAGE TITLE
-         ========================= -->
-
+    <!-- PAGE TITLE -->
     <h1>Turtle Conservation Campaign</h1>
 
 
     <div class="campaign-card">
 
-
-      <!-- =========================
-           INTRODUCTION
-           ========================= -->
-
+      <!-- INTRODUCTION -->
       <p>
         As part of TurtlePharma's environmental initiative, we support
         sea turtle marine sanctuaries across the globe. Select a specific
@@ -305,257 +322,184 @@
       </p>
 
 
-      <!-- =========================
-           TURTLE SPECIES SELECTOR
-           ========================= -->
-
+      <!-- TURTLE SPECIES SELECTOR -->
       <div class="selector-group">
+        <label for="turtleSelect">Choose a Turtle Species to Save:</label>
 
-        <label for="turtleSelect">
-          Choose a Turtle Species to Save:
-        </label>
-
-        <select id="turtleSelect">
-
-          <option value="0">
-            Green Sea Turtle (Chelonia mydas)
-          </option>
-
-          <option value="1">
-            Loggerhead Sea Turtle (Caretta caretta)
-          </option>
-
-          <option value="2">
-            Hawksbill Turtle (Eretmochelys imbricata)
-          </option>
-
-          <option value="3">
-            Leatherback Sea Turtle (Dermochelys coriacea)
-          </option>
-
-          <option value="4">
-            Olive Ridley Turtle (Lepidochelys olivacea)
-          </option>
-
-          <option value="5">
-            Galapagos Giant Tortoise (Chelonoidis niger)
-          </option>
-
-          <option value="6">
-            Red-Eared Slider (Trachemys scripta elegans)
-          </option>
-
-          <option value="7">
-            Eastern Box Turtle (Terrapene carolina)
-          </option>
-
-          <option value="8">
-            Painted Turtle (Chrysemys picta)
-          </option>
-
-          <option value="9">
-            Desert Tortoise (Gopherus agassizii)
-          </option>
-
+        <select id="turtleSelect" aria-label="Select turtle species">
+          <option value="0">Green Sea Turtle (Chelonia mydas)</option>
+          <option value="1">Loggerhead Sea Turtle (Caretta caretta)</option>
+          <option value="2">Hawksbill Turtle (Eretmochelys imbricata)</option>
+          <option value="3">Leatherback Sea Turtle (Dermochelys coriacea)</option>
+          <option value="4">Olive Ridley Turtle (Lepidochelys olivacea)</option>
+          <option value="5">Galapagos Giant Tortoise (Chelonoidis niger)</option>
+          <option value="6">Red-Eared Slider (Trachemys scripta elegans)</option>
+          <option value="7">Eastern Box Turtle (Terrapene carolina)</option>
+          <option value="8">Painted Turtle (Chrysemys picta)</option>
+          <option value="9">Desert Tortoise (Gopherus agassizii)</option>
         </select>
-
       </div>
 
 
-      <!-- =========================
-           TURTLE IMAGE DISPLAY
-           ========================= -->
-
-      <div id="turtleImageContainer">
-
+      <!-- TURTLE IMAGE DISPLAY -->
+      <section id="turtleImageContainer" aria-live="polite">
         <div class="img-wrapper">
-
           <img
             id="turtlePhoto"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg/800px-Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg"
-            alt="Green Sea Turtle"
-            referrerpolicy="no-referrer">
-
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg"
+            width="500"
+            height="330"
+            alt="Green Sea Turtle swimming alone over a coral reef"
+            loading="eager">
         </div>
 
-        <div
-          class="caption"
-          id="turtleCaption">
-
-          Currently displaying:
-          Green Sea Turtle (Chelonia mydas)
-
+        <div class="caption" id="turtleCaption">
+          Currently displaying: Green Sea Turtle (Chelonia mydas)
         </div>
-
-      </div>
-
-
-      <!-- =========================
-           SPONSORSHIP FORM
-           ========================= -->
-
-      <div id="sponsorshipSection">
-
-        <h3 style="margin-top: 30px;">
-          Register for Sponsorship Updates
-        </h3>
+        <div class="photo-credit" id="turtleCredit">
+          Photo: <a href="https://commons.wikimedia.org/wiki/File:Green_sea_turtle_(Chelonia_mydas)_Moorea.jpg" target="_blank" rel="noopener noreferrer">Charlesjsharp / Wikimedia Commons</a>
+        </div>
+      </section>
 
 
-        <form id="campaignForm">
+      <!-- SPONSORSHIP FORM -->
+      <section id="sponsorshipSection">
+        <h3 style="margin-top: 30px;">Register for Sponsorship Updates</h3>
 
+        <form id="campaignForm" novalidate>
           <div class="selector-group">
-
-            <label for="contactEmail">
-              Contact Email (must contain "@"):
-            </label>
+            <label for="contactEmail">Contact Email (must contain "@"):</label>
 
             <input
-              type="text"
+              type="email"
               id="contactEmail"
               placeholder="your.name@example.com"
-              required>
+              required
+              aria-describedby="emailError">
 
-
-            <span
-              class="error-msg"
-              id="emailError">
-
-              Please enter a valid email address containing the '@' symbol.
-
+            <span class="error-msg" id="emailError" role="alert">
+              Please enter a valid email address (e.g., name@example.com).
             </span>
 
-
-            <button
-              type="submit"
-              class="action-btn">
-
+            <button type="submit" class="action-btn">
               Confirm Sponsorship
-
             </button>
-
           </div>
-
         </form>
+      </section>
 
-      </div>
 
-
-      <!-- =========================
-           SUCCESS MESSAGE
-           ========================= -->
-
-      <div
-        class="success-msg"
-        id="formSuccess">
-
+      <!-- SUCCESS MESSAGE -->
+      <div class="success-msg" id="formSuccess" role="status">
         Thank you for your support. Our team will contact you shortly
         with further details regarding the payment process.
-
       </div>
-
 
     </div>
 
 
-    <!-- =========================
-         FOOTER
-         ========================= -->
-
+    <!-- FOOTER -->
     <footer class="bottom-footer">
-
-      <a href="contacts.html">
-        Contacts
-      </a>
-
-      |
-
-      <a href="address.html">
-        Address
-      </a>
-
-      |
-
-      <a href="partners.html">
-        Partners
-      </a>
-
+      <a href="contacts.html">Contacts</a> |
+      <a href="address.html">Address</a> |
+      <a href="partners.html">Partners</a>
     </footer>
 
-  </div>
+  </main>
 
 
-  <!-- =========================
-       JAVASCRIPT
-       ========================= -->
-
+  <!-- JAVASCRIPT -->
   <script>
-
-    /* =========================
-       TURTLE DATA (Public Domain / CC Wikimedia Images)
-       ========================= */
+    /* =========================================================
+       TURTLE DATA
+       Every image below is a real photograph on Wikimedia Commons,
+       verified species-by-species to show only the animal (no
+       people), served via the Special:FilePath direct-link
+       redirect. Public domain / CC-licensed; credit + source link
+       included per license terms.
+       ========================================================= */
+    const COMMONS_BASE = "https://commons.wikimedia.org/wiki/Special:FilePath/";
+    const COMMONS_FILE_BASE = "https://commons.wikimedia.org/wiki/File:";
 
     const turtleData = [
-
       {
         name: "Green Sea Turtle (Chelonia mydas)",
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg/800px-Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg"
+        file: "Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg",
+        fileTitle: "Green_sea_turtle_(Chelonia_mydas)_Moorea.jpg",
+        alt: "Green Sea Turtle swimming alone over a coral reef",
+        credit: "Charlesjsharp / Wikimedia Commons"
       },
-
       {
         name: "Loggerhead Sea Turtle (Caretta caretta)",
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Loggerhead_sea_turtle.jpg/800px-Loggerhead_sea_turtle.jpg"
+        file: "Caretta_caretta_%28loggerhead_sea_turtle%29_%28Bimini%2C_Bahamas%29_%2815996456700%29.jpg",
+        fileTitle: "Caretta_caretta_(loggerhead_sea_turtle)_(Bimini,_Bahamas)_(15996456700).jpg",
+        alt: "Loggerhead Sea Turtle swimming alone in open ocean water",
+        credit: "Lee & Mary Ellen St. John / Wikimedia Commons (CC BY 2.0)"
       },
-
       {
         name: "Hawksbill Turtle (Eretmochelys imbricata)",
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Hawksbill_Sea_Turtle_Carey_Cayman_Islands.jpg/800px-Hawksbill_Sea_Turtle_Carey_Cayman_Islands.jpg"
+        file: "Hawksbill_Sea_Turtle_%28Eretmochelys_imbricata%29.jpg",
+        fileTitle: "Hawksbill_Sea_Turtle_(Eretmochelys_imbricata).jpg",
+        alt: "Hawksbill Turtle swimming alone near a coral reef",
+        credit: "Wikimedia Commons"
       },
-
       {
         name: "Leatherback Sea Turtle (Dermochelys coriacea)",
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Leatherback_sea_turtle_Tinglar%2C_USVI_%285839996547%29.jpg/800px-Leatherback_sea_turtle_Tinglar%2C_USVI_%285839996547%29.jpg"
+        file: "Leatherback_sea_turtle_on_the_beach_Tinglar_%285839996429%29.jpg",
+        fileTitle: "Leatherback_sea_turtle_on_the_beach_Tinglar_(5839996429).jpg",
+        alt: "Leatherback Sea Turtle resting alone on a sandy beach",
+        credit: "Al Woodson / U.S. Fish & Wildlife Service (public domain)"
       },
-
       {
         name: "Olive Ridley Turtle (Lepidochelys olivacea)",
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Olive_ridley_sea_turtle_crop.jpg/800px-Olive_ridley_sea_turtle_crop.jpg"
+        file: "Lepidochelys_olivacea.jpg",
+        fileTitle: "Lepidochelys_olivacea.jpg",
+        alt: "Olive Ridley Turtle alone on a sandy nesting beach",
+        credit: "Wikimedia Commons (CC BY-SA)"
       },
-
       {
         name: "Galapagos Giant Tortoise (Chelonoidis niger)",
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Galapagos_giant_tortoise_Chelonoidis_nigra.jpg/800px-Galapagos_giant_tortoise_Chelonoidis_nigra.jpg"
+        file: "Chelonoidis_nigra_%28Galapagos_giant_tortoise%29_%2815101211644%29.jpg",
+        fileTitle: "Chelonoidis_nigra_(Galapagos_giant_tortoise)_(15101211644).jpg",
+        alt: "Galapagos Giant Tortoise alone on dry ground",
+        credit: "James St. John / Wikimedia Commons (CC BY 2.0)"
       },
-
       {
         name: "Red-Eared Slider (Trachemys scripta elegans)",
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/RedEaredSlider02.jpg/800px-RedEaredSlider02.jpg"
+        file: "Red-eared_slider_%28Trachemys_scripta_elegans%29.jpg",
+        fileTitle: "Red-eared_slider_(Trachemys_scripta_elegans).jpg",
+        alt: "Red-Eared Slider turtle alone, close-up of head and shell",
+        credit: "Wikimedia Commons"
       },
-
       {
         name: "Eastern Box Turtle (Terrapene carolina)",
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Terrapene_carolina_carolina_3.jpg/800px-Terrapene_carolina_carolina_3.jpg"
+        file: "Eastern_Box_Turtle-27527-1.jpg",
+        fileTitle: "Eastern_Box_Turtle-27527-1.jpg",
+        alt: "Eastern Box Turtle alone on the forest floor",
+        credit: "Ken Thomas / Wikimedia Commons (public domain)"
       },
-
       {
         name: "Painted Turtle (Chrysemys picta)",
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Chrysemys_picta_picta_1.jpg/800px-Chrysemys_picta_picta_1.jpg"
+        file: "Eastern_Painted_Turtle_%28Chrysemys_picta_picta%29.jpg",
+        fileTitle: "Eastern_Painted_Turtle_(Chrysemys_picta_picta).jpg",
+        alt: "Painted Turtle alone at the water's edge",
+        credit: "Wikimedia Commons (CC BY 2.0)"
       },
-
       {
         name: "Desert Tortoise (Gopherus agassizii)",
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Gopherus_agassizii_1.jpg/800px-Gopherus_agassizii_1.jpg"
+        file: "Desert_tortoise_%28Gopherus_agassizii%29_at_burrow_-_12938853164.jpg",
+        fileTitle: "Desert_tortoise_(Gopherus_agassizii)_at_burrow_-_12938853164.jpg",
+        alt: "Desert Tortoise alone near its burrow in arid terrain",
+        credit: "Joshua Tree National Park / NPS (public domain)"
       }
-
     ];
 
 
-    /* =========================
-       GET HTML ELEMENTS
-       ========================= */
-
+    /* GET HTML ELEMENTS */
     const turtleSelect = document.getElementById("turtleSelect");
     const turtlePhoto = document.getElementById("turtlePhoto");
     const turtleCaption = document.getElementById("turtleCaption");
+    const turtleCredit = document.getElementById("turtleCredit");
     const campaignForm = document.getElementById("campaignForm");
     const sponsorshipSection = document.getElementById("sponsorshipSection");
     const contactEmail = document.getElementById("contactEmail");
@@ -563,65 +507,78 @@
     const formSuccess = document.getElementById("formSuccess");
 
 
-    /* =========================
-       CHANGE TURTLE IMAGE
-       ========================= */
-
-    function changeTurtle() {
+    /* DYNAMIC IMAGE CHANGE WITH SMOOTH, FLICKER-FREE TRANSITION
+       The new image is preloaded off-screen; we only fade the
+       visible <img> once the new file has actually finished
+       loading, so a slow connection never shows a half-swapped
+       or blank state. */
+    const changeTurtle = () => {
       const selectedIndex = parseInt(turtleSelect.value, 10);
       const selectedTurtle = turtleData[selectedIndex];
 
-      if (!selectedTurtle) {
-        return;
-      }
+      if (!selectedTurtle) return;
 
-      turtlePhoto.style.opacity = "0.3";
+      const newSrc = COMMONS_BASE + selectedTurtle.file;
+      const preloadImg = new Image();
 
-      setTimeout(function () {
-        turtlePhoto.src = selectedTurtle.img;
-        turtlePhoto.alt = selectedTurtle.name;
-        turtleCaption.textContent = "Currently displaying: " + selectedTurtle.name;
-        turtlePhoto.style.opacity = "1";
-      }, 150);
-    }
+      preloadImg.onload = () => {
+        turtlePhoto.style.opacity = "0";
+        setTimeout(() => {
+          turtlePhoto.src = newSrc;
+          turtlePhoto.alt = selectedTurtle.alt;
+          turtleCaption.textContent = `Currently displaying: ${selectedTurtle.name}`;
+          turtleCredit.innerHTML =
+            `Photo: <a href="${COMMONS_FILE_BASE}${selectedTurtle.fileTitle}" target="_blank" rel="noopener noreferrer">${selectedTurtle.credit}</a>`;
+          turtlePhoto.style.opacity = "1";
+        }, 200);
+      };
+
+      preloadImg.onerror = () => {
+        // Commons hotlink failed to resolve; keep current photo rather than showing a broken image
+        turtleCaption.textContent = `Currently displaying: ${selectedTurtle.name} (image unavailable)`;
+      };
+
+      preloadImg.src = newSrc;
+    };
+
+    /* FALLBACK IN CASE THE INITIAL IMAGE FAILS TO LOAD */
+    turtlePhoto.onerror = () => {
+      turtlePhoto.alt = "Image failed to load";
+    };
 
     turtleSelect.addEventListener("change", changeTurtle);
 
 
-    /* =========================
-       EMAIL VALIDATION
-       ========================= */
+    /* EMAIL REGEX VALIDATION HELPER */
+    const isValidEmail = (email) => {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    };
 
-    contactEmail.addEventListener("input", function () {
-      if (contactEmail.value.includes("@")) {
+    contactEmail.addEventListener("input", () => {
+      if (isValidEmail(contactEmail.value.trim())) {
         emailError.style.display = "none";
-        contactEmail.style.borderColor = "rgb(0, 100, 0)";
+        contactEmail.style.borderColor = "var(--primary-color)";
       }
     });
 
 
-    /* =========================
-       CONFIRM SPONSORSHIP
-       ========================= */
-
-    campaignForm.addEventListener("submit", function (event) {
+    /* CONFIRM SPONSORSHIP FORM SUBMISSION */
+    campaignForm.addEventListener("submit", (event) => {
       event.preventDefault();
 
       const email = contactEmail.value.trim();
 
-      if (!email.includes("@")) {
+      if (!isValidEmail(email)) {
         emailError.style.display = "block";
-        contactEmail.style.borderColor = "rgb(200, 0, 0)";
+        contactEmail.style.borderColor = "var(--error-color)";
+        contactEmail.focus();
         return;
       }
 
       emailError.style.display = "none";
-      contactEmail.style.borderColor = "rgb(0, 100, 0)";
+      contactEmail.style.borderColor = "var(--primary-color)";
       sponsorshipSection.style.display = "none";
-
-      formSuccess.textContent =
-        "Thank you for your support. Our team will contact you shortly " +
-        "with further details regarding the payment process.";
 
       formSuccess.style.display = "block";
     });
