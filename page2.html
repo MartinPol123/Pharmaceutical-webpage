@@ -371,7 +371,7 @@
 
           <img
             id="turtlePhoto"
-            src="https://commons.wikimedia.org/wiki/Special:FilePath/Green_sea_turtle_(Chelonia_mydas)_Moorea.jpg"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg/800px-Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg"
             alt="Green Sea Turtle">
 
         </div>
@@ -488,76 +488,60 @@
 
   <script>
 
-
     /* =========================
        TURTLE DATA
-       =========================
-       
-       Each item corresponds to
-       the same numerical value
-       as its <option>.
        ========================= */
 
     const turtleData = [
 
       {
         name: "Green Sea Turtle (Chelonia mydas)",
-        img:
-          "https://commons.wikimedia.org/wiki/Special:FilePath/Green_sea_turtle_(Chelonia_mydas)_Moorea.jpg"
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg/800px-Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg"
       },
 
       {
         name: "Loggerhead Sea Turtle (Caretta caretta)",
-        img:
-          "https://commons.wikimedia.org/wiki/Special:FilePath/Loggerhead_Sea_Turtle_(Caretta_caretta)_.jpg"
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Loggerhead_sea_turtle.jpg/800px-Loggerhead_sea_turtle.jpg"
       },
 
       {
         name: "Hawksbill Turtle (Eretmochelys imbricata)",
-        img:
-          "https://commons.wikimedia.org/wiki/Special:FilePath/Hawksbill_turtle_(Eretmochelys_imbricata).jpg"
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Hawksbill_Sea_Turtle_Carey_Cayman_Islands.jpg/800px-Hawksbill_Sea_Turtle_Carey_Cayman_Islands.jpg"
       },
 
       {
         name: "Leatherback Sea Turtle (Dermochelys coriacea)",
-        img:
-          "https://commons.wikimedia.org/wiki/Special:FilePath/Leatherback_Sea_Turtle_Dermochelys_coriacea.jpg"
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Leatherback_sea_turtle_Tinglar%2C_USVI_%285839996547%29.jpg/800px-Leatherback_sea_turtle_Tinglar%2C_USVI_%285839996547%29.jpg"
       },
 
       {
         name: "Olive Ridley Turtle (Lepidochelys olivacea)",
-        img:
-          "https://commons.wikimedia.org/wiki/Special:FilePath/Lepidochelys_olivacea.jpg"
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Olive_ridley_sea_turtle_crop.jpg/800px-Olive_ridley_sea_turtle_crop.jpg"
       },
 
       {
         name: "Galapagos Giant Tortoise (Chelonoidis niger)",
-        img:
-          "https://commons.wikimedia.org/wiki/Special:FilePath/Galapagos_giant_tortoise_01.jpg"
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Galapagos_giant_tortoise_Chelonoidis_nigra.jpg/800px-Galapagos_giant_tortoise_Chelonoidis_nigra.jpg"
       },
 
       {
         name: "Red-Eared Slider (Trachemys scripta elegans)",
-        img:
-          "https://commons.wikimedia.org/wiki/Special:FilePath/Red-eared_Slider_(Trachemys_scripta_elegans).jpg"
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/RedEaredSlider02.jpg/800px-RedEaredSlider02.jpg"
       },
 
       {
         name: "Eastern Box Turtle (Terrapene carolina)",
-        img:
-          "https://commons.wikimedia.org/wiki/Special:FilePath/Eastern_box_turtle_terrapene_carolina_carolina.jpg"
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Terrapene_carolina_carolina_3.jpg/800px-Terrapene_carolina_carolina_3.jpg"
       },
 
       {
         name: "Painted Turtle (Chrysemys picta)",
-        img:
-          "https://commons.wikimedia.org/wiki/Special:FilePath/Painted_turtle_chrysemys_picta.jpg"
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Chrysemys_picta_picta_1.jpg/800px-Chrysemys_picta_picta_1.jpg"
       },
 
       {
         name: "Desert Tortoise (Gopherus agassizii)",
-        img:
-          "https://commons.wikimedia.org/wiki/Special:FilePath/Gopherus_agassizii.jpg"
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Gopherus_agassizii_1.jpg/800px-Gopherus_agassizii_1.jpg"
       }
 
     ];
@@ -567,29 +551,14 @@
        GET HTML ELEMENTS
        ========================= */
 
-    const turtleSelect =
-      document.getElementById("turtleSelect");
-
-    const turtlePhoto =
-      document.getElementById("turtlePhoto");
-
-    const turtleCaption =
-      document.getElementById("turtleCaption");
-
-    const campaignForm =
-      document.getElementById("campaignForm");
-
-    const sponsorshipSection =
-      document.getElementById("sponsorshipSection");
-
-    const contactEmail =
-      document.getElementById("contactEmail");
-
-    const emailError =
-      document.getElementById("emailError");
-
-    const formSuccess =
-      document.getElementById("formSuccess");
+    const turtleSelect = document.getElementById("turtleSelect");
+    const turtlePhoto = document.getElementById("turtlePhoto");
+    const turtleCaption = document.getElementById("turtleCaption");
+    const campaignForm = document.getElementById("campaignForm");
+    const sponsorshipSection = document.getElementById("sponsorshipSection");
+    const contactEmail = document.getElementById("contactEmail");
+    const emailError = document.getElementById("emailError");
+    const formSuccess = document.getElementById("formSuccess");
 
 
     /* =========================
@@ -597,152 +566,63 @@
        ========================= */
 
     function changeTurtle() {
-
-      const selectedIndex =
-        parseInt(turtleSelect.value, 10);
-
-      const selectedTurtle =
-        turtleData[selectedIndex];
-
+      const selectedIndex = parseInt(turtleSelect.value, 10);
+      const selectedTurtle = turtleData[selectedIndex];
 
       if (!selectedTurtle) {
         return;
       }
 
-
-      /*
-       * Fade image slightly while
-       * changing to the new turtle.
-       */
-
       turtlePhoto.style.opacity = "0.3";
 
-
       setTimeout(function () {
-
-        turtlePhoto.src =
-          selectedTurtle.img;
-
-        turtlePhoto.alt =
-          selectedTurtle.name;
-
-        turtleCaption.textContent =
-          "Currently displaying: " +
-          selectedTurtle.name;
-
+        turtlePhoto.src = selectedTurtle.img;
+        turtlePhoto.alt = selectedTurtle.name;
+        turtleCaption.textContent = "Currently displaying: " + selectedTurtle.name;
         turtlePhoto.style.opacity = "1";
-
       }, 150);
-
     }
 
-
-    /*
-     * Change the image immediately
-     * when a different species is selected.
-     */
-
-    turtleSelect.addEventListener(
-      "change",
-      changeTurtle
-    );
+    turtleSelect.addEventListener("change", changeTurtle);
 
 
     /* =========================
        EMAIL VALIDATION
        ========================= */
 
-    contactEmail.addEventListener(
-      "input",
-      function () {
-
-        if (contactEmail.value.includes("@")) {
-
-          emailError.style.display =
-            "none";
-
-          contactEmail.style.borderColor =
-            "rgb(0, 100, 0)";
-        }
-
+    contactEmail.addEventListener("input", function () {
+      if (contactEmail.value.includes("@")) {
+        emailError.style.display = "none";
+        contactEmail.style.borderColor = "rgb(0, 100, 0)";
       }
-    );
+    });
 
 
     /* =========================
        CONFIRM SPONSORSHIP
        ========================= */
 
-    campaignForm.addEventListener(
-      "submit",
-      function (event) {
+    campaignForm.addEventListener("submit", function (event) {
+      event.preventDefault();
 
-        /*
-         * IMPORTANT:
-         *
-         * Prevent the form from actually
-         * submitting or refreshing the page.
-         */
+      const email = contactEmail.value.trim();
 
-        event.preventDefault();
-
-
-        const email =
-          contactEmail.value.trim();
-
-
-        /*
-         * Check that the email contains @.
-         */
-
-        if (!email.includes("@")) {
-
-          emailError.style.display =
-            "block";
-
-          contactEmail.style.borderColor =
-            "rgb(200, 0, 0)";
-
-          return;
-        }
-
-
-        /*
-         * Valid email:
-         * hide validation error.
-         */
-
-        emailError.style.display =
-          "none";
-
-        contactEmail.style.borderColor =
-          "rgb(0, 100, 0)";
-
-
-        /*
-         * Hide the email form.
-         */
-
-        sponsorshipSection.style.display =
-          "none";
-
-
-        /*
-         * Replace it with the
-         * sponsorship confirmation.
-         */
-
-        formSuccess.textContent =
-          "Thank you for your support. " +
-          "Our team will contact you shortly " +
-          "with further details regarding the payment process.";
-
-
-        formSuccess.style.display =
-          "block";
-
+      if (!email.includes("@")) {
+        emailError.style.display = "block";
+        contactEmail.style.borderColor = "rgb(200, 0, 0)";
+        return;
       }
-    );
+
+      emailError.style.display = "none";
+      contactEmail.style.borderColor = "rgb(0, 100, 0)";
+      sponsorshipSection.style.display = "none";
+
+      formSuccess.textContent =
+        "Thank you for your support. Our team will contact you shortly " +
+        "with further details regarding the payment process.";
+
+      formSuccess.style.display = "block";
+    });
 
   </script>
 
