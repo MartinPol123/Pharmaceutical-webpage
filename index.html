@@ -8,29 +8,37 @@
   <title>TurtlePharma - About Us</title>
 
   <style>
-    body {
+    /* =========================
+       GLOBAL RESET & VIEWPORT SETUP
+       ========================= */
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100vh;
       background-color: rgb(185, 210, 255);
       font-family: sans-serif;
-      line-height: 1.5em;
-      margin: 0;
-      padding: 20px;
+      line-height: 1.6em;
+      overflow-x: hidden;
     }
 
     h1 {
       color: rgb(0, 0, 130);
-      padding: 6px;
+      padding: 10px 0;
       text-align: center;
+      font-size: 2.2rem;
     }
 
     p {
-      clear: both;
       color: rgb(0, 0, 180);
-      padding: 10px;
+      padding: 10px 0;
+      font-size: 1.05rem;
     }
 
     ul {
       color: rgb(0, 30, 50);
       margin-left: 20px;
+      font-size: 1.05rem;
     }
 
     a {
@@ -44,68 +52,53 @@
     }
 
     /* =========================
-       MAIN CONTAINER
+       FULL PAGE CONTAINER & BACKGROUND
        ========================= */
-
     #cardContainer {
       width: 100%;
-      height: 536px;
+      min-height: 100vh;
       position: relative;
-      border: 5px groove green;
-      margin: 0 auto;
-      overflow: hidden;
       box-sizing: border-box;
     }
-
-    /* =========================
-       BACKGROUND
-       ========================= */
 
     #BGimage {
       background-image:
         linear-gradient(
-          rgba(255, 255, 255, 0.7),
-          rgba(255, 255, 255, 0.8)
+          rgba(255, 255, 255, 0.75),
+          rgba(255, 255, 255, 0.85)
         ),
         url("https://images.pexels.com/photos/35166623/pexels-photo-35166623.jpeg");
 
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
+      width: 100vw;
+      height: 100vh;
       background-size: cover;
       background-position: center;
       z-index: 1;
     }
 
     /* =========================
-       SCROLLING CONTENT
+       FLUID CONTENT WRAPPER
        ========================= */
-
     #scrollContent {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      position: relative;
       z-index: 2;
-      overflow-y: auto;
-      overflow-x: hidden;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
       box-sizing: border-box;
-      padding: 15px;
     }
 
     /* =========================
-       KISSING TURTLES IMAGE
+       IMAGE & TOOLTIP STYLING
        ========================= */
-
     #Kiss {
-      clear: both;
       display: flex;
       justify-content: center;
-      align-items: flex-start;
-      margin: 15px 0;
+      align-items: center;
+      margin: 25px 0;
     }
 
     .img-wrapper {
@@ -114,23 +107,30 @@
     }
 
     .img-wrapper img {
-      width: 40%;
+      width: 340px;
+      max-width: 100%;
       height: auto;
-      border-radius: 6px;
+      border-radius: 8px;
       display: block;
       cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: transform 0.2s ease;
+    }
+
+    .img-wrapper img:hover {
+      transform: scale(1.02);
     }
 
     .tooltip-text {
       visibility: hidden;
-      width: 35%;
+      width: 220px;
       background-color: rgba(0, 0, 0, 0.90);
       color: white;
       text-align: center;
       border-radius: 6px;
       padding: 8px 10px;
       position: absolute;
-      bottom: calc(100% + 8px);
+      bottom: calc(100% + 10px);
       left: 50%;
       transform: translateX(-50%);
       z-index: 999;
@@ -156,42 +156,17 @@
       visibility: visible;
       opacity: 1;
     }
-
-    .img-wrapper img:hover {
-      transform: scale(1.02);
-      transition: transform 0.2s ease;
-    }
-
-    /* =========================
-       MOBILE VERSION
-       ========================= */
-
-    @media (max-width: 100%) {
-      #cardContainer {
-        width: 95%;
-      }
-
-      .img-wrapper img {
-        max-width: 100%;
-        width: 95%;
-      }
-    }
   </style>
 </head>
 
 <body>
 
   <div id="cardContainer">
-
-    <!-- BACKGROUND -->
     <div id="BGimage"></div>
 
-    <!-- SCROLLABLE CONTENT -->
     <div id="scrollContent">
-
       <h1 id="head1">TurtlePharma</h1>
 
-      <!-- INTRODUCTION -->
       <ul>
         <li>
           This company was designed to help distribute
@@ -207,52 +182,41 @@
         </li>
       </ul>
 
-      <!-- FIRST TURTLE IMAGE -->
       <div class="img-wrapper" id="Kiss">
         <img
           src="https://static.vecteezy.com/system/resources/thumbnails/056/301/117/small/four-colorful-turtle-figurines-crawling-on-sandy-beach-near-ocean-waves-sunny-day-playful-scene-photo.jpg"
           alt="Kissing turtles"
         >
-        <span class="tooltip-text">
-          Kissing turtles
-        </span>
+        <span class="tooltip-text">Kissing turtles</span>
       </div>
 
-      <!-- TEXT -->
       <p>
         At the heart of every effective medicine is a story of care,
         precise science, and human well-being. Welcome to a space
         created to bridge the gap between complex pharmaceutical
         chemistry and everyday health.
-
+        <br><br>
         Whether you are curious about how modern treatments are
         developed, seeking reliable information about health and
         wellness, or interested in how medicines are manufactured,
         our mission is to make pharmaceutical science clear,
         accurate, and accessible.
-
         <br><br>
-
         Behind every tablet, capsule, and dissolution profile lies
         rigorous research designed to make medicines safe,
         effective, and consistent. We explain how medicines work,
         why formulation matters, and how quality control supports
         patient safety.
-
         <br><br>
-
         Healthcare is more than treatment. It also involves education,
         prevention, responsible manufacturing, and continuous
         scientific innovation. Explore our resources and join us
         on a journey toward a safer and better-informed world.
-        
         <br><br>
         If you want to find out about our campaign for saving turtles, then
         <a href="page2.html">click here!</a>
       </p>
-
     </div>
-
   </div>
 
   <script>
