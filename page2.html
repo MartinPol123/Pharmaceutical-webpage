@@ -11,6 +11,7 @@
     /* =========================
        FULL-SCREEN BACKGROUND
        ========================= */
+
     html, body {
       margin: 0;
       padding: 0;
@@ -62,9 +63,11 @@
       text-decoration: underline;
     }
 
+
     /* =========================
        TOP NAVIGATION BAR
        ========================= */
+
     .top-nav {
       display: flex;
       justify-content: center;
@@ -79,7 +82,9 @@
       padding: 10px 18px;
       border-radius: 6px;
       font-weight: bold;
-      transition: background-color 0.2s ease, transform 0.1s ease;
+      transition:
+        background-color 0.2s ease,
+        transform 0.1s ease;
       display: inline-block;
     }
 
@@ -90,9 +95,11 @@
       transform: translateY(-2px);
     }
 
+
     /* =========================
-       BOTTOM FOOTER
+       BOTTOM FOOTER NAVIGATION
        ========================= */
+
     .bottom-footer {
       margin-top: 40px;
       padding-top: 20px;
@@ -106,9 +113,11 @@
       color: rgb(0, 0, 130);
     }
 
+
     /* =========================
-       PAGE CONTAINER & CARDS
+       PAGE CONTAINER & CARD
        ========================= */
+
     #scrollContent {
       width: 100%;
       max-width: 1100px;
@@ -123,12 +132,14 @@
       border-radius: 8px;
       padding: 25px;
       margin: 20px 0;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
     }
+
 
     /* =========================
        SELECTOR & INPUTS
        ========================= */
+
     .selector-group {
       display: flex;
       flex-direction: column;
@@ -163,7 +174,9 @@
       font-weight: bold;
       font-size: 1.05rem;
       cursor: pointer;
-      transition: background-color 0.2s ease, transform 0.1s ease;
+      transition:
+        background-color 0.2s ease,
+        transform 0.1s ease;
     }
 
     .action-btn:hover {
@@ -171,9 +184,11 @@
       transform: translateY(-2px);
     }
 
+
     /* =========================
        TURTLE IMAGE
        ========================= */
+
     #turtleImageContainer {
       display: flex;
       flex-direction: column;
@@ -204,9 +219,11 @@
       text-align: center;
     }
 
+
     /* =========================
        FORM VALIDATION
        ========================= */
+
     .error-msg {
       color: rgb(200, 0, 0);
       font-size: 0.9rem;
@@ -214,9 +231,11 @@
       margin-top: 5px;
     }
 
+
     /* =========================
        SUCCESS MESSAGE
        ========================= */
+
     .success-msg {
       background-color: rgba(0, 140, 0, 0.15);
       border: 1px solid rgb(0, 140, 0);
@@ -228,6 +247,7 @@
       display: none;
       font-weight: bold;
     }
+
   </style>
 </head>
 
@@ -236,9 +256,11 @@
 
   <div id="scrollContent">
 
+
     <!-- =========================
          TOP NAVIGATION
          ========================= -->
+
     <nav class="top-nav">
 
       <a href="index.html" class="nav-btn">
@@ -260,10 +282,19 @@
     </nav>
 
 
+    <!-- =========================
+         PAGE TITLE
+         ========================= -->
+
     <h1>Turtle Conservation Campaign</h1>
 
 
     <div class="campaign-card">
+
+
+      <!-- =========================
+           INTRODUCTION
+           ========================= -->
 
       <p>
         As part of TurtlePharma's environmental initiative, we support
@@ -274,8 +305,9 @@
 
 
       <!-- =========================
-           TURTLE SELECTION
+           TURTLE SPECIES SELECTOR
            ========================= -->
+
       <div class="selector-group">
 
         <label for="turtleSelect">
@@ -330,15 +362,16 @@
 
 
       <!-- =========================
-           TURTLE IMAGE
+           TURTLE IMAGE DISPLAY
            ========================= -->
+
       <div id="turtleImageContainer">
 
         <div class="img-wrapper">
 
           <img
             id="turtlePhoto"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg/800px-Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg"
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/Green_sea_turtle_(Chelonia_mydas)_Moorea.jpg"
             alt="Green Sea Turtle">
 
         </div>
@@ -347,7 +380,8 @@
           class="caption"
           id="turtleCaption">
 
-          Currently displaying: Green Sea Turtle (Chelonia mydas)
+          Currently displaying:
+          Green Sea Turtle (Chelonia mydas)
 
         </div>
 
@@ -357,6 +391,7 @@
       <!-- =========================
            SPONSORSHIP FORM
            ========================= -->
+
       <div id="sponsorshipSection">
 
         <h3 style="margin-top: 30px;">
@@ -377,6 +412,7 @@
               id="contactEmail"
               placeholder="your.name@example.com"
               required>
+
 
             <span
               class="error-msg"
@@ -405,6 +441,7 @@
       <!-- =========================
            SUCCESS MESSAGE
            ========================= -->
+
       <div
         class="success-msg"
         id="formSuccess">
@@ -421,6 +458,7 @@
     <!-- =========================
          FOOTER
          ========================= -->
+
     <footer class="bottom-footer">
 
       <a href="contacts.html">
@@ -447,61 +485,79 @@
   <!-- =========================
        JAVASCRIPT
        ========================= -->
+
   <script>
 
-    /*
-     * Each option corresponds directly to one image.
-     */
+
+    /* =========================
+       TURTLE DATA
+       =========================
+       
+       Each item corresponds to
+       the same numerical value
+       as its <option>.
+       ========================= */
+
     const turtleData = [
 
       {
         name: "Green Sea Turtle (Chelonia mydas)",
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg/800px-Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg"
+        img:
+          "https://commons.wikimedia.org/wiki/Special:FilePath/Green_sea_turtle_(Chelonia_mydas)_Moorea.jpg"
       },
 
       {
         name: "Loggerhead Sea Turtle (Caretta caretta)",
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Loggerhead_sea_turtle.jpg/800px-Loggerhead_sea_turtle.jpg"
+        img:
+          "https://commons.wikimedia.org/wiki/Special:FilePath/Loggerhead_Sea_Turtle_(Caretta_caretta)_.jpg"
       },
 
       {
         name: "Hawksbill Turtle (Eretmochelys imbricata)",
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Hawksbill_Sea_Turtle_Carey_Cayman_Islands.jpg/800px-Hawksbill_Sea_Turtle_Carey_Cayman_Islands.jpg"
+        img:
+          "https://commons.wikimedia.org/wiki/Special:FilePath/Hawksbill_turtle_(Eretmochelys_imbricata).jpg"
       },
 
       {
         name: "Leatherback Sea Turtle (Dermochelys coriacea)",
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Leatherback_sea_turtle_Tinglar%2C_USVI_%285839996547%29.jpg/800px-Leatherback_sea_turtle_Tinglar%2C_USVI_%285839996547%29.jpg"
+        img:
+          "https://commons.wikimedia.org/wiki/Special:FilePath/Leatherback_Sea_Turtle_Dermochelys_coriacea.jpg"
       },
 
       {
         name: "Olive Ridley Turtle (Lepidochelys olivacea)",
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Olive_ridley_sea_turtle_crop.jpg/800px-Olive_ridley_sea_turtle_crop.jpg"
+        img:
+          "https://commons.wikimedia.org/wiki/Special:FilePath/Lepidochelys_olivacea.jpg"
       },
 
       {
         name: "Galapagos Giant Tortoise (Chelonoidis niger)",
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Galapagos_giant_tortoise_Chelonoidis_nigra.jpg/800px-Galapagos_giant_tortoise_Chelonoidis_nigra.jpg"
+        img:
+          "https://commons.wikimedia.org/wiki/Special:FilePath/Galapagos_giant_tortoise_01.jpg"
       },
 
       {
         name: "Red-Eared Slider (Trachemys scripta elegans)",
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/RedEaredSlider02.jpg/800px-RedEaredSlider02.jpg"
+        img:
+          "https://commons.wikimedia.org/wiki/Special:FilePath/Red-eared_Slider_(Trachemys_scripta_elegans).jpg"
       },
 
       {
         name: "Eastern Box Turtle (Terrapene carolina)",
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Terrapene_carolina_carolina_3.jpg/800px-Terrapene_carolina_carolina_3.jpg"
+        img:
+          "https://commons.wikimedia.org/wiki/Special:FilePath/Eastern_box_turtle_terrapene_carolina_carolina.jpg"
       },
 
       {
         name: "Painted Turtle (Chrysemys picta)",
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Chrysemys_picta_picta_1.jpg/800px-Chrysemys_picta_picta_1.jpg"
+        img:
+          "https://commons.wikimedia.org/wiki/Special:FilePath/Painted_turtle_chrysemys_picta.jpg"
       },
 
       {
         name: "Desert Tortoise (Gopherus agassizii)",
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Gopherus_agassizii_1.jpg/800px-Gopherus_agassizii_1.jpg"
+        img:
+          "https://commons.wikimedia.org/wiki/Special:FilePath/Gopherus_agassizii.jpg"
       }
 
     ];
@@ -543,7 +599,7 @@
     function changeTurtle() {
 
       const selectedIndex =
-        parseInt(turtleSelect.value);
+        parseInt(turtleSelect.value, 10);
 
       const selectedTurtle =
         turtleData[selectedIndex];
@@ -555,39 +611,61 @@
 
 
       /*
-       * Change the image according to
-       * the selected option.
+       * Fade image slightly while
+       * changing to the new turtle.
        */
-      turtlePhoto.src =
-        selectedTurtle.img;
+
+      turtlePhoto.style.opacity = "0.3";
 
 
-      /*
-       * Change the alternative text.
-       */
-      turtlePhoto.alt =
-        selectedTurtle.name;
+      setTimeout(function () {
 
+        turtlePhoto.src =
+          selectedTurtle.img;
 
-      /*
-       * Change the caption.
-       */
-      turtleCaption.textContent =
-        "Currently displaying: " +
-        selectedTurtle.name;
+        turtlePhoto.alt =
+          selectedTurtle.name;
+
+        turtleCaption.textContent =
+          "Currently displaying: " +
+          selectedTurtle.name;
+
+        turtlePhoto.style.opacity = "1";
+
+      }, 150);
 
     }
 
 
     /*
-     * IMPORTANT:
-     *
-     * The image changes immediately when
-     * the user selects another turtle.
+     * Change the image immediately
+     * when a different species is selected.
      */
+
     turtleSelect.addEventListener(
       "change",
       changeTurtle
+    );
+
+
+    /* =========================
+       EMAIL VALIDATION
+       ========================= */
+
+    contactEmail.addEventListener(
+      "input",
+      function () {
+
+        if (contactEmail.value.includes("@")) {
+
+          emailError.style.display =
+            "none";
+
+          contactEmail.style.borderColor =
+            "rgb(0, 100, 0)";
+        }
+
+      }
     );
 
 
@@ -597,13 +675,15 @@
 
     campaignForm.addEventListener(
       "submit",
-      function(event) {
+      function (event) {
 
         /*
+         * IMPORTANT:
+         *
          * Prevent the form from actually
-         * being submitted or refreshing
-         * the page.
+         * submitting or refreshing the page.
          */
+
         event.preventDefault();
 
 
@@ -612,9 +692,9 @@
 
 
         /*
-         * Simple validation:
-         * the email must contain @.
+         * Check that the email contains @.
          */
+
         if (!email.includes("@")) {
 
           emailError.style.display =
@@ -628,31 +708,35 @@
 
 
         /*
-         * Hide the error.
+         * Valid email:
+         * hide validation error.
          */
+
         emailError.style.display =
           "none";
 
-
-        /*
-         * Change the border back to green.
-         */
         contactEmail.style.borderColor =
           "rgb(0, 100, 0)";
 
 
         /*
-         * Hide the entire form.
+         * Hide the email form.
          */
+
         sponsorshipSection.style.display =
           "none";
 
 
         /*
-         * Show the confirmation text.
+         * Replace it with the
+         * sponsorship confirmation.
          */
+
         formSuccess.textContent =
-          "Thank you for your support. Our team will contact you shortly with further details regarding the payment process.";
+          "Thank you for your support. " +
+          "Our team will contact you shortly " +
+          "with further details regarding the payment process.";
+
 
         formSuccess.style.display =
           "block";
@@ -663,4 +747,5 @@
   </script>
 
 </body>
+
 </html>
