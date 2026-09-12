@@ -9,17 +9,22 @@
 
   <style>
     /* =========================
-       GLOBAL RESET & VIEWPORT SETUP
+       UNIFORM VIEWPORT MARGINS
        ========================= */
     html, body {
       margin: 0;
       padding: 0;
-      width: 100%;
-      min-height: 100vh;
+      width: 100vw;
+      height: 100vh;
       background-color: rgb(185, 210, 255);
       font-family: sans-serif;
       line-height: 1.6em;
-      overflow-x: hidden;
+      overflow: hidden; /* Prevents whole-page scrolling */
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 20px; /* Equal blue border on Top, Right, Bottom, and Left */
     }
 
     h1 {
@@ -52,13 +57,15 @@
     }
 
     /* =========================
-       FULL PAGE CONTAINER & BACKGROUND
+       INNER CARD CONTAINER
        ========================= */
     #cardContainer {
       width: 100%;
-      min-height: 100vh;
+      height: 100%;
       position: relative;
+      border: 5px groove green;
       box-sizing: border-box;
+      overflow: hidden;
     }
 
     #BGimage {
@@ -69,26 +76,27 @@
         ),
         url("https://images.pexels.com/photos/35166623/pexels-photo-35166623.jpeg");
 
-      position: fixed;
+      position: absolute;
       top: 0;
       left: 0;
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      height: 100%;
       background-size: cover;
       background-position: center;
       z-index: 1;
     }
 
-    /* =========================
-       FLUID CONTENT WRAPPER
-       ========================= */
     #scrollContent {
-      position: relative;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       z-index: 2;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px 20px;
+      overflow-y: auto;
+      overflow-x: hidden;
       box-sizing: border-box;
+      padding: 30px;
     }
 
     /* =========================
