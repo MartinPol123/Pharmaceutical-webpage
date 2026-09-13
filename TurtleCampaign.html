@@ -4,34 +4,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="referrer" content="no-referrer">
-  <meta name="description" content="TurtlePharma's sea turtle and tortoise conservation sponsorship campaign.">
 
-  <title>TurtlePharma - Turtle Campaign</title>
+  <title>TurtlePharma - Turtle Conservation Campaign</title>
 
   <style>
-    /* =========================================================
-       GLOBAL & CSS VARIABLES
-       ========================================================= */
-    :root {
-      --primary-color: rgb(0, 100, 0);
-      --primary-hover: rgb(0, 140, 0);
-      --heading-color: rgb(0, 55, 90);
-      --text-color: rgb(35, 45, 40);
-      --muted-color: rgb(90, 100, 95);
-      --card-bg: rgba(255, 255, 255, 0.9);
-      --border-color: rgba(0, 100, 0, 0.3);
-      --error-color: rgb(180, 0, 0);
-      --success-bg: rgba(0, 140, 0, 0.15);
-      --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    }
-
+    /* =========================
+       FULL-SCREEN BACKGROUND
+      ========================= */
     html, body {
       margin: 0;
       padding: 0;
       min-height: 100vh;
       width: 100%;
-      font-family: var(--font-family);
+      font-family: sans-serif;
       line-height: 1.6em;
       box-sizing: border-box;
     }
@@ -42,24 +27,16 @@
           rgba(255, 255, 255, 0.82),
           rgba(255, 255, 255, 0.88)
         ),
-        url("https://images.unsplash.com/photo-1518467166778-b88f373ffec7?auto=format&fit=crop&w=1920&q=80");
+        url("https://images.pexels.com/photos/35166623/pexels-photo-35166623.jpeg");
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
       background-repeat: no-repeat;
     }
 
-    /* Fixed backgrounds are unreliable on mobile browsers; fall back to scroll */
-    @media (max-width: 768px) {
-      body {
-        background-attachment: scroll;
-      }
-    }
-
     h1, h2, h3 {
-      color: var(--heading-color);
+      color: rgb(0, 0, 130);
       text-align: center;
-      margin-bottom: 12px;
     }
 
     h1 {
@@ -67,27 +44,34 @@
       margin-top: 10px;
     }
 
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 30px;
+      margin-bottom: 10px;
+      border-bottom: 2px solid rgb(0, 100, 0);
+      padding-bottom: 5px;
+    }
+
     p {
-      color: var(--text-color);
+      color: rgb(0, 0, 180);
       padding: 8px 0;
       font-size: 1.05rem;
     }
 
     a {
-      color: var(--heading-color);
+      color: rgb(0, 0, 180);
       font-weight: bold;
       text-decoration: none;
     }
 
     a:hover,
-    a:focus-visible {
+    a:active {
       text-decoration: underline;
     }
 
-
-    /* =========================================================
-       TOP NAVIGATION BAR & LANGUAGE DROPDOWN
-       ========================================================= */
+    /* =========================
+       TOP NAVIGATION BAR & LANG
+      ========================= */
     .top-nav {
       display: flex;
       justify-content: space-between;
@@ -104,25 +88,20 @@
     }
 
     .nav-btn {
-      background-color: var(--primary-color);
+      background-color: rgb(0, 100, 0);
       color: white;
       padding: 10px 18px;
       border-radius: 6px;
       font-weight: bold;
-      transition:
-        background-color 0.2s ease,
-        transform 0.1s ease;
+      transition: background-color 0.2s ease, transform 0.1s ease;
       display: inline-block;
     }
 
-    .nav-btn:hover,
-    .nav-btn:focus-visible {
-      background-color: var(--primary-hover);
+    .nav-btn:hover {
+      background-color: rgb(0, 140, 0);
       color: white;
       text-decoration: none;
       transform: translateY(-2px);
-      outline: 2px solid var(--heading-color);
-      outline-offset: 2px;
     }
 
     /* Language Dropdown Container */
@@ -132,7 +111,7 @@
     }
 
     .lang-btn {
-      background-color: var(--heading-color);
+      background-color: rgb(0, 0, 130);
       color: white;
       padding: 10px 16px;
       border: none;
@@ -148,7 +127,7 @@
 
     .lang-btn:hover,
     .lang-btn:focus-visible {
-      background-color: var(--primary-hover);
+      background-color: rgb(0, 140, 0);
       transform: translateY(-2px);
     }
 
@@ -167,7 +146,7 @@
       min-width: 140px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       border-radius: 6px;
-      border: 1px solid var(--border-color);
+      border: 1px solid rgba(0, 100, 0, 0.3);
       z-index: 1000;
       overflow: hidden;
     }
@@ -184,7 +163,7 @@
       border: none;
       cursor: pointer;
       font-size: 0.95rem;
-      color: var(--text-color);
+      color: rgb(35, 45, 40);
       font-weight: bold;
       transition: background-color 0.2s ease;
     }
@@ -192,14 +171,19 @@
     .lang-option:hover,
     .lang-option:focus-visible {
       background-color: rgba(0, 100, 0, 0.1);
-      color: var(--primary-color);
+      color: rgb(0, 100, 0);
       outline: none;
     }
 
+    /* =========================
+       PAGE CONTENT CONTAINER
+      ========================= */
+    #cardContainer {
+      width: 100%;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
 
-    /* =========================================================
-       PAGE CONTAINER & CARD
-       ========================================================= */
     #scrollContent {
       width: 100%;
       max-width: 1100px;
@@ -208,157 +192,6 @@
       box-sizing: border-box;
     }
 
-
-    /* =========================================================
-       SELECTOR & FORM INPUTS
-       ========================================================= */
-    .selector-group {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
-      margin: 20px 0;
-    }
-
-    label {
-      font-weight: bold;
-      color: var(--primary-color);
-      font-size: 1.1rem;
-    }
-
-    select,
-    input[type="email"] {
-      width: 100%;
-      max-width: 450px;
-      padding: 10px 14px;
-      border: 2px solid var(--primary-color);
-      border-radius: 6px;
-      font-size: 1rem;
-      box-sizing: border-box;
-      background-color: #ffffff;
-      color: var(--text-color);
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    select:focus-visible,
-    input[type="email"]:focus-visible {
-      outline: none;
-      border-color: var(--primary-hover);
-      box-shadow: 0 0 0 3px rgba(0, 100, 0, 0.2);
-    }
-
-    .action-btn {
-      background-color: var(--primary-color);
-      color: white;
-      padding: 12px 24px;
-      border: none;
-      border-radius: 6px;
-      font-weight: bold;
-      font-size: 1.05rem;
-      cursor: pointer;
-      transition:
-        background-color 0.2s ease,
-        transform 0.1s ease;
-    }
-
-    .action-btn:hover,
-    .action-btn:focus-visible {
-      background-color: var(--primary-hover);
-      transform: translateY(-2px);
-    }
-
-
-    /* =========================================================
-       TURTLE IMAGE DISPLAY
-       ========================================================= */
-    #turtleImageContainer {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 25px 0;
-    }
-
-    .img-wrapper {
-      width: 100%;
-      max-width: 500px;
-      aspect-ratio: 500 / 330;
-      position: relative;
-      background-color: #e2e8f0;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .img-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 8px;
-      display: block;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      transition: opacity 0.25s ease-in-out;
-    }
-
-    .caption {
-      margin-top: 10px;
-      font-weight: bold;
-      color: var(--heading-color);
-      text-align: center;
-      font-size: 1.05rem;
-    }
-
-    .photo-credit {
-      margin-top: 2px;
-      font-size: 0.8rem;
-      color: var(--muted-color);
-      text-align: center;
-    }
-
-    .photo-credit a {
-      color: var(--muted-color);
-      font-weight: normal;
-      text-decoration: underline;
-    }
-
-
-    /* =========================================================
-       FORM VALIDATION & MESSAGES
-       ========================================================= */
-    .error-msg {
-      color: var(--error-color);
-      font-size: 0.95rem;
-      display: none;
-      margin-top: 5px;
-      font-weight: bold;
-    }
-
-    .success-msg {
-      background-color: var(--success-bg);
-      border: 1px solid var(--primary-hover);
-      color: rgb(0, 80, 0);
-      padding: 15px;
-      border-radius: 6px;
-      text-align: center;
-      margin-top: 15px;
-      display: none;
-      font-weight: bold;
-    }
-
-
-    /* =========================================================
-       BOTTOM FOOTER NAVIGATION
-       ========================================================= */
-    .bottom-footer {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 2px solid var(--border-color);
-      text-align: center;
-      font-size: 1.05rem;
-    }
-
-    .bottom-footer a {
-      margin: 0 12px;
-      color: var(--heading-color);
-    }
     .role-card {
       background-color: rgba(255, 255, 255, 0.88);
       border-left: 5px solid rgb(0, 100, 0);
@@ -367,58 +200,219 @@
       margin-bottom: 20px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.05);
     }
+
+    /* =========================
+       DYNAMIC TURTLE DISPLAY
+      ========================= */
+    .turtle-select-container {
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .turtle-select-container label {
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: rgb(0, 0, 130);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .turtle-select-container select {
+      padding: 10px 16px;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 2px solid rgb(0, 100, 0);
+      background-color: white;
+      color: rgb(0, 30, 50);
+      cursor: pointer;
+      max-width: 100%;
+    }
+
+    .turtle-display-card {
+      background-color: rgba(255, 255, 255, 0.92);
+      border-radius: 8px;
+      padding: 20px;
+      max-width: 600px;
+      margin: 20px auto;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      text-align: center;
+    }
+
+    .turtle-photo-wrapper {
+      width: 100%;
+      height: 350px;
+      overflow: hidden;
+      border-radius: 6px;
+      background-color: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .turtle-photo-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.3s ease;
+    }
+
+    .turtle-caption {
+      font-weight: bold;
+      color: rgb(0, 100, 0);
+      margin-top: 12px;
+      font-size: 1.1rem;
+    }
+
+    .turtle-credit {
+      font-size: 0.85rem;
+      color: #555;
+      margin-top: 4px;
+    }
+
+    /* =========================
+       SPONSORSHIP FORM STYLING
+      ========================= */
+    .sponsorship-card {
+      background-color: rgba(255, 255, 255, 0.92);
+      border-radius: 8px;
+      padding: 25px;
+      max-width: 600px;
+      margin: 30px auto;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .sponsorship-card h2 {
+      margin-top: 0;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      color: rgb(0, 0, 130);
+      margin-bottom: 6px;
+    }
+
+    .form-group input[type="email"] {
+      width: 100%;
+      padding: 10px 14px;
+      border: 2px solid rgb(0, 100, 0);
+      border-radius: 6px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+
+    .error-message {
+      color: #d9534f;
+      font-size: 0.9rem;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .submit-btn {
+      background-color: rgb(0, 100, 0);
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 1.05rem;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: rgb(0, 140, 0);
+      transform: translateY(-2px);
+    }
+
+    .submit-btn:disabled {
+      background-color: #888888;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .success-card {
+      display: none;
+      background-color: rgba(220, 245, 220, 0.95);
+      border-left: 5px solid rgb(0, 100, 0);
+      border-radius: 8px;
+      padding: 20px;
+      max-width: 600px;
+      margin: 30px auto;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .success-card p {
+      color: rgb(0, 80, 0);
+      font-weight: bold;
+      margin: 0;
+    }
+
+    /* =========================
+       BOTTOM FOOTER NAVIGATION
+      ========================= */
+    .bottom-footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 2px solid rgba(0, 100, 0, 0.3);
+      text-align: center;
+      font-size: 1.05rem;
+    }
+
+    .bottom-footer a {
+      margin: 0 12px;
+      color: rgb(0, 0, 130);
+    }
   </style>
 </head>
 
-
 <body>
 
-  <main id="scrollContent">
+  <div id="cardContainer">
+    <div id="scrollContent">
 
-    <!-- TOP NAVIGATION -->
-    <nav class="top-nav" aria-label="Main Navigation">
-      <div class="nav-links">
-        <a href="index.html" class="nav-btn" data-i18n="nav_main">Main page</a>
-        <a href="career.html" class="nav-btn" data-i18n="nav_career">Career</a>
-        <a href="rules.html" class="nav-btn" data-i18n="nav_rules">Followed rules</a>
-        <a href="TurtleCampaign.html" class="nav-btn" data-i18n="nav_campaign">Turtle Campaign</a>
-      </div>
-
-      <!-- LANGUAGE DROPDOWN BUTTON -->
-      <div class="lang-dropdown">
-        <button type="button" class="lang-btn" id="langBtn" aria-expanded="false" aria-label="Language menu">
-          <!-- Globe Symbol (SVG) -->
-          <svg class="globe-icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-          </svg>
-          <span data-i18n="lang_text">Language</span> &#9660;
-        </button>
-        <div class="lang-menu" id="langMenu">
-          <button type="button" class="lang-option" data-lang="en">English</button>
-          <button type="button" class="lang-option" data-lang="cs">Čeština</button>
-          <button type="button" class="lang-option" data-lang="de">Deutsch</button>
+      <!-- TOP NAVIGATION BUTTONS -->
+      <nav class="top-nav" aria-label="Main Navigation">
+        <div class="nav-links">
+          <a href="index.html" class="nav-btn" data-i18n="nav_main">Main page</a>
+          <a href="career.html" class="nav-btn" data-i18n="nav_career">Career</a>
+          <a href="rules.html" class="nav-btn" data-i18n="nav_rules">Followed rules</a>
+          <a href="TurtleCampaign.html" class="nav-btn" data-i18n="nav_campaign">Turtle Campaign</a>
         </div>
+
+        <!-- LANGUAGE DROPDOWN BUTTON -->
+        <div class="lang-dropdown">
+          <button type="button" class="lang-btn" id="langBtn" aria-expanded="false" aria-label="Language menu">
+            <svg class="globe-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+            </svg>
+            <span data-i18n="lang_text">Language</span> &#9660;
+          </button>
+          <div class="lang-menu" id="langMenu">
+            <button type="button" class="lang-option" data-lang="en">English</button>
+            <button type="button" class="lang-option" data-lang="cs">Čeština</button>
+            <button type="button" class="lang-option" data-lang="de">Deutsch</button>
+          </div>
+        </div>
+      </nav>
+
+      <h1 data-i18n="page_title">Turtle Conservation Campaign</h1>
+
+      <div class="role-card" data-i18n="intro_text">
+        As part of TurtlePharma's environmental initiative, we support sea turtle marine sanctuaries across the globe. Select a specific turtle species below to sponsor its protection program and receive updates.
       </div>
-    </nav>
 
-
-    <!-- PAGE TITLE -->
-    <h1 data-i18n="page_title">Turtle Conservation Campaign</h1>
-
-      <!-- INTRODUCTION -->
-      <div class="role-card" data-i18n="intro_text" class="campaign-card">
-        As part of TurtlePharma's environmental initiative, we support
-        sea turtle marine sanctuaries across the globe. Select a specific
-        turtle species below to sponsor its protection program and receive
-        updates.
-      </div>
-
-
-      <!-- TURTLE SPECIES SELECTOR -->
-      <div class="selector-group">
+      <!-- TURTLE SELECTION DROPDOWN -->
+      <div class="turtle-select-container">
         <label for="turtleSelect" data-i18n="select_label">Choose a Turtle Species to Save:</label>
-
-        <select id="turtleSelect" aria-label="Select turtle species">
+        <select id="turtleSelect">
           <option value="0">Green Sea Turtle (Chelonia mydas)</option>
           <option value="1">Loggerhead Sea Turtle (Caretta caretta)</option>
           <option value="2">Hawksbill Turtle (Eretmochelys imbricata)</option>
@@ -432,75 +426,48 @@
         </select>
       </div>
 
-
-      <!-- TURTLE IMAGE DISPLAY -->
-      <section id="turtleImageContainer" aria-live="polite">
-        <div class="img-wrapper">
-          <img
-            id="turtlePhoto"
-            src="https://commons.wikimedia.org/wiki/Special:FilePath/Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg"
-            width="500"
-            height="330"
-            alt="Green Sea Turtle swimming alone over a coral reef"
-            loading="eager">
+      <!-- TURTLE DISPLAY CARD -->
+      <div class="turtle-display-card">
+        <div class="turtle-photo-wrapper">
+          <img id="turtlePhoto" src="https://commons.wikimedia.org/wiki/Special:FilePath/Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg" alt="Green Sea Turtle swimming alone over a coral reef">
         </div>
-
-        <div class="caption" id="turtleCaption">
-          Currently displaying: Green Sea Turtle (Chelonia mydas)
-        </div>
-        <div class="photo-credit" id="turtleCredit">
-          Photo: <a href="https://commons.wikimedia.org/wiki/File:Green_sea_turtle_(Chelonia_mydas)_Moorea.jpg" target="_blank" rel="noopener noreferrer">Charlesjsharp / Wikimedia Commons</a>
-        </div>
-      </section>
-
-
-      <!-- SPONSORSHIP FORM -->
-      <section id="sponsorshipSection">
-        <h3 style="margin-top: 30px;" data-i18n="form_heading">Register for Sponsorship Updates</h3>
-
-        <form id="campaignForm" novalidate>
-          <div class="selector-group">
-            <label for="contactEmail" data-i18n="email_label">Contact Email:</label>
-
-            <input
-              type="email"
-              id="contactEmail"
-              placeholder="your.name@example.com"
-              required
-              aria-describedby="emailError">
-
-            <span class="error-msg" id="emailError" role="alert" data-i18n="email_error">
-              Please enter a valid email address (e.g., name@example.com).
-            </span>
-
-            <button type="submit" class="action-btn" data-i18n="submit_btn">
-              Confirm Sponsorship
-            </button>
-          </div>
-        </form>
-      </section>
-
-
-      <!-- SUCCESS MESSAGE -->
-      <div class="success-msg" id="formSuccess" role="status" data-i18n="success_msg">
-        Thank you for your support. Our team will contact you shortly
-        with further details regarding the payment process.
+        <div class="turtle-caption" id="turtleCaption">Currently displaying: Green Sea Turtle (Chelonia mydas)</div>
+        <div class="turtle-credit" id="turtleCredit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Green_sea_turtle_(Chelonia_mydas)_Moorea.jpg" target="_blank" rel="noopener noreferrer">Charlesjsharp / Wikimedia Commons</a></div>
       </div>
 
+      <!-- SPONSORSHIP REGISTRATION FORM -->
+      <div class="sponsorship-card" id="sponsorshipSection">
+        <h2 data-i18n="form_heading">Register for Sponsorship Updates</h2>
+        <form id="campaignForm" novalidate>
+          <div class="form-group">
+            <label for="contactEmail" data-i18n="email_label">Contact Email:</label>
+            <input type="email" id="contactEmail" required placeholder="name@example.com">
+            <div class="error-message" id="emailError" data-i18n="email_error">Please enter a valid email address (e.g., name@example.com).</div>
+          </div>
+          <button type="submit" class="submit-btn" data-i18n="submit_btn">Confirm Sponsorship</button>
+        </form>
+      </div>
+
+      <!-- SUCCESS MESSAGE -->
+      <div class="success-card" id="formSuccess">
+        <p data-i18n="success_msg">Thank you for your support. Our team will contact you shortly with further details regarding the payment process.</p>
+      </div>
+
+      <!-- BOTTOM FOOTER LINKS -->
+      <footer class="bottom-footer">
+        <a href="contacts.html" data-i18n="footer_contacts">Contacts</a> |
+        <a href="partners.html" data-i18n="footer_partners">Partners</a>
+      </footer>
+
     </div>
+  </div>
 
-
-    <!-- FOOTER -->
-    <footer class="bottom-footer">
-      <a href="contacts.html" data-i18n="footer_contacts">Contacts</a> |
-      <a href="partners.html" data-i18n="footer_partners">Partners</a>
-    </footer>
-
-  </main>
-
-
-  <!-- JAVASCRIPT -->
   <script>
+    /* =========================================================
+       CONFIGURATION & APPS SCRIPT INTEGRATION
+       ========================================================= */
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbziiDlNe6mQMhtqi_QQjg0eIypKrVqzGN8GdawxLyzTjiXhy53WZULeVgacYeUlyTpS/exec";
+
     /* =========================================================
        MULTILINGUAL TRANSLATIONS DICTIONARY
        ========================================================= */
@@ -515,9 +482,10 @@
         intro_text: "As part of TurtlePharma's environmental initiative, we support sea turtle marine sanctuaries across the globe. Select a specific turtle species below to sponsor its protection program and receive updates.",
         select_label: "Choose a Turtle Species to Save:",
         form_heading: "Register for Sponsorship Updates",
-        email_label: 'Contact Email:',
+        email_label: "Contact Email:",
         email_error: "Please enter a valid email address (e.g., name@example.com).",
         submit_btn: "Confirm Sponsorship",
+        submitting_btn: "Submitting...",
         success_msg: "Thank you for your support. Our team will contact you shortly with further details regarding the payment process.",
         footer_contacts: "Contacts",
         footer_partners: "Partners",
@@ -545,9 +513,10 @@
         intro_text: "V rámci environmentální iniciativy společnosti TurtlePharma podporujeme mořské rezervace pro želvy po celém světě. Vyberte konkrétní druh želvy a zasponsorujte její ochranný program.",
         select_label: "Vyberte druh želvy k záchraně:",
         form_heading: "Registrace k odběru novinek o sponzorství",
-        email_label: 'Kontaktní email:',
+        email_label: "Kontaktní email:",
         email_error: "Zadejte prosím platnou emailovou adresu (např. jmeno@priklad.cz).",
         submit_btn: "Potvrdit sponzorství",
+        submitting_btn: "Odesílám...",
         success_msg: "Děkujeme za vaši podporu. Náš tým vás bude brzy kontaktovat s dalšími podrobnostmi ohledně platby.",
         footer_contacts: "Kontakty",
         footer_partners: "Partneři",
@@ -575,9 +544,10 @@
         intro_text: "Im Rahmen der Umweltinitiative von TurtlePharma unterstützen wir Meeres-Schutzgebiete für Schildkröten weltweit. Wählen Sie eine Schildkrötenart aus, um deren Schutzprogramm zu sponsern.",
         select_label: "Wählen Sie eine Schildkrötenart zum Schutz aus:",
         form_heading: "Für Sponsoring-Updates registrieren",
-        email_label: 'Kontakt-E-Mail:',
+        email_label: "Kontakt-E-Mail:",
         email_error: "Bitte geben Sie eine gültige E-Mail-Adresse ein (z. B. name@beispiel.de).",
         submit_btn: "Sponsoring bestätigen",
+        submitting_btn: "Wird gesendet...",
         success_msg: "Vielen Dank für Ihre Unterstützung. Unser Team wird Sie Kürze mit weiteren Details bezüglich des Zahlungsvorgangs kontaktieren.",
         footer_contacts: "Kontakte",
         footer_partners: "Partner",
@@ -598,7 +568,6 @@
     };
 
     let currentLang = "en";
-
 
     /* =========================================================
        TURTLE DATA
@@ -679,7 +648,6 @@
       }
     ];
 
-
     /* GET HTML ELEMENTS */
     const turtleSelect = document.getElementById("turtleSelect");
     const turtlePhoto = document.getElementById("turtlePhoto");
@@ -693,7 +661,7 @@
     const langBtn = document.getElementById("langBtn");
     const langMenu = document.getElementById("langMenu");
     const langOptions = document.querySelectorAll(".lang-option");
-
+    const submitBtn = campaignForm.querySelector('button[type="submit"]');
 
     /* LANGUAGE SWITCHING LOGIC */
     const setLanguage = (lang) => {
@@ -701,7 +669,6 @@
       currentLang = lang;
       document.documentElement.lang = lang;
 
-      // Update static text content
       const elementsToTranslate = document.querySelectorAll("[data-i18n]");
       elementsToTranslate.forEach((el) => {
         const key = el.getAttribute("data-i18n");
@@ -710,26 +677,22 @@
         }
       });
 
-      // Update select options
       Array.from(turtleSelect.options).forEach((option, index) => {
         if (translations[lang].turtles[index]) {
           option.textContent = translations[lang].turtles[index];
         }
       });
 
-      // Update current caption
       const selectedIndex = parseInt(turtleSelect.value, 10);
       const currentName = translations[lang].turtles[selectedIndex];
       turtleCaption.textContent = `${translations[lang].caption_prefix}${currentName}`;
     };
 
-    // Toggle language menu dropdown
     langBtn.addEventListener("click", () => {
       const isExpanded = langMenu.classList.toggle("show");
       langBtn.setAttribute("aria-expanded", isExpanded);
     });
 
-    // Handle language selection
     langOptions.forEach((option) => {
       option.addEventListener("click", () => {
         const selectedLang = option.getAttribute("data-lang");
@@ -739,7 +702,6 @@
       });
     });
 
-    // Close menu when clicking outside
     document.addEventListener("click", (event) => {
       if (!event.target.closest(".lang-dropdown")) {
         langMenu.classList.remove("show");
@@ -747,8 +709,7 @@
       }
     });
 
-
-    /* DYNAMIC IMAGE CHANGE WITH SMOOTH TRANSITION */
+    /* DYNAMIC IMAGE CHANGE */
     const changeTurtle = () => {
       const selectedIndex = parseInt(turtleSelect.value, 10);
       const selectedTurtle = turtleData[selectedIndex];
@@ -785,8 +746,7 @@
 
     turtleSelect.addEventListener("change", changeTurtle);
 
-
-    /* EMAIL REGEX VALIDATION HELPER */
+    /* EMAIL VALIDATION HELPER */
     const isValidEmail = (email) => {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       return emailRegex.test(email);
@@ -795,12 +755,11 @@
     contactEmail.addEventListener("input", () => {
       if (isValidEmail(contactEmail.value.trim())) {
         emailError.style.display = "none";
-        contactEmail.style.borderColor = "var(--primary-color)";
+        contactEmail.style.borderColor = "var(--primary-color, rgb(0, 100, 0))";
       }
     });
 
-
-    /* CONFIRM SPONSORSHIP FORM SUBMISSION */
+    /* FORM SUBMISSION TO GOOGLE APPS SCRIPT */
     campaignForm.addEventListener("submit", (event) => {
       event.preventDefault();
 
@@ -808,18 +767,47 @@
 
       if (!isValidEmail(email)) {
         emailError.style.display = "block";
-        contactEmail.style.borderColor = "var(--error-color)";
+        contactEmail.style.borderColor = "#d9534f";
         contactEmail.focus();
         return;
       }
 
       emailError.style.display = "none";
-      contactEmail.style.borderColor = "var(--primary-color)";
-      sponsorshipSection.style.display = "none";
+      contactEmail.style.borderColor = "rgb(0, 100, 0)";
 
-      formSuccess.style.display = "block";
+      // Disable button to prevent duplicate submissions
+      submitBtn.disabled = true;
+      submitBtn.textContent = translations[currentLang].submitting_btn || "Submitting...";
+
+      const selectedIndex = parseInt(turtleSelect.value, 10);
+      const selectedTurtle = translations[currentLang].turtles[selectedIndex];
+
+      const payload = {
+        turtle: selectedTurtle,
+        email: email,
+        language: currentLang
+      };
+
+      // Send data to Google Apps Script Web App
+      fetch(WEB_APP_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
+        body: JSON.stringify(payload)
+      })
+        .then(() => {
+          sponsorshipSection.style.display = "none";
+          formSuccess.style.display = "block";
+        })
+        .catch((err) => {
+          console.error("Submission error:", err);
+          alert("An error occurred during submission. Please try again.");
+          submitBtn.disabled = false;
+          submitBtn.textContent = translations[currentLang].submit_btn;
+        });
     });
-
   </script>
 
 </body>
