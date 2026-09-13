@@ -270,6 +270,12 @@
       transform: translateY(-2px);
     }
 
+    .apply-btn:disabled {
+      background-color: #888888;
+      cursor: not-allowed;
+      transform: none;
+    }
+
     .success-message {
       color: rgb(0, 100, 0);
       font-weight: bold;
@@ -375,7 +381,7 @@
           pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" 
           required 
         />
-        <button type="submit" class="apply-btn" data-i18n="app_btn">Become part of our team!</button>
+        <button type="submit" id="submitBtn" class="apply-btn" data-i18n="app_btn">Become part of our team!</button>
       </form>
     </div>
 
@@ -386,6 +392,9 @@
   </div>
 
   <script>
+    /* UPDATED GOOGLE APPS SCRIPT ENDPOINT URL */
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/a/macros/esnuct.cz/s/AKfycbzfC8Dw1eZB2PI8teLdllq-MWnTonabMKZ1fFcQsBRx0ahZX9_vcnPnfAaD_bYfhubw/exec";
+
     /* MULTILINGUAL TRANSLATIONS DICTIONARY */
     const translations = {
       en: {
@@ -423,7 +432,7 @@
         lang_text: "Jazyk",
         page_title: "Kariéra",
         role_1_title: "1. Manažeři kvalifikovaných osob (QP) a zajištění kvality (QA)",
-        role_1_desc: "Kvalifikované osoby (QP) nesou právní odpovědnost za certifikaci každé šarže léčiv před jejím propuštěním na trh. Manažeři zajištění kvality dohlížejí na systémy dodržování předpisů, auditují záznamy o šaržích a udržují standardní operační postupy napříč všemi výrobními jednotkami.",
+        role_1_desc: "Kvalifikované osoby (QP) nesou právní odpovědnost za certifikaci každé šarže léčiv před jejím propuštěním na trh. Manažeři zajištění kvality dohlížejí na systémy dodržování předpisów, auditují záznamy o šaržích a udržují standardní operační postupy napříč všemi výrobními jednotkami.",
         role_2_title: "2. Analytičtí chemici kontroly kvality (QC)",
         role_2_desc: "Chemici QC analyzují suroviny účinných látek, meziprodukty a finální lékové formy pomocí pokročilých analytických technik, jako jsou HPLC, UPLC, UV-Vis spektroskopie a automatizované disoluční testování. Jejich práce zajišťuje chemickou čistotu, účinnost a fyzikální stabilitu.",
         role_3_title: "3. Inženýři formulací a validace procesů",
@@ -477,15 +486,8 @@
     const applyForm = document.getElementById("applyForm");
     const appSection = document.getElementById("appSection");
     const emailInput = document.getElementById("emailInput");
-
-    const updateEmailValidationMessage = (lang) => {
-      if (!emailInput) return;
-      if (emailInput.validity.valueMissing || emailInput.validity.typeMismatch || emailInput.validity.patternMismatch) {
-        emailInput.setCustomValidity(translations[lang].email_validation_msg);
-      } else {
-        emailInput.setCustomValidity("");
-      }
-    };
+    const roleSelect = document.getElementById("roleSelect");
+    const submitBtn = document.getElementById("submitBtn");
 
     const setLanguage = (lang) => {
       if (!translations[lang]) return;
@@ -507,13 +509,11 @@
         }
       });
 
-      /* Re-evaluate custom validity text if input is currently invalid */
       if (!emailInput.validity.valid) {
         emailInput.setCustomValidity(translations[lang].email_validation_msg);
       }
     };
 
-    /* Dynamic input validation event listeners */
     emailInput.addEventListener("invalid", () => {
       const currentLang = document.documentElement.lang || "en";
       emailInput.setCustomValidity(translations[currentLang].email_validation_msg);
@@ -544,16 +544,40 @@
       }
     });
 
-    /* FORM SUBMISSION LOGIC */
+    /* ASYNCHRONOUS FORM SUBMISSION MATCHING ["Date", "Applicant", "E-mail", "Language"] */
     applyForm.addEventListener("submit", (e) => {
       e.preventDefault();
       const currentLang = document.documentElement.lang || "en";
       
-      appSection.innerHTML = `
-        <p class="success-message" data-i18n="app_success">
-          ${translations[currentLang].app_success}
-        </p>
-      `;
+      submitBtn.disabled = true;
+
+      // Construct JSON payload corresponding to ["Date", "Applicant", "E-mail", "Language"]
+      const payload = {
+        date: new Date().toLocaleString(),
+        applicant: roleSelect.value,
+        email: emailInput.value,
+        lang: currentLang
+      };
+
+      fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(() => {
+        appSection.innerHTML = `
+          <p class="success-message" data-i18n="app_success">
+            ${translations[currentLang].app_success}
+          </p>
+        `;
+      })
+      .catch((error) => {
+        console.error("Submission error:", error);
+        submitBtn.disabled = false;
+      });
     });
   </script>
 
