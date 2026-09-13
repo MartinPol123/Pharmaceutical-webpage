@@ -76,14 +76,21 @@
     }
 
     /* =========================
-       TOP NAVIGATION BAR
+       TOP NAVIGATION BAR & LANG
       ========================= */
     .top-nav {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
       gap: 12px;
       margin-bottom: 25px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
     .nav-btn {
@@ -101,6 +108,77 @@
       color: white;
       text-decoration: none;
       transform: translateY(-2px);
+    }
+
+    /* Language Dropdown Container */
+    .lang-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .lang-btn {
+      background-color: rgb(0, 0, 130);
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    .lang-btn:hover,
+    .lang-btn:focus-visible {
+      background-color: rgb(0, 140, 0);
+      transform: translateY(-2px);
+    }
+
+    .globe-icon {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .lang-menu {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 115%;
+      background-color: #ffffff;
+      min-width: 140px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border-radius: 6px;
+      border: 1px solid rgba(0, 100, 0, 0.3);
+      z-index: 1000;
+      overflow: hidden;
+    }
+
+    .lang-menu.show {
+      display: block;
+    }
+
+    .lang-option {
+      width: 100%;
+      padding: 10px 16px;
+      text-align: left;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      color: rgb(35, 45, 40);
+      font-weight: bold;
+      transition: background-color 0.2s ease;
+    }
+
+    .lang-option:hover,
+    .lang-option:focus-visible {
+      background-color: rgba(0, 100, 0, 0.1);
+      color: rgb(0, 100, 0);
+      outline: none;
     }
 
     /* =========================
@@ -228,8 +306,8 @@
       font-size: 1.15rem;
       text-align: left;
     }
-    
-.role-card {
+
+    .role-card {
       background-color: rgba(255, 255, 255, 0.88);
       border-left: 5px solid rgb(0, 100, 0);
       border-radius: 4px;
@@ -237,7 +315,6 @@
       margin-bottom: 20px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.05);
     }
-
   </style>
 </head>
 
@@ -245,26 +322,38 @@
 
   <div id="cardContainer">
     <div id="scrollContent">
-      
+
       <!-- TOP NAVIGATION BUTTONS -->
-      <nav class="top-nav">
-        <a href="index.html" class="nav-btn">Main page</a>
-        <a href="career.html" class="nav-btn">Career</a>
-        <a href="rules.html" class="nav-btn">Followed rules</a>
-        <a href="TurtleCampaign.html" class="nav-btn">Turtle Campaign</a>
+      <nav class="top-nav" aria-label="Main Navigation">
+        <div class="nav-links">
+          <a href="index.html" class="nav-btn" data-i18n="nav_main">Main page</a>
+          <a href="career.html" class="nav-btn" data-i18n="nav_career">Career</a>
+          <a href="rules.html" class="nav-btn" data-i18n="nav_rules">Followed rules</a>
+          <a href="TurtleCampaign.html" class="nav-btn" data-i18n="nav_campaign">Turtle Campaign</a>
+        </div>
+
+        <!-- LANGUAGE DROPDOWN BUTTON -->
+        <div class="lang-dropdown">
+          <button type="button" class="lang-btn" id="langBtn" aria-expanded="false" aria-label="Language menu">
+            <svg class="globe-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+            </svg>
+            <span data-i18n="lang_text">Language</span> &#9660;
+          </button>
+          <div class="lang-menu" id="langMenu">
+            <button type="button" class="lang-option" data-lang="en">English</button>
+            <button type="button" class="lang-option" data-lang="cs">Čeština</button>
+            <button type="button" class="lang-option" data-lang="de">Deutsch</button>
+          </div>
+        </div>
       </nav>
 
-      <h1 id="head1">TurtlePharma</h1>
+      <h1 id="head1" data-i18n="page_title">TurtlePharma</h1>
       <p>
-<div class="role-card">
-          This company was designed to help distribute
-          medicines produced by larger pharmaceutical companies in Czechia.<br>
-          Our story begins in 1990, when we faced the challenges
-          of adapting to a new economic environment.<br>
-          Our major goal is to help people understand medicines,
-          pharmaceutical science, and responsible healthcare.
-</div>
-</p>
+        <div class="role-card" data-i18n="about_text_1">
+          This company was designed to help distribute medicines produced by larger pharmaceutical companies in Czechia. Our story begins in 1990, when we faced the challenges of adapting to a new economic environment. Our major goal is to help people understand medicines, pharmaceutical science, and responsible healthcare.
+        </div>
+      </p>
 
       <!-- HALF-WIDTH RESPONSIVE IMAGE CONTAINER -->
       <div id="Kiss">
@@ -278,76 +367,61 @@
       </div>
 
       <p>
-<div class="role-card">
-        At the heart of every effective medicine is a story of care,
-        precise science, and human well-being. Welcome to a space
-        created to bridge the gap between complex pharmaceutical
-        chemistry and everyday health.
-  </div>
+        <div class="role-card" data-i18n="about_text_2">
+          At the heart of every effective medicine is a story of care, precise science, and human well-being. Welcome to a space created to bridge the gap between complex pharmaceutical chemistry and everyday health.
+        </div>
       </p>
 
-      <h1>Core Pharmaceutical Capabilities & Services</h1>
+      <h1 data-i18n="services_title">Core Pharmaceutical Capabilities & Services</h1>
 
       <div class="info-grid">
         <div class="info-card">
-          <h3>1. Research & Development (R&D)</h3>
-          <p>
-            Specializing in active pharmaceutical ingredient (API) optimization,
-            custom synthesis, and advanced Drug Delivery Systems (DDS). We evaluate
-            bioavailability kinetics and cold sintering methods to enhance drug stability.
+          <h3 data-i18n="card_1_title">1. Research & Development (R&D)</h3>
+          <p data-i18n="card_1_desc">
+            Specializing in active pharmaceutical ingredient (API) optimization, custom synthesis, and advanced Drug Delivery Systems (DDS). We evaluate bioavailability kinetics and cold sintering methods to enhance drug stability.
           </p>
         </div>
 
         <div class="info-card">
-          <h3>2. Quality Assurance & cGMP Compliance</h3>
-          <p>
-            Operating under rigorous EU-GMP and ISO 17025 standards. Facilities utilize
-            high-performance liquid chromatography (HPLC/UPLC), UV-Vis spectroscopy, and
-            automated dissolution profiling to guarantee batch-to-batch consistency.
+          <h3 data-i18n="card_2_title">2. Quality Assurance & cGMP Compliance</h3>
+          <p data-i18n="card_2_desc">
+            Operating under rigorous EU-GMP and ISO 17025 standards. Facilities utilize high-performance liquid chromatography (HPLC/UPLC), UV-Vis spectroscopy, and automated dissolution profiling to guarantee batch-to-batch consistency.
           </p>
         </div>
 
         <div class="info-card">
-          <h3>3. Therapeutic Portfolio</h3>
-          <p>
-            Supplying prescription pharmaceuticals and over-the-counter formulations focused on
-            cardiovascular health, metabolic disorders, central nervous system therapies,
-            and target-specific antimicrobial agents.
+          <h3 data-i18n="card_3_title">3. Therapeutic Portfolio</h3>
+          <p data-i18n="card_3_desc">
+            Supplying prescription pharmaceuticals and over-the-counter formulations focused on cardiovascular health, metabolic disorders, central nervous system therapies, and target-specific antimicrobial agents.
           </p>
         </div>
 
         <div class="info-card">
-          <h3>4. Pharmacovigilance & Safety</h3>
-          <p>
-            Maintaining continuous post-market surveillance and 24/7 adverse event
-            reporting protocols to ensure patient safety, regulatory compliance, and
-            transparent risk management across all distributed drug product lines.
+          <h3 data-i18n="card_4_title">4. Pharmacovigilance & Safety</h3>
+          <p data-i18n="card_4_desc">
+            Maintaining continuous post-market surveillance and 24/7 adverse event reporting protocols to ensure patient safety, regulatory compliance, and transparent risk management across all distributed drug product lines.
           </p>
         </div>
 
         <div class="info-card">
-          <h3>5. Cold-Chain Supply Logistics</h3>
-          <p>
-            Equipped with temperature-validated storage (-80°C to +25°C) and real-time GPS/thermal
-            tracking to safeguard heat-sensitive biologics and oral solid dosage forms from
-            synthesis to pharmacy delivery.
+          <h3 data-i18n="card_5_title">5. Cold-Chain Supply Logistics</h3>
+          <p data-i18n="card_5_desc">
+            Equipped with temperature-validated storage (-80°C to +25°C) and real-time GPS/thermal tracking to safeguard heat-sensitive biologics and oral solid dosage forms from synthesis to pharmacy delivery.
           </p>
         </div>
 
         <div class="info-card">
-          <h3>6. Medical Information & Support</h3>
-          <p>
-            Providing healthcare professionals and patients with comprehensive scientific
-            documentation, bioequivalence studies, dosing guidelines, and patient safety
-            data sheets.
+          <h3 data-i18n="card_6_title">6. Medical Information & Support</h3>
+          <p data-i18n="card_6_desc">
+            Providing healthcare professionals and patients with comprehensive scientific documentation, bioequivalence studies, dosing guidelines, and patient safety data sheets.
           </p>
         </div>
       </div>
 
       <!-- BOTTOM FOOTER LINKS -->
       <footer class="bottom-footer">
-        <a href="contacts.html">Contacts</a> |
-        <a href="partners.html">Partners</a>
+        <a href="contacts.html" data-i18n="footer_contacts">Contacts</a> |
+        <a href="partners.html" data-i18n="footer_partners">Partners</a>
       </footer>
 
     </div>
@@ -355,16 +429,132 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
+      /* TOOLTIP LOGIC */
       const wrappers = document.querySelectorAll(".img-wrapper");
-
       wrappers.forEach(function (wrapper) {
         const img = wrapper.querySelector("img");
         const tooltip = wrapper.querySelector(".tooltip-text");
-
         if (img && tooltip) {
           tooltip.textContent = img.alt;
         }
       });
+    });
+
+    /* MULTILINGUAL TRANSLATIONS DICTIONARY */
+    const translations = {
+      en: {
+        nav_main: "Main page",
+        nav_career: "Career",
+        nav_rules: "Followed rules",
+        nav_campaign: "Turtle Campaign",
+        lang_text: "Language",
+        page_title: "TurtlePharma",
+        about_text_1: "This company was designed to help distribute medicines produced by larger pharmaceutical companies in Czechia. Our story begins in 1990, when we faced the challenges of adapting to a new economic environment. Our major goal is to help people understand medicines, pharmaceutical science, and responsible healthcare.",
+        about_text_2: "At the heart of every effective medicine is a story of care, precise science, and human well-being. Welcome to a space created to bridge the gap between complex pharmaceutical chemistry and everyday health.",
+        services_title: "Core Pharmaceutical Capabilities & Services",
+        card_1_title: "1. Research & Development (R&D)",
+        card_1_desc: "Specializing in active pharmaceutical ingredient (API) optimization, custom synthesis, and advanced Drug Delivery Systems (DDS). We evaluate bioavailability kinetics and cold sintering methods to enhance drug stability.",
+        card_2_title: "2. Quality Assurance & cGMP Compliance",
+        card_2_desc: "Operating under rigorous EU-GMP and ISO 17025 standards. Facilities utilize high-performance liquid chromatography (HPLC/UPLC), UV-Vis spectroscopy, and automated dissolution profiling to guarantee batch-to-batch consistency.",
+        card_3_title: "3. Therapeutic Portfolio",
+        card_3_desc: "Supplying prescription pharmaceuticals and over-the-counter formulations focused on cardiovascular health, metabolic disorders, central nervous system therapies, and target-specific antimicrobial agents.",
+        card_4_title: "4. Pharmacovigilance & Safety",
+        card_4_desc: "Maintaining continuous post-market surveillance and 24/7 adverse event reporting protocols to ensure patient safety, regulatory compliance, and transparent risk management across all distributed drug product lines.",
+        card_5_title: "5. Cold-Chain Supply Logistics",
+        card_5_desc: "Equipped with temperature-validated storage (-80°C to +25°C) and real-time GPS/thermal tracking to safeguard heat-sensitive biologics and oral solid dosage forms from synthesis to pharmacy delivery.",
+        card_6_title: "6. Medical Information & Support",
+        card_6_desc: "Providing healthcare professionals and patients with comprehensive scientific documentation, bioequivalence studies, dosing guidelines, and patient safety data sheets.",
+        footer_contacts: "Contacts",
+        footer_partners: "Partners"
+      },
+      cs: {
+        nav_main: "Hlavní strana",
+        nav_career: "Kariéra",
+        nav_rules: "Dodržovaná pravidla",
+        nav_campaign: "Želví kampaň",
+        lang_text: "Jazyk",
+        page_title: "TurtlePharma",
+        about_text_1: "Tato společnost byla založena za účelem distribuce léčiv vyráběných většími farmaceutickými firmami v České republice. Náš příběh začíná v roce 1990, kdy jsme čelili výzvám přechodu na nové ekonomické prostředí. Naším hlavním cílem je pomáhat lidem porozumět lékům, farmaceutickým vědám a zodpovědné zdravotní péči.",
+        about_text_2: "V srdci každého účinného léku je příběh péče, přesné vědy a lidského zdraví. Vítejte v prostoru vytvořeném k překlenutí propasti mezi složitou farmaceutickou chemií a běžným zdravím.",
+        services_title: "Klíčové farmaceutické kapacity a služby",
+        card_1_title: "1. Výzkum a vývoj (R&D)",
+        card_1_desc: "Specializace na optimalizaci aktivních farmaceutických látek (API), zakázkovou syntézu a pokročilé systémy dodávání léčiv (DDS). Hodnotíme kinetiku bioavailabilities a metody chladného spékání pro zvýšení stability léčiv.",
+        card_2_title: "2. Zajištění kvality a shoda s cGMP",
+        card_2_desc: "Provoz pod přísnými standardy EU-GMP a ISO 17025. Laboratoře využívají vysokoúčinnou kapalinovou chromatografii (HPLC/UPLC), UV-Vis spektroskopii a automatizované disoluční profilování pro zaručení konzistence mezi šaržemi.",
+        card_3_title: "3. Terapeutické portfolio",
+        card_3_desc: "Dodávky léčiv na předpis i volně prodejných přípravků zaměřených na kardiovaskulární zdraví, metabolické poruchy, terapie centrálního nervového systému a cílená antimikrobiální léčiva.",
+        card_4_title: "4. Farmakovigilance a bezpečnost",
+        card_4_desc: "Udržování nepřetržitého po-registračního dohledu a 24/7 protokolů pro hlášení nežádoucích účinků k zajištění bezpečnosti pacientů, dodržování předpisů a transparentního řízení rizik u všech distribuovaných produktových řad.",
+        card_5_title: "5. Logistika chladírenského řetězce",
+        card_5_desc: "Vybavení teplotně validovanými sklady (-80 °C až +25 °C) a sledováním GPS/teploty v reálném čase k ochraně teplocitlivých biologických látek a pevných perorálních lékových forem od syntézy po doručení do lékárny.",
+        card_6_title: "6. Lékařské informace a podpora",
+        card_6_desc: "Poskytování odborné vědecké dokumentace, bioekvivalenčních studií, pokynů pro dávkování a bezpečnostních listů pro pacienty zdravotnickým pracovníkům i veřejnosti.",
+        footer_contacts: "Kontakty",
+        footer_partners: "Partneři"
+      },
+      de: {
+        nav_main: "Hauptseite",
+        nav_career: "Karriere",
+        nav_rules: "Befolgte Regeln",
+        nav_campaign: "Schildkröten-Kampagne",
+        lang_text: "Sprache",
+        page_title: "TurtlePharma",
+        about_text_1: "Dieses Unternehmen wurde entwickelt, um den Vertrieb von Arzneimitteln großer pharmazeutischer Unternehmen in Tschechien zu unterstützen. Unsere Geschichte beginnt 1990, als wir vor der Herausforderung standen, uns an ein neues wirtschaftliches Umfeld anzupassen. Unser Hauptziel ist es, Menschen das Verständnis für Arzneimittel, Pharmazeutik und verantwortungsvolle Gesundheitspflege zu vermitteln.",
+        about_text_2: "Im Mittelpunkt jedes wirksamen Arzneimittels steht eine Geschichte von Fürsorge, präziser Wissenschaft und menschlichem Wohlbefinden. Willkommen in einem Raum, der geschaffen wurde, um die Lücke zwischen komplexer pharmazeutischer Chemie und alltäglicher Gesundheit zu schließen.",
+        services_title: "Wichtigste pharmazeutische Fähigkeiten & Dienstleistungen",
+        card_1_title: "1. Forschung & Entwicklung (F&E)",
+        card_1_desc: "Spezialisiert auf die Optimierung von Wirkstoffen (API), Kundensynthese und fortschrittliche Arzneiformen (DDS). Wir bewerten die Bioverfügbarkeitskinetik und Kaltsintern-Methoden zur Verbesserung der Arzneimittelstabilität.",
+        card_2_title: "2. Qualitätssicherung & cGMP-Compliance",
+        card_2_desc: "Betrieb nach strengen EU-GMP- und ISO 17025-Standards. Die Einrichtungen nutzen Hochleistungs-Flüssigkeitschromatographie (HPLC/UPLC), UV-Vis-Spektroskopie und automatisierte Freisetzungsprofile zur Gewährleistung der Chargenkonsistenz.",
+        card_3_title: "3. Therapeutisches Portfolio",
+        card_3_desc: "Lieferung von rezeptpflichtigen und rezeptfreien Arzneimitteln mit Schwerpunkt auf Herz-Kreislauf-Gesundheit, Stoffwechselstörungen, ZNS-Therapien und zielgerichtete antimikrobielle Wirkstoffe.",
+        card_4_title: "4. Pharmakovigilanz & Sicherheit",
+        card_4_desc: "Kontinuierliche Marktüberwachung und 24/7-Meldeprotokolle für unerwünschte Ereignisse zur Gewährleistung der Patientensicherheit, Einhaltung von Vorschriften und transparentem Risikomanagement über alle Produktlinien.",
+        card_5_title: "5. Kühlketten-Logistik",
+        card_5_desc: "Ausgestattet mit temperaturvalidierten Lagern (-80 °C bis +25 °C) und Echtzeit-GPS/Thermo-Tracking zum Schutz wärmeempfindlicher Biologika und fester oraler Darreichungsformen von der Synthese bis zur Lieferung an die Apotheke.",
+        card_6_title: "6. Medizinische Information & Unterstützung",
+        card_6_desc: "Bereitstellung umfassender wissenschaftlicher Dokumentationen, Bioäquivalenzstudien, Dosierungsrichtlinien und Patientensicherheitsdatenblätter für Fachkreise und Patienten.",
+        footer_contacts: "Kontakte",
+        footer_partners: "Partner"
+      }
+    };
+
+    const langBtn = document.getElementById("langBtn");
+    const langMenu = document.getElementById("langMenu");
+    const langOptions = document.querySelectorAll(".lang-option");
+
+    const setLanguage = (lang) => {
+      if (!translations[lang]) return;
+      document.documentElement.lang = lang;
+
+      const elementsToTranslate = document.querySelectorAll("[data-i18n]");
+      elementsToTranslate.forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+    };
+
+    langBtn.addEventListener("click", () => {
+      const isExpanded = langMenu.classList.toggle("show");
+      langBtn.setAttribute("aria-expanded", isExpanded);
+    });
+
+    langOptions.forEach((option) => {
+      option.addEventListener("click", () => {
+        const selectedLang = option.getAttribute("data-lang");
+        setLanguage(selectedLang);
+        langMenu.classList.remove("show");
+        langBtn.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!event.target.closest(".lang-dropdown")) {
+        langMenu.classList.remove("show");
+        langBtn.setAttribute("aria-expanded", "false");
+      }
     });
   </script>
 
