@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TurtlePharma - Career</title>
+  <title>TurtlePharma - Partners</title>
   <style>
     html, body {
       margin: 0;
@@ -40,12 +40,6 @@
       margin-bottom: 15px;
     }
 
-    h3 {
-      font-size: 1.3rem;
-      margin-top: 20px;
-      margin-bottom: 15px;
-    }
-
     p {
       color: rgb(0, 0, 0);
       padding: 8px 0;
@@ -62,7 +56,7 @@
       text-decoration: underline;
     }
 
-    /* TOP NAVIGATION & LANGUAGE DROPDOWN */
+    /* TOP NAVIGATION BAR & LANG */
     .top-nav {
       display: flex;
       justify-content: space-between;
@@ -166,6 +160,7 @@
       outline: none;
     }
 
+    /* BOTTOM FOOTER NAVIGATION */
     .bottom-footer {
       margin-top: 40px;
       padding-top: 20px;
@@ -191,7 +186,7 @@
       background-color: rgba(255, 255, 255, 0.88);
       border-left: 5px solid rgb(0, 100, 0);
       border-radius: 4px;
-      padding: 16px 22px;
+      padding: 0px 22px;
       margin-bottom: 20px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.05);
     }
@@ -208,89 +203,13 @@
       margin: 0;
       padding: 4px 0;
     }
-
-    /* APPLICATION FORM SECTION */
-    .application-section {
-      background-color: rgba(255, 255, 255, 0.88);
-      border: 2px solid rgb(0, 100, 0);
-      border-radius: 6px;
-      padding: 24px;
-      margin-top: 30px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-    }
-
-    .form-inline-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 15px;
-    }
-
-    .form-label {
-      color: rgb(0, 0, 130);
-      font-weight: bold;
-      font-size: 1.05rem;
-      margin: 0;
-    }
-
-    .role-select, .email-input {
-      padding: 10px 14px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1rem;
-      box-sizing: border-box;
-    }
-
-    .role-select {
-      flex: 1;
-      min-width: 260px;
-    }
-
-    .email-input {
-      width: 100%;
-      max-width: 420px;
-      display: block;
-      margin-bottom: 15px;
-    }
-
-    .apply-btn {
-      background-color: rgb(0, 100, 0);
-      color: white;
-      padding: 12px 24px;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.2s ease, transform 0.1s ease;
-    }
-
-    .apply-btn:hover {
-      background-color: rgb(0, 140, 0);
-      transform: translateY(-2px);
-    }
-
-    .apply-btn:disabled {
-      background-color: #888888;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    .success-message {
-      color: rgb(0, 100, 0);
-      font-weight: bold;
-      font-size: 1.2rem;
-      text-align: center;
-      margin: 0;
-      padding: 12px 0;
-    }
   </style>
 </head>
 
 <body>
 
   <div id="scrollContent">
+    <!-- TOP NAVIGATION BUTTONS & LANG -->
     <nav class="top-nav" aria-label="Main Navigation">
       <div class="nav-links">
         <a href="index.html" class="nav-btn" data-i18n="nav_main">Main page</a>
@@ -317,75 +236,35 @@
       </div>
     </nav>
 
-    <h1 data-i18n="page_title">Career</h1>
+    <h1 data-i18n="page_title">Partners</h1>
 
     <div class="content-card">
-      <h4 data-i18n="role_1_title">1. Qualified Person (QP) & Quality Assurance (QA) Managers</h4>
-      <p data-i18n="role_1_desc">
-        Qualified Persons hold ultimate legal responsibility for certifying that every individual batch of pharmaceuticals produced or imported meets strict regulatory specifications before public release. Quality Assurance managers oversee corporate compliance systems, audit batch records, and maintain standard operating procedures across all manufacturing units.
+      <p data-i18n="intro_text">
+        TurtlePharma collaborates with leading academic research institutions, international pharmaceutical manufacturers, and environmental conservation alliances to foster innovation and sustainable health practices:
       </p>
     </div>
 
     <div class="content-card">
-      <h4 data-i18n="role_2_title">2. Quality Control (QC) Analytical Chemists</h4>
-      <p data-i18n="role_2_desc">
-        QC Chemists analyze active ingredient raw materials, intermediates, and final dosage forms using advanced analytical techniques like HPLC, UPLC, UV-Vis spectroscopy, and automated dissolution testing. Their work ensures chemical purity, potency, uniform disintegration, and physical stability.
+      <h4 data-i18n="academic_title">Academic & Research Partners:</h4>
+      <p>
+        <span data-i18n="academic_item1">• University of Chemistry and Technology Prague (VŠCHT) – Joint analytical testing and student internship development.</span><br>
+        <span data-i18n="academic_item2">• European Network of Pharmaceutical Sciences (EUFEPS) – Shared drug delivery formulation research.</span>
       </p>
     </div>
 
     <div class="content-card">
-      <h4 data-i18n="role_3_title">3. Formulation & Process Validation Engineers</h4>
-      <p data-i18n="role_3_desc">
-        Chemical and pharmaceutical engineers design scale-up manufacturing operations, optimizing tablet compression, liquid filling, or drug delivery matrix formulation. Process validation specialists systematically prove that production equipment consistently yields identical quality standards across high-volume production batches.
+      <h4 data-i18n="manufacturing_title">Manufacturing & Logistics Alliances:</h4>
+      <p>
+        <span data-i18n="manufacturing_item1">• Zentiva k.s. – Active API supply chain and dissolution profile contract testing.</span><br>
+        <span data-i18n="manufacturing_item2">• Central European Pharma Cold-Chain Logistics Group – Temperature-controlled distribution networks.</span>
       </p>
     </div>
 
     <div class="content-card">
-      <h4 data-i18n="role_4_title">4. Regulatory Affairs (RA) Specialists</h4>
-      <p data-i18n="role_4_desc">
-        RA Specialists build the crucial communication bridge between TurtlePharma and national or international health agencies (such as SÚKL or EMA). They prepare technical drug dossiers, manage product registration renewals, and verify packaging compliance.
+      <h4 data-i18n="conservation_title">Conservation Partners:</h4>
+      <p>
+        <span data-i18n="conservation_item1">• Global Marine Chelonian Trust – Co-sponsoring coastal rescue stations, hatchling protection programs, and ecotoxicology research.</span>
       </p>
-    </div>
-
-    <div class="content-card">
-      <h4 data-i18n="role_5_title">5. Pharmacovigilance (PV) & Medical Safety Officers</h4>
-      <p data-i18n="role_5_desc">
-        Medical safety officers monitor ongoing post-marketing safety by recording, evaluating, and reporting any adverse events reported by physicians or patients. Their vigilant monitoring protects patient safety throughout the complete market lifecycle of every drug product.
-      </p>
-    </div>
-
-    <div class="content-card">
-      <h4 data-i18n="role_6_title">6. Cold-Chain Logistics & Supply Chain Specialists</h4>
-      <p data-i18n="role_6_desc">
-        Logistics personnel coordinate secure, temperature-monitored storage and distribution networks. They ensure biologicals, vaccines, and sensitive oral medications remain strictly within required temperature bounds from chemical synthesis to hospital pharmacy shelf.
-      </p>
-    </div>
-
-    <!-- APPLICATION FORM SECTION -->
-    <div class="application-section" id="appSection">
-      <form id="applyForm">
-        <div class="form-inline-row">
-          <label for="roleSelect" class="form-label" data-i18n="app_label">If you are interested in one of these roles, please leave your e-mail here:</label>
-          <select id="roleSelect" class="role-select" required>
-            <option value="QP & QA Manager" data-i18n="role_1_title">1. Qualified Person (QP) & Quality Assurance (QA) Managers</option>
-            <option value="QC Analytical Chemist" data-i18n="role_2_title">2. Quality Control (QC) Analytical Chemists</option>
-            <option value="Formulation & Process Engineer" data-i18n="role_3_title">3. Formulation & Process Validation Engineers</option>
-            <option value="RA Specialist" data-i18n="role_4_title">4. Regulatory Affairs (RA) Specialists</option>
-            <option value="PV & Medical Safety Officer" data-i18n="role_5_title">5. Pharmacovigilance (PV) & Medical Safety Officers</option>
-            <option value="Logistics Specialist" data-i18n="role_6_title">6. Cold-Chain Logistics & Supply Chain Specialists</option>
-          </select>
-        </div>
-        <input 
-          type="email" 
-          id="emailInput" 
-          class="email-input" 
-          data-i18n-placeholder="email_placeholder"
-          placeholder="your.email@example.com" 
-          pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" 
-          required 
-        />
-        <button type="submit" id="submitBtn" class="apply-btn" data-i18n="app_btn">Become part of our team!</button>
-      </form>
     </div>
 
     <footer class="bottom-footer">
@@ -395,9 +274,6 @@
   </div>
 
   <script>
-    /* UPDATED GOOGLE APPS SCRIPT ENDPOINT URL */
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzfC8Dw1eZB2PI8teLdllq-MWnTonabMKZ1fFcQsBRx0ahZX9_vcnPnfAaD_bYfhubw/exec";
-
     /* MULTILINGUAL TRANSLATIONS DICTIONARY */
     const translations = {
       en: {
@@ -406,24 +282,16 @@
         nav_rules: "Followed rules",
         nav_campaign: "Turtle Campaign",
         lang_text: "Language",
-        page_title: "Career",
-        role_1_title: "1. Qualified Person (QP) & Quality Assurance (QA) Managers",
-        role_1_desc: "Qualified Persons hold ultimate legal responsibility for certifying that every individual batch of pharmaceuticals produced or imported meets strict regulatory specifications before public release. Quality Assurance managers oversee corporate compliance systems, audit batch records, and maintain standard operating procedures across all manufacturing units.",
-        role_2_title: "2. Quality Control (QC) Analytical Chemists",
-        role_2_desc: "QC Chemists analyze active ingredient raw materials, intermediates, and final dosage forms using advanced analytical techniques like HPLC, UPLC, UV-Vis spectroscopy, and automated dissolution testing. Their work ensures chemical purity, potency, uniform disintegration, and physical stability.",
-        role_3_title: "3. Formulation & Process Validation Engineers",
-        role_3_desc: "Chemical and pharmaceutical engineers design scale-up manufacturing operations, optimizing tablet compression, liquid filling, or drug delivery matrix formulation. Process validation specialists systematically prove that production equipment consistently yields identical quality standards across high-volume production batches.",
-        role_4_title: "4. Regulatory Affairs (RA) Specialists",
-        role_4_desc: "RA Specialists build the crucial communication bridge between TurtlePharma and national or international health agencies (such as SÚKL or EMA). They prepare technical drug dossiers, manage product registration renewals, and verify packaging compliance.",
-        role_5_title: "5. Pharmacovigilance (PV) & Medical Safety Officers",
-        role_5_desc: "Medical safety officers monitor ongoing post-marketing safety by recording, evaluating, and reporting any adverse events reported by physicians or patients. Their vigilant monitoring protects patient safety throughout the complete market lifecycle of every drug product.",
-        role_6_title: "6. Cold-Chain Logistics & Supply Chain Specialists",
-        role_6_desc: "Logistics personnel coordinate secure, temperature-monitored storage and distribution networks. They ensure biologicals, vaccines, and sensitive oral medications remain strictly within required temperature bounds from chemical synthesis to hospital pharmacy shelf.",
-        app_label: "If you are interested in one of these roles, please leave your e-mail here:",
-        email_placeholder: "your.email@example.com",
-        email_validation_msg: "Please enter a valid email address (e.g., name@example.com).",
-        app_btn: "Become part of our team!",
-        app_success: "Our team will contact you shortly with further details regarding the position",
+        page_title: "Partners",
+        intro_text: "TurtlePharma collaborates with leading academic research institutions, international pharmaceutical manufacturers, and environmental conservation alliances to foster innovation and sustainable health practices:",
+        academic_title: "Academic & Research Partners:",
+        academic_item1: "• University of Chemistry and Technology Prague (VŠCHT) – Joint analytical testing and student internship development.",
+        academic_item2: "• European Network of Pharmaceutical Sciences (EUFEPS) – Shared drug delivery formulation research.",
+        manufacturing_title: "Manufacturing & Logistics Alliances:",
+        manufacturing_item1: "• Zentiva k.s. – Active API supply chain and dissolution profile contract testing.",
+        manufacturing_item2: "• Central European Pharma Cold-Chain Logistics Group – Temperature-controlled distribution networks.",
+        conservation_title: "Conservation Partners:",
+        conservation_item1: "• Global Marine Chelonian Trust – Co-sponsoring coastal rescue stations, hatchling protection programs, and ecotoxicology research.",
         footer_contacts: "Contacts",
         footer_partners: "Partners"
       },
@@ -433,24 +301,16 @@
         nav_rules: "Dodržovaná pravidla",
         nav_campaign: "Želví kampaň",
         lang_text: "Jazyk",
-        page_title: "Kariéra",
-        role_1_title: "1. Manažeři kvalifikovaných osob (QP) a zajištění kvality (QA)",
-        role_1_desc: "Kvalifikované osoby (QP) nesou právní odpovědnost za certifikaci každé šarže léčiv před jejím propuštěním na trh. Manažeři zajištění kvality dohlížejí na systémy dodržování předpisů, auditují záznamy o šaržích a udržují standardní operační postupy napříč všemi výrobními jednotkami.",
-        role_2_title: "2. Analytičtí chemici kontroly kvality (QC)",
-        role_2_desc: "Chemici QC analyzují suroviny účinných látek, meziprodukty a finální lékové formy pomocí pokročilých analytických technik, jako jsou HPLC, UPLC, UV-Vis spektroskopie a automatizované disoluční testování. Jejich práce zajišťuje chemickou čistotu, účinnost a fyzikální stabilitu.",
-        role_3_title: "3. Inženýři formulací a validace procesů",
-        role_3_desc: "Chemičtí a farmaceutičtí inženýři navrhují zvětšování měřítka výroby, optimalizují lisování tablet či formulace lékových forem. Specialisté validace procesů dokazují, že výrobní zařízení konzistentně dosahuje požadované kvality u velkoobjemových šarží.",
-        role_4_title: "4. Specialisté pro regulaci a registraci (RA)",
-        role_4_desc: "Specialisté RA tvoří klíčový most mezi společností TurtlePharma a národními či mezinárodními zdravotnickými autoritami (jako SÚKL nebo EMA). Připravují technickou registrační dokumentaci léčiv a spravují obnovy registrací.",
-        role_5_title: "5. Pracovníci farmakovigilance (PV) a lékařské bezpečnosti",
-        role_5_desc: "Pracovníci lékařské bezpečnosti sledují bezpečnost léčiv po jejich uvedení na trh zaznamenáváním a vyhodnocováním nežádoucích účinků nahlášených lékaři nebo pacienty. Jejich dohled chráni bezpečnost pacientů během celého životního cyklu produktu.",
-        role_6_title: "6. Specialisté logistiky chladírenského a dodavatelského řetězce",
-        role_6_desc: "Pracovníci logistiky koordinují bezpečné a teplotně sledované skladování a distribuci. Zajišťují, aby biologika, vakcíny a citlivá ústní léčiva zůstala v požadovaných teplotních mezích od syntézy až po lékárenský regál.",
-        app_label: "Pokud máte zájem o některou z těchto pozic, zanechte zde svůj e-mail:",
-        email_placeholder: "vas.email@priklad.cz",
-        email_validation_msg: "Zadejte platnou e-mailovou adresu (např. jmeno@priklad.cz).",
-        app_btn: "Staňte se součástí našeho týmu!",
-        app_success: "Náš tým vás bude brzy kontaktovat s dalšími podrobnostmi ohledně pozice",
+        page_title: "Partneři",
+        intro_text: "TurtlePharma spolupracuje s předními akademickými výzkumnými institucemi, mezinárodními farmaceutickými výrobci a aliancemi na ochranu životního prostředí s cílem podpořit inovace a udržitelné zdravotní postupy:",
+        academic_title: "Akademičtí a výzkumní partneři:",
+        academic_item1: "• Vysoká škola chemicko-technologická v Praze (VŠCHT) – Společné analytické testování a rozvoj pracovních stáží pro studenty.",
+        academic_item2: "• Evropská síť farmaceutických věd (EUFEPS) – Sdílený výzkum formulací pro dodávání léčiv.",
+        manufacturing_title: "Výrobní a logistické aliance:",
+        manufacturing_item1: "• Zentiva k.s. – Aktivní dodavatelský řetězec API a smluvní testování disolučních profilů.",
+        manufacturing_item2: "• Středoevropská skupina logistiky chladírenského řetězce pharma – Distribuční sítě s řízenou teplotou.",
+        conservation_title: "Partneři v oblasti ochrany přírody:",
+        conservation_item1: "• Global Marine Chelonian Trust – Spolufinancování pobřežních záchranných stanic, programů ochrany mláďat a ekotoxikologického výzkumu.",
         footer_contacts: "Kontakty",
         footer_partners: "Partneři"
       },
@@ -460,24 +320,16 @@
         nav_rules: "Befolgte Regeln",
         nav_campaign: "Schildkröten-Kampagne",
         lang_text: "Sprache",
-        page_title: "Karriere",
-        role_1_title: "1. Sachkundige Personen (QP) & Qualitätsmanagement (QA) Manager",
-        role_1_desc: "Sachkundige Personen (QP) tragen die rechtliche Verantwortung für die Zertifizierung jeder Arzneimittelcharge vor der Marktfreigabe. QA-Manager überwachen Compliance-Systeme, auditieren Chargenprotokolle und pflegen Standardarbeitsanweisung über alle Herstellungseinheiten hinweg.",
-        role_2_title: "2. Analytische Chemiker der Qualitätskontrolle (QC)",
-        role_2_desc: "QC-Chemiker analysieren Wirkstoffe, Zwischenprodukte und Enddarreichungsformen mit fortschrittlichen Techniken wie HPLC, UPLC, UV-Vis-Spektroskopie und Freisetzungstests. Sie gewährleisten chemische Reinheit, Wirkstärke und Stabilität.",
-        role_3_title: "3. Formulierungs- und Prozessvalidierungsingenieure",
-        role_3_desc: "Chemie- und Pharmaingenieure planen die Skalierung der Produktion und optimieren die Tablettierung oder Formulierung von Arzneiformen. Prozessvalidierungsspezialisten belegen die gleichbleibende Qualität der Produktionsanlagen bei Großserien.",
-        role_4_title: "4. Spezialisten für Regulatory Affairs (RA)",
-        role_4_desc: "RA-Spezialisten bilden die Brücke zwischen TurtlePharma und Gesundheitsbehörden (wie SÚKL oder EMA). Sie erstellen technische Dossiers, verwalten Arzneimittelzulassungen und prüfen die Verpackungs-Compliance.",
-        role_5_title: "5. Pharmakovigilanz (PV) & Medical Safety Officers",
-        role_5_desc: "Medical Safety Officers überwachen die Sicherheit nach der Markteinführung durch Erfassung und Bewertung von Nebenwirkungen. Ihre Überwachung schützt die Patientensicherheit während des gesamten Lebenszyklus des Arzneimittels.",
-        role_6_title: "6. Spezialisten für Kühlketten-Logistik & Supply Chain",
-        role_6_desc: "Logistikpersonal koordiniert temperaturüberwachte Lager- und Vertriebsnetze. Sie stellen sicher, dass Biologika, Impfstoffe und empfindliche Medikamente stets im erforderlichen Temperaturbereich bleiben.",
-        app_label: "Wenn Sie an einer dieser Stellen interessiert sind, hinterlassen Sie bitte hier Ihre E-Mail-Adresse:",
-        email_placeholder: "ihre.email@beispiel.de",
-        email_validation_msg: "Bitte geben Sie eine gültige E-Mail-Adresse ein (z. B. name@beispiel.de).",
-        app_btn: "Werden Sie Teil unseres Teams!",
-        app_success: "Unser Team wird Sie in Kürze mit weiteren Details zur Stelle kontaktieren",
+        page_title: "Partner",
+        intro_text: "TurtlePharma arbeitet mit führenden akademischen Forschungseinrichtungen, internationalen Pharmaherstellern und Umweltschutzallianzen zusammen, um Innovationen und nachhaltige Gesundheitspraktiken zu fördern:",
+        academic_title: "Akademische & Forschungspartner:",
+        academic_item1: "• Chemisch-Technologische Universität Prag (VŠCHT) – Gemeinsame analytische Tests und Entwicklung von Studentenpraktika.",
+        academic_item2: "• Europäisches Netz für Pharmazeutische Wissenschaften (EUFEPS) – Gemeinsame Forschung zu Arzneiformen.",
+        manufacturing_title: "Herstellungs- & Logistikallianzen:",
+        manufacturing_item1: "• Zentiva k.s. – Aktive API-Lieferkette und vertragliche Prüfung von Freisetzungsprofilen.",
+        manufacturing_item2: "• Zentraleuropäische Pharma-Kühlketten-Logistikgruppe – Temperaturgeführte Vertriebsnetze.",
+        conservation_title: "Naturschutzpartner:",
+        conservation_item1: "• Global Marine Chelonian Trust – Kofinanzierung von Küstenrettungsstationen, Schutzprogrammen für Schlüpflinge und ökotoxikologischer Forschung.",
         footer_contacts: "Kontakte",
         footer_partners: "Partner"
       },
@@ -487,24 +339,16 @@
         nav_rules: "Normas seguidas",
         nav_campaign: "Campaña de la Tortuga",
         lang_text: "Idioma",
-        page_title: "Carrera",
-        role_1_title: "1. Personas Cualificadas (QP) y Gerentes de Garantía de Calidad (QA)",
-        role_1_desc: "Las Personas Cualificadas tienen la responsabilidad legal final de certificar que cada lote individual de productos farmacéuticos cumple con estrictas especificaciones reglamentarias.",
-        role_2_title: "2. Químicos Analíticos de Control de Calidad (QC)",
-        role_2_desc: "Los químicos de QC analizan materias primas de principios activos y formas farmacéuticas finales utilizando técnicas avanzadas como HPLC y UPLC.",
-        role_3_title: "3. Ingenieros de Formulación y Validación de Procesos",
-        role_3_desc: "Los ingenieros químicos y farmacéuticos diseñan operaciones de fabricación a escala, optimizando la compresión de comprimidos y formulaciones.",
-        role_4_title: "4. Especialistas en Asuntos Regulatorios (RA)",
-        role_4_desc: "Los especialistas en RA construyen el puente de comunicación crucial entre TurtlePharma y las agencias de salud nacionales o internacionales.",
-        role_5_title: "5. Oficiales de Farmacovigilancia (PV) y Seguridad Médica",
-        role_5_desc: "Los oficiales de seguridad médica supervisan la seguridad post-comercialización mediante el registro y evaluación de eventos adversos.",
-        role_6_title: "6. Especialistas en Logística de Cadena de Frío y Cadena de Suministro",
-        role_6_desc: "El personal de logística coordina redes de almacenamiento y distribución seguras y con temperatura controlada.",
-        app_label: "Si está interesado en uno de estos puestos, deje su correo electrónico aquí:",
-        email_placeholder: "tu.correo@ejemplo.com",
-        email_validation_msg: "Por favor, introduce una dirección de correo electrónico válida.",
-        app_btn: "¡Forma parte de nuestro equipo!",
-        app_success: "Nuestro equipo se pondrá en contacto con usted en breve con más detalles",
+        page_title: "Socios",
+        intro_text: "TurtlePharma colabora con destacados centros de investigación académica, fabricantes farmacéuticos internacionales y alianzas de conservación ambiental:",
+        academic_title: "Socios Académicos y de Investigación:",
+        academic_item1: "• Universidad de Química y Tecnología de Praga (VŠCHT) – Pruebas analíticas conjuntas y desarrollo de prácticas para estudiantes.",
+        academic_item2: "• Red Europea de Ciencias Farmacéuticas (EUFEPS) – Investigación compartida en formulación de liberación de fármacos.",
+        manufacturing_title: "Alianzas de Fabricación y Logística:",
+        manufacturing_item1: "• Zentiva k.s. – Cadena de suministro de API activo y pruebas de perfiles de disolución.",
+        manufacturing_item2: "• Grupo de Logística de Cadena de Frío Farmacéutica de Europa Central – Redes de distribución controladas por temperatura.",
+        conservation_title: "Socios de Conservación:",
+        conservation_item1: "• Global Marine Chelonian Trust – Copatrocinio de estaciones de rescate costero, programas de protección de crías e investigación ecotoxicológica.",
         footer_contacts: "Contactos",
         footer_partners: "Socios"
       },
@@ -514,24 +358,16 @@
         nav_rules: "Przestrzegane zasady",
         nav_campaign: "Kampania Żółwia",
         lang_text: "Język",
-        page_title: "Kariera",
-        role_1_title: "1. Osoby Odpowiedzialne (QP) i Menedżerowie Zapewnienia Jakości (QA)",
-        role_1_desc: "Osoby Odpowiedzialne ponoszą ostateczną odpowiedzialność prawną za certyfikację każdej partii produktów farmaceutycznych.",
-        role_2_title: "2. Analityczni Chemicy Kontroli Jakości (QC)",
-        role_2_desc: "Chemik QC analizuje surowce substancji czynnych i gotowe postacie leków przy użyciu zaawansowanych technik analitycznych, takich jak HPLC.",
-        role_3_title: "3. Inżynierowie Formulacji i Walidacji Procesów",
-        role_3_desc: "Inżynierowie chemiczni i farmaceutyční projektują operacje produkcyjne na dużą skalę, optymalizując procesy wytwarzania.",
-        role_4_title: "4. Specjaliści ds. Rejestracji i Spraw Regulacyjnych (RA)",
-        role_4_desc: "Specjaliści RA tworzą kluczowy pomost komunikacyjny między TurtlePharma a krajowymi lub międzynarodowymi agencjami zdrowia.",
-        role_5_title: "5. Specjaliści ds. Farmakovigilancji (PV) i Bezpieczeństwa Leków",
-        role_5_desc: "Specjaliści ds. bezpieczeństwa monitorują bieżące bezpieczeństwo po wprowadzeniu do obrotu poprzez rejestrowanie zdarzeń niepożądanych.",
-        role_6_title: "6. Specjaliści ds. Logistyki Łańcucha Chłodniczego i Łańcucha Dostaw",
-        role_6_desc: "Personel logistyczny koordynuje bezpieczne, monitorowane pod kątem temperatury sieci magazynowania i dystrybucji.",
-        app_label: "Jeśli jesteś zainteresowany jedną z tych ról, zostaw swój e-mail tutaj:",
-        email_placeholder: "twoj.email@przyklad.pl",
-        email_validation_msg: "Proszę podać prawidłowy adres e-mail.",
-        app_btn: "Dołącz do naszego zespołu!",
-        app_success: "Nasz zespół wkrótce skontaktuje się z Tobą w sprawie szczegółów",
+        page_title: "Partnerzy",
+        intro_text: "TurtlePharma współpracuje z wiodącymi akademickimi instytucjami badawczymi, międzynarodowymi producentami farmaceutycznymi i sojuszonmi ochrony środowiska:",
+        academic_title: "Partnerzy Akademiejscy i Badawczy:",
+        academic_item1: "• Wyższa Szkoła Chemiczno-Technologiczna w Pradze (VŠCHT) – Wspólne testy analityczne i rozwój staży studenckich.",
+        academic_item2: "• Europejska Sieć Nauk Farmaceutycznych (EUFEPS) – Wspólne badania nad formulacją dostarczania leków.",
+        manufacturing_title: "Sojusze Produkcyjne i Logistyczne:",
+        manufacturing_item1: "• Zentiva k.s. – Łańcuch dostaw aktywnych API i kontraktowe testowanie profili rozpuszczania.",
+        manufacturing_item2: "• Środkowoeuropejska Grupa Logistyki Łańcucha Chłodniczego Pharma – Sieci dystrybucji kontrolowane temperaturowo.",
+        conservation_title: "Partnerzy ds. Ochrony Przyrody:",
+        conservation_item1: "• Global Marine Chelonian Trust – Współfinansowanie nadmorskich stacji ratunkowych, programów ochrony piskląt i badań ekotoksykologicznych.",
         footer_contacts: "Kontakty",
         footer_partners: "Partnerzy"
       }
@@ -540,11 +376,6 @@
     const langBtn = document.getElementById("langBtn");
     const langMenu = document.getElementById("langMenu");
     const langOptions = document.querySelectorAll(".lang-option");
-    const applyForm = document.getElementById("applyForm");
-    const appSection = document.getElementById("appSection");
-    const emailInput = document.getElementById("emailInput");
-    const roleSelect = document.getElementById("roleSelect");
-    const submitBtn = document.getElementById("submitBtn");
 
     const setLanguage = (lang) => {
       if (!translations[lang]) return;
@@ -557,28 +388,7 @@
           el.textContent = translations[lang][key];
         }
       });
-
-      const placeholdersToTranslate = document.querySelectorAll("[data-i18n-placeholder]");
-      placeholdersToTranslate.forEach((el) => {
-        const key = el.getAttribute("data-i18n-placeholder");
-        if (translations[lang][key]) {
-          el.placeholder = translations[lang][key];
-        }
-      });
-
-      if (!emailInput.validity.valid) {
-        emailInput.setCustomValidity(translations[lang].email_validation_msg);
-      }
     };
-
-    emailInput.addEventListener("invalid", () => {
-      const currentLang = document.documentElement.lang || "en";
-      emailInput.setCustomValidity(translations[currentLang].email_validation_msg);
-    });
-
-    emailInput.addEventListener("input", () => {
-      emailInput.setCustomValidity("");
-    });
 
     langBtn.addEventListener("click", () => {
       const isExpanded = langMenu.classList.toggle("show");
@@ -599,41 +409,6 @@
         langMenu.classList.remove("show");
         langBtn.setAttribute("aria-expanded", "false");
       }
-    });
-
-    /* ASYNCHRONOUS FORM SUBMISSION MATCHING ["Date", "Applicant", "E-mail", "Language"] */
-    applyForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const currentLang = document.documentElement.lang || "en";
-      
-      submitBtn.disabled = true;
-
-      const payload = {
-        date: new Date().toLocaleString(),
-        applicant: roleSelect.value,
-        email: emailInput.value,
-        lang: currentLang
-      };
-
-      fetch(GOOGLE_SCRIPT_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "text/plain;charset=utf-8"
-        },
-        body: JSON.stringify(payload)
-      })
-      .then(() => {
-        appSection.innerHTML = `
-          <p class="success-message" data-i18n="app_success">
-            ${translations[currentLang].app_success}
-          </p>
-        `;
-      })
-      .catch((error) => {
-        console.error("Submission error:", error);
-        submitBtn.disabled = false;
-      });
     });
   </script>
 
