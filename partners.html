@@ -55,12 +55,22 @@
       text-decoration: underline;
     }
 
+    /* =========================
+       TOP NAVIGATION BAR & LANG
+      ========================= */
     .top-nav {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
       gap: 12px;
       margin-bottom: 25px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
     .nav-btn {
@@ -80,6 +90,80 @@
       transform: translateY(-2px);
     }
 
+    /* Language Dropdown Container */
+    .lang-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .lang-btn {
+      background-color: rgb(0, 0, 130);
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    .lang-btn:hover,
+    .lang-btn:focus-visible {
+      background-color: rgb(0, 140, 0);
+      transform: translateY(-2px);
+    }
+
+    .globe-icon {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .lang-menu {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 115%;
+      background-color: #ffffff;
+      min-width: 140px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border-radius: 6px;
+      border: 1px solid rgba(0, 100, 0, 0.3);
+      z-index: 1000;
+      overflow: hidden;
+    }
+
+    .lang-menu.show {
+      display: block;
+    }
+
+    .lang-option {
+      width: 100%;
+      padding: 10px 16px;
+      text-align: left;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      color: rgb(35, 45, 40);
+      font-weight: bold;
+      transition: background-color 0.2s ease;
+    }
+
+    .lang-option:hover,
+    .lang-option:focus-visible {
+      background-color: rgba(0, 100, 0, 0.1);
+      color: rgb(0, 100, 0);
+      outline: none;
+    }
+
+    /* =========================
+       BOTTOM FOOTER NAVIGATION
+      ========================= */
     .bottom-footer {
       margin-top: 40px;
       padding-top: 20px;
@@ -115,45 +199,168 @@
 <body>
 
   <div id="scrollContent">
-    <nav class="top-nav">
-      <a href="index.html" class="nav-btn">Main page</a>
-      <a href="career.html" class="nav-btn">Career</a>
-      <a href="rules.html" class="nav-btn">Followed rules</a>
-      <a href="TurtleCampaign.html" class="nav-btn">Turtle Campaign</a>
+    <!-- TOP NAVIGATION BUTTONS & LANG -->
+    <nav class="top-nav" aria-label="Main Navigation">
+      <div class="nav-links">
+        <a href="index.html" class="nav-btn" data-i18n="nav_main">Main page</a>
+        <a href="career.html" class="nav-btn" data-i18n="nav_career">Career</a>
+        <a href="rules.html" class="nav-btn" data-i18n="nav_rules">Followed rules</a>
+        <a href="TurtleCampaign.html" class="nav-btn" data-i18n="nav_campaign">Turtle Campaign</a>
+      </div>
+
+      <!-- LANGUAGE DROPDOWN BUTTON -->
+      <div class="lang-dropdown">
+        <button type="button" class="lang-btn" id="langBtn" aria-expanded="false" aria-label="Language menu">
+          <svg class="globe-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+          </svg>
+          <span data-i18n="lang_text">Language</span> &#9660;
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <button type="button" class="lang-option" data-lang="en">English</button>
+          <button type="button" class="lang-option" data-lang="cs">Čeština</button>
+          <button type="button" class="lang-option" data-lang="de">Deutsch</button>
+        </div>
+      </div>
     </nav>
 
-    <h1>Partners</h1>
+    <h1 data-i18n="page_title">Partners</h1>
 
     <div class="content-card">
-      <p>
+      <p data-i18n="intro_text">
         TurtlePharma collaborates with leading academic research institutions, international pharmaceutical manufacturers, and environmental conservation alliances to foster innovation and sustainable health practices:
       </p>
     </div>
-<div class="content-card">
-      <p>
-        <strong>Academic & Research Partners:</strong><br>
-        • University of Chemistry and Technology Prague (VŠCHT) – Joint analytical testing and student internship development.<br>
-        • European Network of Pharmaceutical Sciences (EUFEPS) – Shared drug delivery formulation research.
-      </p>
-</div>
+
     <div class="content-card">
       <p>
-        <strong>Manufacturing & Logistics Alliances:</strong><br>
-        • Zentiva k.s. – Active API supply chain and dissolution profile contract testing.<br>
-        • Central European Pharma Cold-Chain Logistics Group – Temperature-controlled distribution networks.
+        <strong data-i18n="academic_title">Academic & Research Partners:</strong><br>
+        <span data-i18n="academic_item1">• University of Chemistry and Technology Prague (VŠCHT) – Joint analytical testing and student internship development.</span><br>
+        <span data-i18n="academic_item2">• European Network of Pharmaceutical Sciences (EUFEPS) – Shared drug delivery formulation research.</span>
       </p>
     </div>
-<div class="content-card">
+
+    <div class="content-card">
       <p>
-        <strong>Conservation Partners:</strong><br>
-        • Global Marine Chelonian Trust – Co-sponsoring coastal rescue stations, hatchling protection programs, and ecotoxicology research.
+        <strong data-i18n="manufacturing_title">Manufacturing & Logistics Alliances:</strong><br>
+        <span data-i18n="manufacturing_item1">• Zentiva k.s. – Active API supply chain and dissolution profile contract testing.</span><br>
+        <span data-i18n="manufacturing_item2">• Central European Pharma Cold-Chain Logistics Group – Temperature-controlled distribution networks.</span>
       </p>
     </div>
+
+    <div class="content-card">
+      <p>
+        <strong data-i18n="conservation_title">Conservation Partners:</strong><br>
+        <span data-i18n="conservation_item1">• Global Marine Chelonian Trust – Co-sponsoring coastal rescue stations, hatchling protection programs, and ecotoxicology research.</span>
+      </p>
+    </div>
+
     <footer class="bottom-footer">
-      <a href="contacts.html">Contacts</a> |
-      <a href="partners.html">Partners</a>
+      <a href="contacts.html" data-i18n="footer_contacts">Contacts</a> |
+      <a href="partners.html" data-i18n="footer_partners">Partners</a>
     </footer>
   </div>
+
+  <script>
+    /* MULTILINGUAL TRANSLATIONS DICTIONARY */
+    const translations = {
+      en: {
+        nav_main: "Main page",
+        nav_career: "Career",
+        nav_rules: "Followed rules",
+        nav_campaign: "Turtle Campaign",
+        lang_text: "Language",
+        page_title: "Partners",
+        intro_text: "TurtlePharma collaborates with leading academic research institutions, international pharmaceutical manufacturers, and environmental conservation alliances to foster innovation and sustainable health practices:",
+        academic_title: "Academic & Research Partners:",
+        academic_item1: "• University of Chemistry and Technology Prague (VŠCHT) – Joint analytical testing and student internship development.",
+        academic_item2: "• European Network of Pharmaceutical Sciences (EUFEPS) – Shared drug delivery formulation research.",
+        manufacturing_title: "Manufacturing & Logistics Alliances:",
+        manufacturing_item1: "• Zentiva k.s. – Active API supply chain and dissolution profile contract testing.",
+        manufacturing_item2: "• Central European Pharma Cold-Chain Logistics Group – Temperature-controlled distribution networks.",
+        conservation_title: "Conservation Partners:",
+        conservation_item1: "• Global Marine Chelonian Trust – Co-sponsoring coastal rescue stations, hatchling protection programs, and ecotoxicology research.",
+        footer_contacts: "Contacts",
+        footer_partners: "Partners"
+      },
+      cs: {
+        nav_main: "Hlavní strana",
+        nav_career: "Kariéra",
+        nav_rules: "Dodržovaná pravidla",
+        nav_campaign: "Želví kampaň",
+        lang_text: "Jazyk",
+        page_title: "Partneři",
+        intro_text: "TurtlePharma spolupracuje s předními akademickými výzkumnými institucemi, mezinárodními farmaceutickými výrobci a aliancemi na ochranu životního prostředí s cílem podpořit inovace a udržitelné zdravotní postupy:",
+        academic_title: "Akademičtí a výzkumní partneři:",
+        academic_item1: "• Vysoká škola chemicko-technologická v Praze (VŠCHT) – Společné analytické testování a rozvoj pracovních stáží pro studenty.",
+        academic_item2: "• Evropská síť farmaceutických věd (EUFEPS) – Sdílený výzkum formulací pro dodávání léčiv.",
+        manufacturing_title: "Výrobní a logistické aliance:",
+        manufacturing_item1: "• Zentiva k.s. – Aktivní dodavatelský řetězec API a smluvní testování disolučních profilů.",
+        manufacturing_item2: "• Středoevropská skupina logistiky chladírenského řetězce pharma – Distribuční sítě s řízenou teplotou.",
+        conservation_title: "Partneři v oblasti ochrany přírody:",
+        conservation_item1: "• Global Marine Chelonian Trust – Spolufinancování pobřežních záchranných stanic, programů ochrany mláďat a ekotoxikologického výzkumu.",
+        footer_contacts: "Kontakty",
+        footer_partners: "Partneři"
+      },
+      de: {
+        nav_main: "Hauptseite",
+        nav_career: "Karriere",
+        nav_rules: "Befolgte Regeln",
+        nav_campaign: "Schildkröten-Kampagne",
+        lang_text: "Sprache",
+        page_title: "Partner",
+        intro_text: "TurtlePharma arbeitet mit führenden akademischen Forschungseinrichtungen, internationalen Pharmaherstellern und Umweltschutzallianzen zusammen, um Innovationen und nachhaltige Gesundheitspraktiken zu fördern:",
+        academic_title: "Akademische & Forschungspartner:",
+        academic_item1: "• Chemisch-Technologische Universität Prag (VŠCHT) – Gemeinsame analytische Tests und Entwicklung von Studentenpraktika.",
+        academic_item2: "• Europäisches Netz für Pharmazeutische Wissenschaften (EUFEPS) – Gemeinsame Forschung zu Arzneiformen.",
+        manufacturing_title: "Herstellungs- & Logistikallianzen:",
+        manufacturing_item1: "• Zentiva k.s. – Aktive API-Lieferkette und vertragliche Prüfung von Freisetzungsprofilen.",
+        manufacturing_item2: "• Zentraleuropäische Pharma-Kühlketten-Logistikgruppe – Temperaturgeführte Vertriebsnetze.",
+        conservation_title: "Naturschutzpartner:",
+        conservation_item1: "• Global Marine Chelonian Trust – Kofinanzierung von Küstenrettungsstationen, Schutzprogrammen für Schlüpflinge und ökotoxikologischer Forschung.",
+        footer_contacts: "Kontakte",
+        footer_partners: "Partner"
+      }
+    };
+
+    const langBtn = document.getElementById("langBtn");
+    const langMenu = document.getElementById("langMenu");
+    const langOptions = document.querySelectorAll(".lang-option");
+
+    const setLanguage = (lang) => {
+      if (!translations[lang]) return;
+      document.documentElement.lang = lang;
+
+      const elementsToTranslate = document.querySelectorAll("[data-i18n]");
+      elementsToTranslate.forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+    };
+
+    langBtn.addEventListener("click", () => {
+      const isExpanded = langMenu.classList.toggle("show");
+      langBtn.setAttribute("aria-expanded", isExpanded);
+    });
+
+    langOptions.forEach((option) => {
+      option.addEventListener("click", () => {
+        const selectedLang = option.getAttribute("data-lang");
+        setLanguage(selectedLang);
+        langMenu.classList.remove("show");
+        langBtn.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!event.target.closest(".lang-dropdown")) {
+        langMenu.classList.remove("show");
+        langBtn.setAttribute("aria-expanded", "false");
+      }
+    });
+  </script>
 
 </body>
 
