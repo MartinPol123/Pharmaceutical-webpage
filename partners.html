@@ -36,7 +36,8 @@
 
     h1 {
       font-size: 2.2rem;
-      margin-top: 10px;
+      margin-top: 25px;
+      margin-bottom: 15px;
     }
 
     p {
@@ -55,9 +56,7 @@
       text-decoration: underline;
     }
 
-    /* =========================
-       TOP NAVIGATION BAR & LANG
-      ========================= */
+    /* TOP NAVIGATION BAR & LANG */
     .top-nav {
       display: flex;
       justify-content: space-between;
@@ -161,9 +160,7 @@
       outline: none;
     }
 
-    /* =========================
-       BOTTOM FOOTER NAVIGATION
-      ========================= */
+    /* BOTTOM FOOTER NAVIGATION */
     .bottom-footer {
       margin-top: 40px;
       padding-top: 20px;
@@ -189,15 +186,22 @@
       background-color: rgba(255, 255, 255, 0.88);
       border-left: 5px solid rgb(0, 100, 0);
       border-radius: 4px;
-      padding: 0px 22px;
+      padding: 16px 22px;
       margin-bottom: 20px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.05);
     }
-        .role-card h4 {
+
+    .content-card h4 {
       color: rgb(0, 100, 0);
       margin-top: 0;
       margin-bottom: 8px;
       font-size: 1.2rem;
+    }
+
+    .content-card p {
+      color: rgb(0, 0, 0);
+      margin: 0;
+      padding: 4px 0;
     }
   </style>
 </head>
@@ -226,6 +230,8 @@
           <button type="button" class="lang-option" data-lang="en">English</button>
           <button type="button" class="lang-option" data-lang="cs">Čeština</button>
           <button type="button" class="lang-option" data-lang="de">Deutsch</button>
+          <button type="button" class="lang-option" data-lang="es">Español</button>
+          <button type="button" class="lang-option" data-lang="pl">Polski</button>
         </div>
       </div>
     </nav>
@@ -239,18 +245,15 @@
     </div>
 
     <div class="content-card">
-        <h4 data-i18n="academic_title">
-Academic & Research Partners:
-        </h4>
-        <p>
+      <h4 data-i18n="academic_title">Academic & Research Partners:</h4>
+      <p>
         <span data-i18n="academic_item1">• University of Chemistry and Technology Prague (VŠCHT) – Joint analytical testing and student internship development.</span><br>
         <span data-i18n="academic_item2">• European Network of Pharmaceutical Sciences (EUFEPS) – Shared drug delivery formulation research.</span>
       </p>
     </div>
 
     <div class="content-card">
-      <h4 data-i18n="manufacturing_title">
-        </h4>
+      <h4 data-i18n="manufacturing_title">Manufacturing & Logistics Alliances:</h4>
       <p>
         <span data-i18n="manufacturing_item1">• Zentiva k.s. – Active API supply chain and dissolution profile contract testing.</span><br>
         <span data-i18n="manufacturing_item2">• Central European Pharma Cold-Chain Logistics Group – Temperature-controlled distribution networks.</span>
@@ -258,9 +261,8 @@ Academic & Research Partners:
     </div>
 
     <div class="content-card">
-        <h4 data-i18n="conservation_title">Conservation Partners:
-        </h4>
-            <p>
+      <h4 data-i18n="conservation_title">Conservation Partners:</h4>
+      <p>
         <span data-i18n="conservation_item1">• Global Marine Chelonian Trust – Co-sponsoring coastal rescue stations, hatchling protection programs, and ecotoxicology research.</span>
       </p>
     </div>
@@ -330,6 +332,44 @@ Academic & Research Partners:
         conservation_item1: "• Global Marine Chelonian Trust – Kofinanzierung von Küstenrettungsstationen, Schutzprogrammen für Schlüpflinge und ökotoxikologischer Forschung.",
         footer_contacts: "Kontakte",
         footer_partners: "Partner"
+      },
+      es: {
+        nav_main: "Página principal",
+        nav_career: "Carrera",
+        nav_rules: "Normas seguidas",
+        nav_campaign: "Campaña de la Tortuga",
+        lang_text: "Idioma",
+        page_title: "Socios",
+        intro_text: "TurtlePharma colabora con destacados centros de investigación académica, fabricantes farmacéuticos internacionales y alianzas de conservación ambiental:",
+        academic_title: "Socios Académicos y de Investigación:",
+        academic_item1: "• Universidad de Química y Tecnología de Praga (VŠCHT) – Pruebas analíticas conjuntas y desarrollo de prácticas para estudiantes.",
+        academic_item2: "• Red Europea de Ciencias Farmacéuticas (EUFEPS) – Investigación compartida en formulación de liberación de fármacos.",
+        manufacturing_title: "Alianzas de Fabricación y Logística:",
+        manufacturing_item1: "• Zentiva k.s. – Cadena de suministro de API activo y pruebas de perfiles de disolución.",
+        manufacturing_item2: "• Grupo de Logística de Cadena de Frío Farmacéutica de Europa Central – Redes de distribución controladas por temperatura.",
+        conservation_title: "Socios de Conservación:",
+        conservation_item1: "• Global Marine Chelonian Trust – Copatrocinio de estaciones de rescate costero, programas de protección de crías e investigación ecotoxicológica.",
+        footer_contacts: "Contactos",
+        footer_partners: "Socios"
+      },
+      pl: {
+        nav_main: "Strona główna",
+        nav_career: "Kariera",
+        nav_rules: "Przestrzegane zasady",
+        nav_campaign: "Kampania Żółwia",
+        lang_text: "Język",
+        page_title: "Partnerzy",
+        intro_text: "TurtlePharma współpracuje z wiodącymi akademickimi instytucjami badawczymi, międzynarodowymi producentami farmaceutycznymi i sojuszonmi ochrony środowiska:",
+        academic_title: "Partnerzy Akademiejscy i Badawczy:",
+        academic_item1: "• Wyższa Szkoła Chemiczno-Technologiczna w Pradze (VŠCHT) – Wspólne testy analityczne i rozwój staży studenckich.",
+        academic_item2: "• Europejska Sieć Nauk Farmaceutycznych (EUFEPS) – Wspólne badania nad formulacją dostarczania leków.",
+        manufacturing_title: "Sojusze Produkcyjne i Logistyczne:",
+        manufacturing_item1: "• Zentiva k.s. – Łańcuch dostaw aktywnych API i kontraktowe testowanie profili rozpuszczania.",
+        manufacturing_item2: "• Środkowoeuropejska Grupa Logistyki Łańcucha Chłodniczego Pharma – Sieci dystrybucji kontrolowane temperaturowo.",
+        conservation_title: "Partnerzy ds. Ochrony Przyrody:",
+        conservation_item1: "• Global Marine Chelonian Trust – Współfinansowanie nadmorskich stacji ratunkowych, programów ochrony piskląt i badań ekotoksykologicznych.",
+        footer_contacts: "Kontakty",
+        footer_partners: "Partnerzy"
       }
     };
 
