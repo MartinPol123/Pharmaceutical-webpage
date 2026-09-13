@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TurtlePharma - Contacts & Address</title>
+  <title>TurtlePharma - Career</title>
   <style>
     html, body {
       margin: 0;
@@ -37,6 +37,12 @@
     h1 {
       font-size: 2.2rem;
       margin-top: 25px;
+      margin-bottom: 15px;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      margin-top: 20px;
       margin-bottom: 15px;
     }
 
@@ -189,11 +195,95 @@
       margin-bottom: 20px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.05);
     }
-    .role-card h4 {
+
+    .content-card h4 {
       color: rgb(0, 100, 0);
       margin-top: 0;
       margin-bottom: 8px;
       font-size: 1.2rem;
+    }
+
+    .content-card p {
+      color: rgb(0, 0, 0);
+      margin: 0;
+      padding: 4px 0;
+    }
+
+    /* APPLICATION FORM SECTION */
+    .application-section {
+      background-color: rgba(255, 255, 255, 0.88);
+      border: 2px solid rgb(0, 100, 0);
+      border-radius: 6px;
+      padding: 24px;
+      margin-top: 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    .form-inline-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+    }
+
+    .form-label {
+      color: rgb(0, 0, 130);
+      font-weight: bold;
+      font-size: 1.05rem;
+      margin: 0;
+    }
+
+    .role-select, .email-input {
+      padding: 10px 14px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+
+    .role-select {
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .email-input {
+      width: 100%;
+      max-width: 420px;
+      display: block;
+      margin-bottom: 15px;
+    }
+
+    .apply-btn {
+      background-color: rgb(0, 100, 0);
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    .apply-btn:hover {
+      background-color: rgb(0, 140, 0);
+      transform: translateY(-2px);
+    }
+
+    .apply-btn:disabled {
+      background-color: #888888;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .success-message {
+      color: rgb(0, 100, 0);
+      font-weight: bold;
+      font-size: 1.2rem;
+      text-align: center;
+      margin: 0;
+      padding: 12px 0;
     }
   </style>
 </head>
@@ -227,57 +317,75 @@
       </div>
     </nav>
 
-    <!-- 1. INTRO TEXT -->
-    <div class="content-card">
-      <p data-i18n="intro_text">
-        TurtlePharma operates across strategically situated laboratory, administrative, and logistics hubs within the Czech Republic:
-      </p>
-    </div>
-
-    <!-- 2. CONTACT DETAILS SECTION -->
-    <h1 data-i18n="contacts_title">Contact details</h1>
+    <h1 data-i18n="page_title">Career</h1>
 
     <div class="content-card">
-      <h4 data-i18n="direct_email_title">
-Direct e-mail:
-      </h4>
-      <p>
-        <span data-i18n="head_email">Head of the company: polak@TPharma.cz</span><br>
-        <span data-i18n="hr_email">HR: Novak@TPharma.cz</span>
-      </p>
-    </div>
-
-    <!-- 3. ADDRESS SECTION -->
-    <h1 data-i18n="page_title">Address</h1>
-
-    <div class="content-card">
-        <h4data-i18n="hq_title">
-Corporate Headquarters & Administration:
-      </h4>
-              <p>  
-        <span data-i18n="hq_name">TurtlePharma s.r.o.</span><br>
-        <span data-i18n="hq_street">Lékařská 111/11</span><br>
-        <span data-i18n="hq_city">150 00 Prague 5 – Motol</span><br>
-        <span data-i18n="hq_country">Czech Republic</span>
+      <h4 data-i18n="role_1_title">1. Qualified Person (QP) & Quality Assurance (QA) Managers</h4>
+      <p data-i18n="role_1_desc">
+        Qualified Persons hold ultimate legal responsibility for certifying that every individual batch of pharmaceuticals produced or imported meets strict regulatory specifications before public release. Quality Assurance managers oversee corporate compliance systems, audit batch records, and maintain standard operating procedures across all manufacturing units.
       </p>
     </div>
 
     <div class="content-card">
-        <h4 data-i18n="dist_title">
-Central Cold-Chain Distribution & Quality Operations:
-      </h4>
-      <p>
-        <span data-i18n="dist_name">TurtlePharma Logistics Hub West</span><br>
-        <span data-i18n="dist_street">Farmaceutická 222/22</span><br>
-        <span data-i18n="dist_city">301 00 Pilsen</span><br>
-        <span data-i18n="dist_country">Czech Republic</span>
+      <h4 data-i18n="role_2_title">2. Quality Control (QC) Analytical Chemists</h4>
+      <p data-i18n="role_2_desc">
+        QC Chemists analyze active ingredient raw materials, intermediates, and final dosage forms using advanced analytical techniques like HPLC, UPLC, UV-Vis spectroscopy, and automated dissolution testing. Their work ensures chemical purity, potency, uniform disintegration, and physical stability.
       </p>
     </div>
 
     <div class="content-card">
-      <p>
-        <em data-i18n="visitor_label">Visitor Policy:</em><span data-i18n="visitor_text"> In accordance with cGMP and ISO security protocols, facility access to analytical laboratories and temperature-controlled storage requires prior authorization and badge verification at the main security desk.</span>
+      <h4 data-i18n="role_3_title">3. Formulation & Process Validation Engineers</h4>
+      <p data-i18n="role_3_desc">
+        Chemical and pharmaceutical engineers design scale-up manufacturing operations, optimizing tablet compression, liquid filling, or drug delivery matrix formulation. Process validation specialists systematically prove that production equipment consistently yields identical quality standards across high-volume production batches.
       </p>
+    </div>
+
+    <div class="content-card">
+      <h4 data-i18n="role_4_title">4. Regulatory Affairs (RA) Specialists</h4>
+      <p data-i18n="role_4_desc">
+        RA Specialists build the crucial communication bridge between TurtlePharma and national or international health agencies (such as SÚKL or EMA). They prepare technical drug dossiers, manage product registration renewals, and verify packaging compliance.
+      </p>
+    </div>
+
+    <div class="content-card">
+      <h4 data-i18n="role_5_title">5. Pharmacovigilance (PV) & Medical Safety Officers</h4>
+      <p data-i18n="role_5_desc">
+        Medical safety officers monitor ongoing post-marketing safety by recording, evaluating, and reporting any adverse events reported by physicians or patients. Their vigilant monitoring protects patient safety throughout the complete market lifecycle of every drug product.
+      </p>
+    </div>
+
+    <div class="content-card">
+      <h4 data-i18n="role_6_title">6. Cold-Chain Logistics & Supply Chain Specialists</h4>
+      <p data-i18n="role_6_desc">
+        Logistics personnel coordinate secure, temperature-monitored storage and distribution networks. They ensure biologicals, vaccines, and sensitive oral medications remain strictly within required temperature bounds from chemical synthesis to hospital pharmacy shelf.
+      </p>
+    </div>
+
+    <!-- APPLICATION FORM SECTION -->
+    <div class="application-section" id="appSection">
+      <form id="applyForm">
+        <div class="form-inline-row">
+          <label for="roleSelect" class="form-label" data-i18n="app_label">If you are interested in one of these roles, please leave your e-mail here:</label>
+          <select id="roleSelect" class="role-select" required>
+            <option value="QP & QA Manager" data-i18n="role_1_title">1. Qualified Person (QP) & Quality Assurance (QA) Managers</option>
+            <option value="QC Analytical Chemist" data-i18n="role_2_title">2. Quality Control (QC) Analytical Chemists</option>
+            <option value="Formulation & Process Engineer" data-i18n="role_3_title">3. Formulation & Process Validation Engineers</option>
+            <option value="RA Specialist" data-i18n="role_4_title">4. Regulatory Affairs (RA) Specialists</option>
+            <option value="PV & Medical Safety Officer" data-i18n="role_5_title">5. Pharmacovigilance (PV) & Medical Safety Officers</option>
+            <option value="Logistics Specialist" data-i18n="role_6_title">6. Cold-Chain Logistics & Supply Chain Specialists</option>
+          </select>
+        </div>
+        <input 
+          type="email" 
+          id="emailInput" 
+          class="email-input" 
+          data-i18n-placeholder="email_placeholder"
+          placeholder="your.email@example.com" 
+          pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" 
+          required 
+        />
+        <button type="submit" id="submitBtn" class="apply-btn" data-i18n="app_btn">Become part of our team!</button>
+      </form>
     </div>
 
     <footer class="bottom-footer">
@@ -287,6 +395,9 @@ Central Cold-Chain Distribution & Quality Operations:
   </div>
 
   <script>
+    /* UPDATED GOOGLE APPS SCRIPT ENDPOINT URL */
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzfC8Dw1eZB2PI8teLdllq-MWnTonabMKZ1fFcQsBRx0ahZX9_vcnPnfAaD_bYfhubw/exec";
+
     /* MULTILINGUAL TRANSLATIONS DICTIONARY */
     const translations = {
       en: {
@@ -295,24 +406,24 @@ Central Cold-Chain Distribution & Quality Operations:
         nav_rules: "Followed rules",
         nav_campaign: "Turtle Campaign",
         lang_text: "Language",
-        intro_text: "TurtlePharma operates across strategically situated laboratory, administrative, and logistics hubs within the Czech Republic:",
-        contacts_title: "Contact details",
-        direct_email_title: "Direct e-mail:",
-        head_email: "Head of the company: polak@TPharma.cz",
-        hr_email: "HR: Novak@TPharma.cz",
-        page_title: "Address",
-        hq_title: "Corporate Headquarters & Administration:",
-        hq_name: "TurtlePharma s.r.o.",
-        hq_street: "Lékařská 111/11",
-        hq_city: "150 00 Prague 5 – Motol",
-        hq_country: "Czech Republic",
-        dist_title: "Central Cold-Chain Distribution & Quality Operations:",
-        dist_name: "TurtlePharma Logistics Hub West",
-        dist_street: "Farmaceutická 222/22",
-        dist_city: "301 00 Pilsen",
-        dist_country: "Czech Republic",
-        visitor_label: "Visitor Policy:",
-        visitor_text: " In accordance with cGMP and ISO security protocols, facility access to analytical laboratories and temperature-controlled storage requires prior authorization and badge verification at the main security desk.",
+        page_title: "Career",
+        role_1_title: "1. Qualified Person (QP) & Quality Assurance (QA) Managers",
+        role_1_desc: "Qualified Persons hold ultimate legal responsibility for certifying that every individual batch of pharmaceuticals produced or imported meets strict regulatory specifications before public release. Quality Assurance managers oversee corporate compliance systems, audit batch records, and maintain standard operating procedures across all manufacturing units.",
+        role_2_title: "2. Quality Control (QC) Analytical Chemists",
+        role_2_desc: "QC Chemists analyze active ingredient raw materials, intermediates, and final dosage forms using advanced analytical techniques like HPLC, UPLC, UV-Vis spectroscopy, and automated dissolution testing. Their work ensures chemical purity, potency, uniform disintegration, and physical stability.",
+        role_3_title: "3. Formulation & Process Validation Engineers",
+        role_3_desc: "Chemical and pharmaceutical engineers design scale-up manufacturing operations, optimizing tablet compression, liquid filling, or drug delivery matrix formulation. Process validation specialists systematically prove that production equipment consistently yields identical quality standards across high-volume production batches.",
+        role_4_title: "4. Regulatory Affairs (RA) Specialists",
+        role_4_desc: "RA Specialists build the crucial communication bridge between TurtlePharma and national or international health agencies (such as SÚKL or EMA). They prepare technical drug dossiers, manage product registration renewals, and verify packaging compliance.",
+        role_5_title: "5. Pharmacovigilance (PV) & Medical Safety Officers",
+        role_5_desc: "Medical safety officers monitor ongoing post-marketing safety by recording, evaluating, and reporting any adverse events reported by physicians or patients. Their vigilant monitoring protects patient safety throughout the complete market lifecycle of every drug product.",
+        role_6_title: "6. Cold-Chain Logistics & Supply Chain Specialists",
+        role_6_desc: "Logistics personnel coordinate secure, temperature-monitored storage and distribution networks. They ensure biologicals, vaccines, and sensitive oral medications remain strictly within required temperature bounds from chemical synthesis to hospital pharmacy shelf.",
+        app_label: "If you are interested in one of these roles, please leave your e-mail here:",
+        email_placeholder: "your.email@example.com",
+        email_validation_msg: "Please enter a valid email address (e.g., name@example.com).",
+        app_btn: "Become part of our team!",
+        app_success: "Our team will contact you shortly with further details regarding the position",
         footer_contacts: "Contacts",
         footer_partners: "Partners"
       },
@@ -322,24 +433,24 @@ Central Cold-Chain Distribution & Quality Operations:
         nav_rules: "Dodržovaná pravidla",
         nav_campaign: "Želví kampaň",
         lang_text: "Jazyk",
-        intro_text: "Společnost TurtlePharma působí ve strategicky umístěných laboratorních, administrativních a logistických centrech v České republice:",
-        contacts_title: "Kontaktní údaje",
-        direct_email_title: "Přímý e-mail:",
-        head_email: "Vedení společnosti: polak@TPharma.cz",
-        hr_email: "HR: Novak@TPharma.cz",
-        page_title: "Adresa",
-        hq_title: "Firemní centrála a administrativa:",
-        hq_name: "TurtlePharma s.r.o.",
-        hq_street: "Lékařská 111/11",
-        hq_city: "150 00 Praha 5 – Motol",
-        hq_country: "Česká republika",
-        dist_title: "Centrální chladírenská distribuce a operace kvality:",
-        dist_name: "TurtlePharma Logistics Hub Západ",
-        dist_street: "Farmaceutická 222/22",
-        dist_city: "301 00 Plzeň",
-        dist_country: "Česká republika",
-        visitor_label: "Pravidla pro návštěvníky:",
-        visitor_text: " V souladu s bezpečnostními protokoly cGMP a ISO vyžaduje přístup do analytických laboratoří a prostor s řízenou teplotou předchozí autorizaci a ověření totožnosti na hlavní recepci.",
+        page_title: "Kariéra",
+        role_1_title: "1. Manažeři kvalifikovaných osob (QP) a zajištění kvality (QA)",
+        role_1_desc: "Kvalifikované osoby (QP) nesou právní odpovědnost za certifikaci každé šarže léčiv před jejím propuštěním na trh. Manažeři zajištění kvality dohlížejí na systémy dodržování předpisů, auditují záznamy o šaržích a udržují standardní operační postupy napříč všemi výrobními jednotkami.",
+        role_2_title: "2. Analytičtí chemici kontroly kvality (QC)",
+        role_2_desc: "Chemici QC analyzují suroviny účinných látek, meziprodukty a finální lékové formy pomocí pokročilých analytických technik, jako jsou HPLC, UPLC, UV-Vis spektroskopie a automatizované disoluční testování. Jejich práce zajišťuje chemickou čistotu, účinnost a fyzikální stabilitu.",
+        role_3_title: "3. Inženýři formulací a validace procesů",
+        role_3_desc: "Chemičtí a farmaceutičtí inženýři navrhují zvětšování měřítka výroby, optimalizují lisování tablet či formulace lékových forem. Specialisté validace procesů dokazují, že výrobní zařízení konzistentně dosahuje požadované kvality u velkoobjemových šarží.",
+        role_4_title: "4. Specialisté pro regulaci a registraci (RA)",
+        role_4_desc: "Specialisté RA tvoří klíčový most mezi společností TurtlePharma a národními či mezinárodními zdravotnickými autoritami (jako SÚKL nebo EMA). Připravují technickou registrační dokumentaci léčiv a spravují obnovy registrací.",
+        role_5_title: "5. Pracovníci farmakovigilance (PV) a lékařské bezpečnosti",
+        role_5_desc: "Pracovníci lékařské bezpečnosti sledují bezpečnost léčiv po jejich uvedení na trh zaznamenáváním a vyhodnocováním nežádoucích účinků nahlášených lékaři nebo pacienty. Jejich dohled chráni bezpečnost pacientů během celého životního cyklu produktu.",
+        role_6_title: "6. Specialisté logistiky chladírenského a dodavatelského řetězce",
+        role_6_desc: "Pracovníci logistiky koordinují bezpečné a teplotně sledované skladování a distribuci. Zajišťují, aby biologika, vakcíny a citlivá ústní léčiva zůstala v požadovaných teplotních mezích od syntézy až po lékárenský regál.",
+        app_label: "Pokud máte zájem o některou z těchto pozic, zanechte zde svůj e-mail:",
+        email_placeholder: "vas.email@priklad.cz",
+        email_validation_msg: "Zadejte platnou e-mailovou adresu (např. jmeno@priklad.cz).",
+        app_btn: "Staňte se součástí našeho týmu!",
+        app_success: "Náš tým vás bude brzy kontaktovat s dalšími podrobnostmi ohledně pozice",
         footer_contacts: "Kontakty",
         footer_partners: "Partneři"
       },
@@ -349,51 +460,51 @@ Central Cold-Chain Distribution & Quality Operations:
         nav_rules: "Befolgte Regeln",
         nav_campaign: "Schildkröten-Kampagne",
         lang_text: "Sprache",
-        intro_text: "TurtlePharma ist an strategisch gelegenen Labor-, Verwaltungs- und Logistikstandorten in der Tschechischen Republik tätig:",
-        contacts_title: "Kontaktdaten",
-        direct_email_title: "Direkte E-Mail:",
-        head_email: "Unternehmensleitung: polak@TPharma.cz",
-        hr_email: "Personalabteilung: Novak@TPharma.cz",
-        page_title: "Adresse",
-        hq_title: "Unternehmenszentrale & Verwaltung:",
-        hq_name: "TurtlePharma s.r.o.",
-        hq_street: "Lékařská 111/11",
-        hq_city: "150 00 Prag 5 – Motol",
-        hq_country: "Tschechische Republik",
-        dist_title: "Zentrales Kühlketten-Logistikzentrum & Qualitätswesen:",
-        dist_name: "TurtlePharma Logistics Hub West",
-        dist_street: "Farmaceutická 222/22",
-        dist_city: "301 00 Pilsen",
-        dist_country: "Tschechische Republik",
-        visitor_label: "Besucherregelung:",
-        visitor_text: " Gemäß den cGMP- und ISO-Sicherheits-Protokollen erfordert der Zutritt zu den Analyselaboren und temperaturgeführten Lagerbereichen eine vorherige Genehmigung und Ausweisprüfung am Hauptempfang.",
+        page_title: "Karriere",
+        role_1_title: "1. Sachkundige Personen (QP) & Qualitätsmanagement (QA) Manager",
+        role_1_desc: "Sachkundige Personen (QP) tragen die rechtliche Verantwortung für die Zertifizierung jeder Arzneimittelcharge vor der Marktfreigabe. QA-Manager überwachen Compliance-Systeme, auditieren Chargenprotokolle und pflegen Standardarbeitsanweisung über alle Herstellungseinheiten hinweg.",
+        role_2_title: "2. Analytische Chemiker der Qualitätskontrolle (QC)",
+        role_2_desc: "QC-Chemiker analysieren Wirkstoffe, Zwischenprodukte und Enddarreichungsformen mit fortschrittlichen Techniken wie HPLC, UPLC, UV-Vis-Spektroskopie und Freisetzungstests. Sie gewährleisten chemische Reinheit, Wirkstärke und Stabilität.",
+        role_3_title: "3. Formulierungs- und Prozessvalidierungsingenieure",
+        role_3_desc: "Chemie- und Pharmaingenieure planen die Skalierung der Produktion und optimieren die Tablettierung oder Formulierung von Arzneiformen. Prozessvalidierungsspezialisten belegen die gleichbleibende Qualität der Produktionsanlagen bei Großserien.",
+        role_4_title: "4. Spezialisten für Regulatory Affairs (RA)",
+        role_4_desc: "RA-Spezialisten bilden die Brücke zwischen TurtlePharma und Gesundheitsbehörden (wie SÚKL oder EMA). Sie erstellen technische Dossiers, verwalten Arzneimittelzulassungen und prüfen die Verpackungs-Compliance.",
+        role_5_title: "5. Pharmakovigilanz (PV) & Medical Safety Officers",
+        role_5_desc: "Medical Safety Officers überwachen die Sicherheit nach der Markteinführung durch Erfassung und Bewertung von Nebenwirkungen. Ihre Überwachung schützt die Patientensicherheit während des gesamten Lebenszyklus des Arzneimittels.",
+        role_6_title: "6. Spezialisten für Kühlketten-Logistik & Supply Chain",
+        role_6_desc: "Logistikpersonal koordiniert temperaturüberwachte Lager- und Vertriebsnetze. Sie stellen sicher, dass Biologika, Impfstoffe und empfindliche Medikamente stets im erforderlichen Temperaturbereich bleiben.",
+        app_label: "Wenn Sie an einer dieser Stellen interessiert sind, hinterlassen Sie bitte hier Ihre E-Mail-Adresse:",
+        email_placeholder: "ihre.email@beispiel.de",
+        email_validation_msg: "Bitte geben Sie eine gültige E-Mail-Adresse ein (z. B. name@beispiel.de).",
+        app_btn: "Werden Sie Teil unseres Teams!",
+        app_success: "Unser Team wird Sie in Kürze mit weiteren Details zur Stelle kontaktieren",
         footer_contacts: "Kontakte",
         footer_partners: "Partner"
       },
       es: {
         nav_main: "Página principal",
         nav_career: "Carrera",
-        nav_rules: "Reglas seguidas",
-        nav_campaign: "Campaña Tortuga",
+        nav_rules: "Normas seguidas",
+        nav_campaign: "Campaña de la Tortuga",
         lang_text: "Idioma",
-        intro_text: "TurtlePharma opera en centros de laboratorio, administrativos y logísticos estratégicamente situados en la República Checa:",
-        contacts_title: "Detalles de contacto",
-        direct_email_title: "Correo electrónico directo:",
-        head_email: "Director de la empresa: polak@TPharma.cz",
-        hr_email: "Recursos Humanos: Novak@TPharma.cz",
-        page_title: "Dirección",
-        hq_title: "Sede corporativa y administración:",
-        hq_name: "TurtlePharma s.r.o.",
-        hq_street: "Lékařská 111/11",
-        hq_city: "150 00 Praga 5 – Motol",
-        hq_country: "República Checa",
-        dist_title: "Centro logístico de cadena de frío y operaciones de calidad:",
-        dist_name: "TurtlePharma Logistics Hub West",
-        dist_street: "Farmaceutická 222/22",
-        dist_city: "301 00 Pilsen",
-        dist_country: "República Checa",
-        visitor_label: "Política de visitantes:",
-        visitor_text: " De acuerdo con los protocolos de seguridad cGMP e ISO, el acceso a laboratorios analíticos y almacenamiento a temperatura controlada requiere autorización previa y verificación de credenciales.",
+        page_title: "Carrera",
+        role_1_title: "1. Personas Cualificadas (QP) y Gerentes de Garantía de Calidad (QA)",
+        role_1_desc: "Las Personas Cualificadas tienen la responsabilidad legal final de certificar que cada lote individual de productos farmacéuticos cumple con estrictas especificaciones reglamentarias.",
+        role_2_title: "2. Químicos Analíticos de Control de Calidad (QC)",
+        role_2_desc: "Los químicos de QC analizan materias primas de principios activos y formas farmacéuticas finales utilizando técnicas avanzadas como HPLC y UPLC.",
+        role_3_title: "3. Ingenieros de Formulación y Validación de Procesos",
+        role_3_desc: "Los ingenieros químicos y farmacéuticos diseñan operaciones de fabricación a escala, optimizando la compresión de comprimidos y formulaciones.",
+        role_4_title: "4. Especialistas en Asuntos Regulatorios (RA)",
+        role_4_desc: "Los especialistas en RA construyen el puente de comunicación crucial entre TurtlePharma y las agencias de salud nacionales o internacionales.",
+        role_5_title: "5. Oficiales de Farmacovigilancia (PV) y Seguridad Médica",
+        role_5_desc: "Los oficiales de seguridad médica supervisan la seguridad post-comercialización mediante el registro y evaluación de eventos adversos.",
+        role_6_title: "6. Especialistas en Logística de Cadena de Frío y Cadena de Suministro",
+        role_6_desc: "El personal de logística coordina redes de almacenamiento y distribución seguras y con temperatura controlada.",
+        app_label: "Si está interesado en uno de estos puestos, deje su correo electrónico aquí:",
+        email_placeholder: "tu.correo@ejemplo.com",
+        email_validation_msg: "Por favor, introduce una dirección de correo electrónico válida.",
+        app_btn: "¡Forma parte de nuestro equipo!",
+        app_success: "Nuestro equipo se pondrá en contacto con usted en breve con más detalles",
         footer_contacts: "Contactos",
         footer_partners: "Socios"
       },
@@ -401,26 +512,26 @@ Central Cold-Chain Distribution & Quality Operations:
         nav_main: "Strona główna",
         nav_career: "Kariera",
         nav_rules: "Przestrzegane zasady",
-        nav_campaign: "Kampania Żółw",
+        nav_campaign: "Kampania Żółwia",
         lang_text: "Język",
-        intro_text: "TurtlePharma działa w strategicznie rozmieszczonych centrach laboratoryjnych, administracyjnych i logistycznych na terenie Republiki Czeskiej:",
-        contacts_title: "Dane kontaktowe",
-        direct_email_title: "Bezpośredni e-mail:",
-        head_email: "Kierownictwo firmy: polak@TPharma.cz",
-        hr_email: "Dział HR: Novak@TPharma.cz",
-        page_title: "Adres",
-        hq_title: "Siedziba główna firmy i administracja:",
-        hq_name: "TurtlePharma s.r.o.",
-        hq_street: "Lékařská 111/11",
-        hq_city: "150 00 Praga 5 – Motol",
-        hq_country: "Republika Czeska",
-        dist_title: "Centralne centrum logistyczne łańcucha chłodniczego i operacje jakościowe:",
-        dist_name: "TurtlePharma Logistics Hub West",
-        dist_street: "Farmaceutická 222/22",
-        dist_city: "301 00 Pilzno",
-        dist_country: "Republika Czeska",
-        visitor_label: "Zasady dla odwiedzających:",
-        visitor_text: " Zgodnie z protokołami bezpieczeństwa cGMP i ISO wstęp do laboratoriów analitycznych i pomieszczeń z kontrolowaną temperaturą wymaga wcześniejszego upoważnienia i weryfikacji tożsamości.",
+        page_title: "Kariera",
+        role_1_title: "1. Osoby Odpowiedzialne (QP) i Menedżerowie Zapewnienia Jakości (QA)",
+        role_1_desc: "Osoby Odpowiedzialne ponoszą ostateczną odpowiedzialność prawną za certyfikację każdej partii produktów farmaceutycznych.",
+        role_2_title: "2. Analityczni Chemicy Kontroli Jakości (QC)",
+        role_2_desc: "Chemik QC analizuje surowce substancji czynnych i gotowe postacie leków przy użyciu zaawansowanych technik analitycznych, takich jak HPLC.",
+        role_3_title: "3. Inżynierowie Formulacji i Walidacji Procesów",
+        role_3_desc: "Inżynierowie chemiczni i farmaceutyční projektują operacje produkcyjne na dużą skalę, optymalizując procesy wytwarzania.",
+        role_4_title: "4. Specjaliści ds. Rejestracji i Spraw Regulacyjnych (RA)",
+        role_4_desc: "Specjaliści RA tworzą kluczowy pomost komunikacyjny między TurtlePharma a krajowymi lub międzynarodowymi agencjami zdrowia.",
+        role_5_title: "5. Specjaliści ds. Farmakovigilancji (PV) i Bezpieczeństwa Leków",
+        role_5_desc: "Specjaliści ds. bezpieczeństwa monitorują bieżące bezpieczeństwo po wprowadzeniu do obrotu poprzez rejestrowanie zdarzeń niepożądanych.",
+        role_6_title: "6. Specjaliści ds. Logistyki Łańcucha Chłodniczego i Łańcucha Dostaw",
+        role_6_desc: "Personel logistyczny koordynuje bezpieczne, monitorowane pod kątem temperatury sieci magazynowania i dystrybucji.",
+        app_label: "Jeśli jesteś zainteresowany jedną z tych ról, zostaw swój e-mail tutaj:",
+        email_placeholder: "twoj.email@przyklad.pl",
+        email_validation_msg: "Proszę podać prawidłowy adres e-mail.",
+        app_btn: "Dołącz do naszego zespołu!",
+        app_success: "Nasz zespół wkrótce skontaktuje się z Tobą w sprawie szczegółów",
         footer_contacts: "Kontakty",
         footer_partners: "Partnerzy"
       }
@@ -429,6 +540,11 @@ Central Cold-Chain Distribution & Quality Operations:
     const langBtn = document.getElementById("langBtn");
     const langMenu = document.getElementById("langMenu");
     const langOptions = document.querySelectorAll(".lang-option");
+    const applyForm = document.getElementById("applyForm");
+    const appSection = document.getElementById("appSection");
+    const emailInput = document.getElementById("emailInput");
+    const roleSelect = document.getElementById("roleSelect");
+    const submitBtn = document.getElementById("submitBtn");
 
     const setLanguage = (lang) => {
       if (!translations[lang]) return;
@@ -441,7 +557,28 @@ Central Cold-Chain Distribution & Quality Operations:
           el.textContent = translations[lang][key];
         }
       });
+
+      const placeholdersToTranslate = document.querySelectorAll("[data-i18n-placeholder]");
+      placeholdersToTranslate.forEach((el) => {
+        const key = el.getAttribute("data-i18n-placeholder");
+        if (translations[lang][key]) {
+          el.placeholder = translations[lang][key];
+        }
+      });
+
+      if (!emailInput.validity.valid) {
+        emailInput.setCustomValidity(translations[lang].email_validation_msg);
+      }
     };
+
+    emailInput.addEventListener("invalid", () => {
+      const currentLang = document.documentElement.lang || "en";
+      emailInput.setCustomValidity(translations[currentLang].email_validation_msg);
+    });
+
+    emailInput.addEventListener("input", () => {
+      emailInput.setCustomValidity("");
+    });
 
     langBtn.addEventListener("click", () => {
       const isExpanded = langMenu.classList.toggle("show");
@@ -462,6 +599,41 @@ Central Cold-Chain Distribution & Quality Operations:
         langMenu.classList.remove("show");
         langBtn.setAttribute("aria-expanded", "false");
       }
+    });
+
+    /* ASYNCHRONOUS FORM SUBMISSION MATCHING ["Date", "Applicant", "E-mail", "Language"] */
+    applyForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const currentLang = document.documentElement.lang || "en";
+      
+      submitBtn.disabled = true;
+
+      const payload = {
+        date: new Date().toLocaleString(),
+        applicant: roleSelect.value,
+        email: emailInput.value,
+        lang: currentLang
+      };
+
+      fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(() => {
+        appSection.innerHTML = `
+          <p class="success-message" data-i18n="app_success">
+            ${translations[currentLang].app_success}
+          </p>
+        `;
+      })
+      .catch((error) => {
+        console.error("Submission error:", error);
+        submitBtn.disabled = false;
+      });
     });
   </script>
 
