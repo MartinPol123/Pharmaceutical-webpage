@@ -370,7 +370,8 @@
           type="email" 
           id="emailInput" 
           class="email-input" 
-          placeholder="your.name@example.com" 
+          data-i18n-placeholder="email_placeholder"
+          placeholder="your.email@example.com" 
           pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" 
           required 
         />
@@ -407,6 +408,7 @@
         role_6_title: "6. Cold-Chain Logistics & Supply Chain Specialists",
         role_6_desc: "Logistics personnel coordinate secure, temperature-monitored storage and distribution networks. They ensure biologicals, vaccines, and sensitive oral medications remain strictly within required temperature bounds from chemical synthesis to hospital pharmacy shelf.",
         app_label: "If you are interested in one of these roles, please leave your e-mail here:",
+        email_placeholder: "your.email@example.com",
         app_btn: "Become part of our team!",
         app_success: "Our team will contact you shortly with further details regarding the position",
         footer_contacts: "Contacts",
@@ -432,6 +434,7 @@
         role_6_title: "6. Specialisté logistiky chladírenského a dodavatelského řetězce",
         role_6_desc: "Pracovníci logistiky koordinují bezpečné a teplotně sledované skladování a distribuci. Zajišťují, aby biologika, vakcíny a citlivá ústní léčiva zůstala v požadovaných teplotních mezích od syntézy až po lékárenský regál.",
         app_label: "Pokud máte zájem o některou z těchto pozic, zanechte zde svůj e-mail:",
+        email_placeholder: "vas.email@priklad.cz",
         app_btn: "Staňte se součástí našeho týmu!",
         app_success: "Náš tým vás bude brzy kontaktovat s dalšími podrobnostmi ohledně pozice",
         footer_contacts: "Kontakty",
@@ -457,6 +460,7 @@
         role_6_title: "6. Spezialisten für Kühlketten-Logistik & Supply Chain",
         role_6_desc: "Logistikpersonal koordiniert temperaturüberwachte Lager- und Vertriebsnetze. Sie stellen sicher, dass Biologika, Impfstoffe und empfindliche Medikamente stets im erforderlichen Temperaturbereich bleiben.",
         app_label: "Wenn Sie an einer dieser Stellen interessiert sind, hinterlassen Sie bitte hier Ihre E-Mail-Adresse:",
+        email_placeholder: "ihre.email@beispiel.de",
         app_btn: "Werden Sie Teil unseres Teams!",
         app_success: "Unser Team wird Sie in Kürze mit weiteren Details zur Stelle kontaktieren",
         footer_contacts: "Kontakte",
@@ -479,6 +483,14 @@
         const key = el.getAttribute("data-i18n");
         if (translations[lang][key]) {
           el.textContent = translations[lang][key];
+        }
+      });
+
+      const placeholdersToTranslate = document.querySelectorAll("[data-i18n-placeholder]");
+      placeholdersToTranslate.forEach((el) => {
+        const key = el.getAttribute("data-i18n-placeholder");
+        if (translations[lang][key]) {
+          el.placeholder = translations[lang][key];
         }
       });
     };
