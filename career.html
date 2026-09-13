@@ -61,12 +61,20 @@
       text-decoration: underline;
     }
 
+    /* TOP NAVIGATION & LANGUAGE DROPDOWN */
     .top-nav {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
       gap: 12px;
       margin-bottom: 25px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
     .nav-btn {
@@ -84,6 +92,77 @@
       color: white;
       text-decoration: none;
       transform: translateY(-2px);
+    }
+
+    /* Language Dropdown Container */
+    .lang-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .lang-btn {
+      background-color: rgb(0, 0, 130);
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    .lang-btn:hover,
+    .lang-btn:focus-visible {
+      background-color: rgb(0, 140, 0);
+      transform: translateY(-2px);
+    }
+
+    .globe-icon {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .lang-menu {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 115%;
+      background-color: #ffffff;
+      min-width: 140px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border-radius: 6px;
+      border: 1px solid rgba(0, 100, 0, 0.3);
+      z-index: 1000;
+      overflow: hidden;
+    }
+
+    .lang-menu.show {
+      display: block;
+    }
+
+    .lang-option {
+      width: 100%;
+      padding: 10px 16px;
+      text-align: left;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      color: rgb(35, 45, 40);
+      font-weight: bold;
+      transition: background-color 0.2s ease;
+    }
+
+    .lang-option:hover,
+    .lang-option:focus-visible {
+      background-color: rgba(0, 100, 0, 0.1);
+      color: rgb(0, 100, 0);
+      outline: none;
     }
 
     .bottom-footer {
@@ -134,61 +213,189 @@
 <body>
 
   <div id="scrollContent">
-    <nav class="top-nav">
-      <a href="index.html" class="nav-btn">Main page</a>
-      <a href="career.html" class="nav-btn">Career</a>
-      <a href="rules.html" class="nav-btn">Followed rules</a>
-      <a href="TurtleCampaign.html" class="nav-btn">Turtle Campaign</a>
+    <nav class="top-nav" aria-label="Main Navigation">
+      <div class="nav-links">
+        <a href="index.html" class="nav-btn" data-i18n="nav_main">Main page</a>
+        <a href="career.html" class="nav-btn" data-i18n="nav_career">Career</a>
+        <a href="rules.html" class="nav-btn" data-i18n="nav_rules">Followed rules</a>
+        <a href="TurtleCampaign.html" class="nav-btn" data-i18n="nav_campaign">Turtle Campaign</a>
+      </div>
+
+      <!-- LANGUAGE DROPDOWN BUTTON -->
+      <div class="lang-dropdown">
+        <button type="button" class="lang-btn" id="langBtn" aria-expanded="false" aria-label="Language menu">
+          <svg class="globe-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+          </svg>
+          <span data-i18n="lang_text">Language</span> &#9660;
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <button type="button" class="lang-option" data-lang="en">English</button>
+          <button type="button" class="lang-option" data-lang="cs">Čeština</button>
+          <button type="button" class="lang-option" data-lang="de">Deutsch</button>
+        </div>
+      </div>
     </nav>
 
-    <h1>Career</h1>
+    <h1 data-i18n="page_title">Career</h1>
+
     <div class="role-card">
-      <h4>1. Qualified Person (QP) & Quality Assurance (QA) Managers</h4>
-      <p>
+      <h4 data-i18n="role_1_title">1. Qualified Person (QP) & Quality Assurance (QA) Managers</h4>
+      <p data-i18n="role_1_desc">
         Qualified Persons hold ultimate legal responsibility for certifying that every individual batch of pharmaceuticals produced or imported meets strict regulatory specifications before public release. Quality Assurance managers oversee corporate compliance systems, audit batch records, and maintain standard operating procedures across all manufacturing units.
       </p>
     </div>
 
     <div class="role-card">
-      <h4>2. Quality Control (QC) Analytical Chemists</h4>
-      <p>
+      <h4 data-i18n="role_2_title">2. Quality Control (QC) Analytical Chemists</h4>
+      <p data-i18n="role_2_desc">
         QC Chemists analyze active ingredient raw materials, intermediates, and final dosage forms using advanced analytical techniques like HPLC, UPLC, UV-Vis spectroscopy, and automated dissolution testing. Their work ensures chemical purity, potency, uniform disintegration, and physical stability.
       </p>
     </div>
 
     <div class="role-card">
-      <h4>3. Formulation & Process Validation Engineers</h4>
-      <p>
+      <h4 data-i18n="role_3_title">3. Formulation & Process Validation Engineers</h4>
+      <p data-i18n="role_3_desc">
         Chemical and pharmaceutical engineers design scale-up manufacturing operations, optimizing tablet compression, liquid filling, or drug delivery matrix formulation. Process validation specialists systematically prove that production equipment consistently yields identical quality standards across high-volume production batches.
       </p>
     </div>
 
     <div class="role-card">
-      <h4>4. Regulatory Affairs (RA) Specialists</h4>
-      <p>
+      <h4 data-i18n="role_4_title">4. Regulatory Affairs (RA) Specialists</h4>
+      <p data-i18n="role_4_desc">
         RA Specialists build the crucial communication bridge between TurtlePharma and national or international health agencies (such as SÚKL or EMA). They prepare technical drug dossiers, manage product registration renewals, and verify packaging compliance.
       </p>
     </div>
 
     <div class="role-card">
-      <h4>5. Pharmacovigilance (PV) & Medical Safety Officers</h4>
-      <p>
+      <h4 data-i18n="role_5_title">5. Pharmacovigilance (PV) & Medical Safety Officers</h4>
+      <p data-i18n="role_5_desc">
         Medical safety officers monitor ongoing post-marketing safety by recording, evaluating, and reporting any adverse events reported by physicians or patients. Their vigilant monitoring protects patient safety throughout the complete market lifecycle of every drug product.
       </p>
     </div>
 
     <div class="role-card">
-      <h4>6. Cold-Chain Logistics & Supply Chain Specialists</h4>
-      <p>
+      <h4 data-i18n="role_6_title">6. Cold-Chain Logistics & Supply Chain Specialists</h4>
+      <p data-i18n="role_6_desc">
         Logistics personnel coordinate secure, temperature-monitored storage and distribution networks. They ensure biologicals, vaccines, and sensitive oral medications remain strictly within required temperature bounds from chemical synthesis to hospital pharmacy shelf.
       </p>
     </div>
 
     <footer class="bottom-footer">
-      <a href="contacts.html">Contacts</a> |
-      <a href="partners.html">Partners</a>
+      <a href="contacts.html" data-i18n="footer_contacts">Contacts</a> |
+      <a href="partners.html" data-i18n="footer_partners">Partners</a>
     </footer>
   </div>
+
+  <script>
+    /* MULTILINGUAL TRANSLATIONS DICTIONARY */
+    const translations = {
+      en: {
+        nav_main: "Main page",
+        nav_career: "Career",
+        nav_rules: "Followed rules",
+        nav_campaign: "Turtle Campaign",
+        lang_text: "Language",
+        page_title: "Career",
+        role_1_title: "1. Qualified Person (QP) & Quality Assurance (QA) Managers",
+        role_1_desc: "Qualified Persons hold ultimate legal responsibility for certifying that every individual batch of pharmaceuticals produced or imported meets strict regulatory specifications before public release. Quality Assurance managers oversee corporate compliance systems, audit batch records, and maintain standard operating procedures across all manufacturing units.",
+        role_2_title: "2. Quality Control (QC) Analytical Chemists",
+        role_2_desc: "QC Chemists analyze active ingredient raw materials, intermediates, and final dosage forms using advanced analytical techniques like HPLC, UPLC, UV-Vis spectroscopy, and automated dissolution testing. Their work ensures chemical purity, potency, uniform disintegration, and physical stability.",
+        role_3_title: "3. Formulation & Process Validation Engineers",
+        role_3_desc: "Chemical and pharmaceutical engineers design scale-up manufacturing operations, optimizing tablet compression, liquid filling, or drug delivery matrix formulation. Process validation specialists systematically prove that production equipment consistently yields identical quality standards across high-volume production batches.",
+        role_4_title: "4. Regulatory Affairs (RA) Specialists",
+        role_4_desc: "RA Specialists build the crucial communication bridge between TurtlePharma and national or international health agencies (such as SÚKL or EMA). They prepare technical drug dossiers, manage product registration renewals, and verify packaging compliance.",
+        role_5_title: "5. Pharmacovigilance (PV) & Medical Safety Officers",
+        role_5_desc: "Medical safety officers monitor ongoing post-marketing safety by recording, evaluating, and reporting any adverse events reported by physicians or patients. Their vigilant monitoring protects patient safety throughout the complete market lifecycle of every drug product.",
+        role_6_title: "6. Cold-Chain Logistics & Supply Chain Specialists",
+        role_6_desc: "Logistics personnel coordinate secure, temperature-monitored storage and distribution networks. They ensure biologicals, vaccines, and sensitive oral medications remain strictly within required temperature bounds from chemical synthesis to hospital pharmacy shelf.",
+        footer_contacts: "Contacts",
+        footer_partners: "Partners"
+      },
+      cs: {
+        nav_main: "Hlavní strana",
+        nav_career: "Kariéra",
+        nav_rules: "Dodržovaná pravidla",
+        nav_campaign: "Želví kampaň",
+        lang_text: "Jazyk",
+        page_title: "Kariéra",
+        role_1_title: "1. Manažeři kvalifikovaných osob (QP) a zajištění kvality (QA)",
+        role_1_desc: "Kvalifikované osoby (QP) nesou právní odpovědnost za certifikaci každé šarže léčiv před jejím propuštěním na trh. Manažeři zajištění kvality dohlížejí na systémy dodržování předpisů, auditují záznamy o šaržích a udržují standardní operační postupy napříč všemi výrobními jednotkami.",
+        role_2_title: "2. Analytičtí chemici kontroly kvality (QC)",
+        role_2_desc: "Chemici QC analyzují suroviny účinných látek, meziprodukty a finální lékové formy pomocí pokročilých analytických technik, jako jsou HPLC, UPLC, UV-Vis spektroskopie a automatizované disoluční testování. Jejich práce zajišťuje chemickou čistotu, účinnost a fyzikální stabilitu.",
+        role_3_title: "3. Inženýři formulací a validace procesů",
+        role_3_desc: "Chemičtí a farmaceutičtí inženýři navrhují zvětšování měřítka výroby, optimalizují lisování tablet či formulace lékových forem. Specialisté validace procesů dokazují, že výrobní zařízení konzistentně dosahuje požadované kvality u velkoobjemových šarží.",
+        role_4_title: "4. Specialisté pro regulaci a registraci (RA)",
+        role_4_desc: "Specialisté RA tvoří klíčový most mezi společností TurtlePharma a národními či mezinárodními zdravotnickými autoritami (jako SÚKL nebo EMA). Připravují technickou registrační dokumentaci léčiv a spravují obnovy registrací.",
+        role_5_title: "5. Pracovníci farmakovigilance (PV) a lékařské bezpečnosti",
+        role_5_desc: "Pracovníci lékařské bezpečnosti sledují bezpečnost léčiv po jejich uvedení na trh zaznamenáváním a vyhodnocováním nežádoucích účinků nahlášených lékaři nebo pacienty. Jejich dohled chráni bezpečnost pacientů během celého životního cyklu produktu.",
+        role_6_title: "6. Specialisté logistiky chladírenského a dodavatelského řetězce",
+        role_6_desc: "Pracovníci logistiky koordinují bezpečné a teplotně sledované skladování a distribuci. Zajišťují, aby biologika, vakcíny a citlivá ústní léčiva zůstala v požadovaných teplotních mezích od syntézy až po lékárenský regál.",
+        footer_contacts: "Kontakty",
+        footer_partners: "Partneři"
+      },
+      de: {
+        nav_main: "Hauptseite",
+        nav_career: "Karriere",
+        nav_rules: "Befolgte Regeln",
+        nav_campaign: "Schildkröten-Kampagne",
+        lang_text: "Sprache",
+        page_title: "Karriere",
+        role_1_title: "1. Sachkundige Personen (QP) & Qualitätsmanagement (QA) Manager",
+        role_1_desc: "Sachkundige Personen (QP) tragen die rechtliche Verantwortung für die Zertifizierung jeder Arzneimittelcharge vor der Marktfreigabe. QA-Manager überwachen Compliance-Systeme, auditieren Chargenprotokolle und pflegen Standardarbeitsanweisung über alle Herstellungseinheiten hinweg.",
+        role_2_title: "2. Analytische Chemiker der Qualitätskontrolle (QC)",
+        role_2_desc: "QC-Chemiker analysieren Wirkstoffe, Zwischenprodukte und Enddarreichungsformen mit fortschrittlichen Techniken wie HPLC, UPLC, UV-Vis-Spektroskopie und Freisetzungstests. Sie gewährleisten chemische Reinheit, Wirkstärke und Stabilität.",
+        role_3_title: "3. Formulierungs- und Prozessvalidierungsingenieure",
+        role_3_desc: "Chemie- und Pharmaingenieure planen die Skalierung der Produktion und optimieren die Tablettierung oder Formulierung von Arzneiformen. Prozessvalidierungsspezialisten belegen die gleichbleibende Qualität der Produktionsanlagen bei Großserien.",
+        role_4_title: "4. Spezialisten für Regulatory Affairs (RA)",
+        role_4_desc: "RA-Spezialisten bilden die Brücke zwischen TurtlePharma und Gesundheitsbehörden (wie SÚKL oder EMA). Sie erstellen technische Dossiers, verwalten Arzneimittelzulassungen und prüfen die Verpackungs-Compliance.",
+        role_5_title: "5. Pharmakovigilanz (PV) & Medical Safety Officers",
+        role_5_desc: "Medical Safety Officers überwachen die Sicherheit nach der Markteinführung durch Erfassung und Bewertung von Nebenwirkungen. Ihre Überwachung schützt die Patientensicherheit während des gesamten Lebenszyklus des Arzneimittels.",
+        role_6_title: "6. Spezialisten für Kühlketten-Logistik & Supply Chain",
+        role_6_desc: "Logistikpersonal koordiniert temperaturüberwachte Lager- und Vertriebsnetze. Sie stellen sicher, dass Biologika, Impfstoffe und empfindliche Medikamente stets im erforderlichen Temperaturbereich bleiben.",
+        footer_contacts: "Kontakte",
+        footer_partners: "Partner"
+      }
+    };
+
+    const langBtn = document.getElementById("langBtn");
+    const langMenu = document.getElementById("langMenu");
+    const langOptions = document.querySelectorAll(".lang-option");
+
+    const setLanguage = (lang) => {
+      if (!translations[lang]) return;
+      document.documentElement.lang = lang;
+
+      const elementsToTranslate = document.querySelectorAll("[data-i18n]");
+      elementsToTranslate.forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+    };
+
+    langBtn.addEventListener("click", () => {
+      const isExpanded = langMenu.classList.toggle("show");
+      langBtn.setAttribute("aria-expanded", isExpanded);
+    });
+
+    langOptions.forEach((option) => {
+      option.addEventListener("click", () => {
+        const selectedLang = option.getAttribute("data-lang");
+        setLanguage(selectedLang);
+        langMenu.classList.remove("show");
+        langBtn.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!event.target.closest(".lang-dropdown")) {
+        langMenu.classList.remove("show");
+        langBtn.setAttribute("aria-expanded", "false");
+      }
+    });
+  </script>
 
 </body>
 
