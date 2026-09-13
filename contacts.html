@@ -55,12 +55,20 @@
       text-decoration: underline;
     }
 
+    /* TOP NAVIGATION & LANGUAGE DROPDOWN */
     .top-nav {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
       gap: 12px;
       margin-bottom: 25px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
     .nav-btn {
@@ -78,6 +86,77 @@
       color: white;
       text-decoration: none;
       transform: translateY(-2px);
+    }
+
+    /* Language Dropdown Container */
+    .lang-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .lang-btn {
+      background-color: rgb(0, 0, 130);
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    .lang-btn:hover,
+    .lang-btn:focus-visible {
+      background-color: rgb(0, 140, 0);
+      transform: translateY(-2px);
+    }
+
+    .globe-icon {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .lang-menu {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 115%;
+      background-color: #ffffff;
+      min-width: 140px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border-radius: 6px;
+      border: 1px solid rgba(0, 100, 0, 0.3);
+      z-index: 1000;
+      overflow: hidden;
+    }
+
+    .lang-menu.show {
+      display: block;
+    }
+
+    .lang-option {
+      width: 100%;
+      padding: 10px 16px;
+      text-align: left;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      color: rgb(35, 45, 40);
+      font-weight: bold;
+      transition: background-color 0.2s ease;
+    }
+
+    .lang-option:hover,
+    .lang-option:focus-visible {
+      background-color: rgba(0, 100, 0, 0.1);
+      color: rgb(0, 100, 0);
+      outline: none;
     }
 
     .bottom-footer {
@@ -115,49 +194,182 @@
 <body>
 
   <div id="scrollContent">
-    <nav class="top-nav">
-      <a href="index.html" class="nav-btn">Main page</a>
-      <a href="career.html" class="nav-btn">Career</a>
-      <a href="rules.html" class="nav-btn">Followed rules</a>
-      <a href="TurtleCampaign.html" class="nav-btn">Turtle Campaign</a>
+    <nav class="top-nav" aria-label="Main Navigation">
+      <div class="nav-links">
+        <a href="index.html" class="nav-btn" data-i18n="nav_main">Main page</a>
+        <a href="career.html" class="nav-btn" data-i18n="nav_career">Career</a>
+        <a href="rules.html" class="nav-btn" data-i18n="nav_rules">Followed rules</a>
+        <a href="TurtleCampaign.html" class="nav-btn" data-i18n="nav_campaign">Turtle Campaign</a>
+      </div>
+
+      <!-- LANGUAGE DROPDOWN BUTTON -->
+      <div class="lang-dropdown">
+        <button type="button" class="lang-btn" id="langBtn" aria-expanded="false" aria-label="Language menu">
+          <svg class="globe-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+          </svg>
+          <span data-i18n="lang_text">Language</span> &#9660;
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <button type="button" class="lang-option" data-lang="en">English</button>
+          <button type="button" class="lang-option" data-lang="cs">Čeština</button>
+          <button type="button" class="lang-option" data-lang="de">Deutsch</button>
+        </div>
+      </div>
     </nav>
 
-    <h1>Address</h1>
+    <h1 data-i18n="page_title">Address</h1>
+
+    <div class="content-card">
+      <p data-i18n="intro_text">
+        TurtlePharma operates across strategically situated laboratory, administrative, and logistics hubs within the Czech Republic:
+      </p>
+    </div>
 
     <div class="content-card">
       <p>
-        TurtlePharma operates across strategically situated laboratory, administrative, and logistics hubs within the Czech Republic:
-      </p>
-</div>
-<div class="content-card">
-  <p>
-        <strong>Corporate Headquarters & Administration:</strong><br>
-        TurtlePharma s.r.o.<br>
-        Lékařská 111/11<br>
-        150 00 Prague 5 – Motol<br>
-        Czech Republic
-      </p>
-</div>
-    <div class="content-card">
-      <p>
-        <strong>Central Cold-Chain Distribution & Quality Operations:</strong><br>
-        TurtlePharma Logistics Hub West<br>
-        Farmaceutická 222/22<br>
-        301 00 Pilsen<br>
-        Czech Republic
+        <strong data-i18n="hq_title">Corporate Headquarters & Administration:</strong><br>
+        <span data-i18n="hq_name">TurtlePharma s.r.o.</span><br>
+        <span data-i18n="hq_street">Lékařská 111/11</span><br>
+        <span data-i18n="hq_city">150 00 Prague 5 – Motol</span><br>
+        <span data-i18n="hq_country">Czech Republic</span>
       </p>
     </div>
-<div class="content-card">
-    <p>
-        <em>Visitor Policy:</em> In accordance with cGMP and ISO security protocols, facility access to analytical laboratories and temperature-controlled storage requires prior authorization and badge verification at the main security desk.
+
+    <div class="content-card">
+      <p>
+        <strong data-i18n="dist_title">Central Cold-Chain Distribution & Quality Operations:</strong><br>
+        <span data-i18n="dist_name">TurtlePharma Logistics Hub West</span><br>
+        <span data-i18n="dist_street">Farmaceutická 222/22</span><br>
+        <span data-i18n="dist_city">301 00 Pilsen</span><br>
+        <span data-i18n="dist_country">Czech Republic</span>
+      </p>
+    </div>
+
+    <div class="content-card">
+      <p>
+        <em data-i18n="visitor_label">Visitor Policy:</em><span data-i18n="visitor_text"> In accordance with cGMP and ISO security protocols, facility access to analytical laboratories and temperature-controlled storage requires prior authorization and badge verification at the main security desk.</span>
       </p>
     </div>
 
     <footer class="bottom-footer">
-      <a href="contacts.html">Contacts</a> |
-      <a href="partners.html">Partners</a>
+      <a href="contacts.html" data-i18n="footer_contacts">Contacts</a> |
+      <a href="partners.html" data-i18n="footer_partners">Partners</a>
     </footer>
   </div>
+
+  <script>
+    /* MULTILINGUAL TRANSLATIONS DICTIONARY */
+    const translations = {
+      en: {
+        nav_main: "Main page",
+        nav_career: "Career",
+        nav_rules: "Followed rules",
+        nav_campaign: "Turtle Campaign",
+        lang_text: "Language",
+        page_title: "Address",
+        intro_text: "TurtlePharma operates across strategically situated laboratory, administrative, and logistics hubs within the Czech Republic:",
+        hq_title: "Corporate Headquarters & Administration:",
+        hq_name: "TurtlePharma s.r.o.",
+        hq_street: "Lékařská 111/11",
+        hq_city: "150 00 Prague 5 – Motol",
+        hq_country: "Czech Republic",
+        dist_title: "Central Cold-Chain Distribution & Quality Operations:",
+        dist_name: "TurtlePharma Logistics Hub West",
+        dist_street: "Farmaceutická 222/22",
+        dist_city: "301 00 Pilsen",
+        dist_country: "Czech Republic",
+        visitor_label: "Visitor Policy:",
+        visitor_text: " In accordance with cGMP and ISO security protocols, facility access to analytical laboratories and temperature-controlled storage requires prior authorization and badge verification at the main security desk.",
+        footer_contacts: "Contacts",
+        footer_partners: "Partners"
+      },
+      cs: {
+        nav_main: "Hlavní strana",
+        nav_career: "Kariéra",
+        nav_rules: "Dodržovaná pravidla",
+        nav_campaign: "Želví kampaň",
+        lang_text: "Jazyk",
+        page_title: "Adresa",
+        intro_text: "Společnost TurtlePharma působí ve strategicky umístěných laboratorních, administrativních a logistických centrech v České republice:",
+        hq_title: "Firemní centrála a administrativa:",
+        hq_name: "TurtlePharma s.r.o.",
+        hq_street: "Lékařská 111/11",
+        hq_city: "150 00 Praha 5 – Motol",
+        hq_country: "Česká republika",
+        dist_title: "Centrální chladírenská distribuce a operace kvality:",
+        dist_name: "TurtlePharma Logistics Hub Západ",
+        dist_street: "Farmaceutická 222/22",
+        dist_city: "301 00 Plzeň",
+        dist_country: "Česká republika",
+        visitor_label: "Pravidla pro návštěvníky:",
+        visitor_text: " V souladu s bezpečnostními protokoly cGMP a ISO vyžaduje přístup do analytických laboratoří a prostor s řízenou teplotou předchozí autorizaci a ověření totožnosti na hlavní recepci.",
+        footer_contacts: "Kontakty",
+        footer_partners: "Partneři"
+      },
+      de: {
+        nav_main: "Hauptseite",
+        nav_career: "Karriere",
+        nav_rules: "Befolgte Regeln",
+        nav_campaign: "Schildkröten-Kampagne",
+        lang_text: "Sprache",
+        page_title: "Adresse",
+        intro_text: "TurtlePharma ist an strategisch gelegenen Labor-, Verwaltungs- und Logistikstandorten in der Tschechischen Republik tätig:",
+        hq_title: "Unternehmenszentrale & Verwaltung:",
+        hq_name: "TurtlePharma s.r.o.",
+        hq_street: "Lékařská 111/11",
+        hq_city: "150 00 Prag 5 – Motol",
+        hq_country: "Tschechische Republik",
+        dist_title: "Zentrales Kühlketten-Logistikzentrum & Qualitätswesen:",
+        dist_name: "TurtlePharma Logistics Hub West",
+        dist_street: "Farmaceutická 222/22",
+        dist_city: "301 00 Pilsen",
+        dist_country: "Tschechische Republik",
+        visitor_label: "Besucherregelung:",
+        visitor_text: " Gemäß den cGMP- und ISO-Sicherheits-Protokollen erfordert der Zutritt zu den Analyselaboren und temperaturgeführten Lagerbereichen eine vorherige Genehmigung und Ausweisprüfung am Hauptempfang.",
+        footer_contacts: "Kontakte",
+        footer_partners: "Partner"
+      }
+    };
+
+    const langBtn = document.getElementById("langBtn");
+    const langMenu = document.getElementById("langMenu");
+    const langOptions = document.querySelectorAll(".lang-option");
+
+    const setLanguage = (lang) => {
+      if (!translations[lang]) return;
+      document.documentElement.lang = lang;
+
+      const elementsToTranslate = document.querySelectorAll("[data-i18n]");
+      elementsToTranslate.forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+    };
+
+    langBtn.addEventListener("click", () => {
+      const isExpanded = langMenu.classList.toggle("show");
+      langBtn.setAttribute("aria-expanded", isExpanded);
+    });
+
+    langOptions.forEach((option) => {
+      option.addEventListener("click", () => {
+        const selectedLang = option.getAttribute("data-lang");
+        setLanguage(selectedLang);
+        langMenu.classList.remove("show");
+        langBtn.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!event.target.closest(".lang-dropdown")) {
+        langMenu.classList.remove("show");
+        langBtn.setAttribute("aria-expanded", "false");
+      }
+    });
+  </script>
 
 </body>
 
