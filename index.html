@@ -216,7 +216,7 @@
 
     .info-card {
       background-color: rgba(255, 255, 255, 0.88);
-      border: 1px solid rgba(0, 100, 0, 0.3);
+      border-left: 5px solid rgb(0, 100, 0);
       border-radius: 8px;
       padding: 15px 20px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.05);
@@ -228,6 +228,16 @@
       font-size: 1.15rem;
       text-align: left;
     }
+    
+.role-card {
+      background-color: rgba(255, 255, 255, 0.88);
+      border-left: 5px solid rgb(0, 100, 0);
+      border-radius: 4px;
+      padding: 16px 22px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+
   </style>
 </head>
 
@@ -245,41 +255,38 @@
       </nav>
 
       <h1 id="head1">TurtlePharma</h1>
-
-      <ul>
-        <li>
+      <p>
+<div class="role-card">
           This company was designed to help distribute
-          medicines produced by larger pharmaceutical companies in Czechia.
-        </li>
-        <li>
+          medicines produced by larger pharmaceutical companies in Czechia.<br>
           Our story begins in 1990, when we faced the challenges
-          of adapting to a new economic environment.
-        </li>
-        <li>
+          of adapting to a new economic environment.<br>
           Our major goal is to help people understand medicines,
           pharmaceutical science, and responsible healthcare.
-        </li>
-      </ul>
+</div>
+</p>
 
       <!-- HALF-WIDTH RESPONSIVE IMAGE CONTAINER -->
       <div id="Kiss">
         <div class="img-wrapper">
           <img
             src="https://static.vecteezy.com/system/resources/thumbnails/056/301/117/small/four-colorful-turtle-figurines-crawling-on-sandy-beach-near-ocean-waves-sunny-day-playful-scene-photo.jpg"
-            alt="Kissing turtles"
+            alt="Our priority"
           >
           <span class="tooltip-text">Kissing turtles</span>
         </div>
       </div>
 
       <p>
+<div class="role-card">
         At the heart of every effective medicine is a story of care,
         precise science, and human well-being. Welcome to a space
         created to bridge the gap between complex pharmaceutical
         chemistry and everyday health.
+  </div>
       </p>
 
-      <h2>Core Pharmaceutical Capabilities & Services</h2>
+      <h1>Core Pharmaceutical Capabilities & Services</h1>
 
       <div class="info-grid">
         <div class="info-card">
