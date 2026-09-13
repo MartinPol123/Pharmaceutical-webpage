@@ -409,6 +409,7 @@
         role_6_desc: "Logistics personnel coordinate secure, temperature-monitored storage and distribution networks. They ensure biologicals, vaccines, and sensitive oral medications remain strictly within required temperature bounds from chemical synthesis to hospital pharmacy shelf.",
         app_label: "If you are interested in one of these roles, please leave your e-mail here:",
         email_placeholder: "your.email@example.com",
+        email_validation_msg: "Please enter a valid email address (e.g., name@example.com).",
         app_btn: "Become part of our team!",
         app_success: "Our team will contact you shortly with further details regarding the position",
         footer_contacts: "Contacts",
@@ -435,6 +436,7 @@
         role_6_desc: "Pracovníci logistiky koordinují bezpečné a teplotně sledované skladování a distribuci. Zajišťují, aby biologika, vakcíny a citlivá ústní léčiva zůstala v požadovaných teplotních mezích od syntézy až po lékárenský regál.",
         app_label: "Pokud máte zájem o některou z těchto pozic, zanechte zde svůj e-mail:",
         email_placeholder: "vas.email@priklad.cz",
+        email_validation_msg: "Zadejte platnou e-mailovou adresu (např. jmeno@priklad.cz).",
         app_btn: "Staňte se součástí našeho týmu!",
         app_success: "Náš tým vás bude brzy kontaktovat s dalšími podrobnostmi ohledně pozice",
         footer_contacts: "Kontakty",
@@ -461,6 +463,7 @@
         role_6_desc: "Logistikpersonal koordiniert temperaturüberwachte Lager- und Vertriebsnetze. Sie stellen sicher, dass Biologika, Impfstoffe und empfindliche Medikamente stets im erforderlichen Temperaturbereich bleiben.",
         app_label: "Wenn Sie an einer dieser Stellen interessiert sind, hinterlassen Sie bitte hier Ihre E-Mail-Adresse:",
         email_placeholder: "ihre.email@beispiel.de",
+        email_validation_msg: "Bitte geben Sie eine gültige E-Mail-Adresse ein (z. B. name@beispiel.de).",
         app_btn: "Werden Sie Teil unseres Teams!",
         app_success: "Unser Team wird Sie in Kürze mit weiteren Details zur Stelle kontaktieren",
         footer_contacts: "Kontakte",
@@ -473,6 +476,16 @@
     const langOptions = document.querySelectorAll(".lang-option");
     const applyForm = document.getElementById("applyForm");
     const appSection = document.getElementById("appSection");
+    const emailInput = document.getElementById("emailInput");
+
+    const updateEmailValidationMessage = (lang) => {
+      if (!emailInput) return;
+      if (emailInput.validity.valueMissing || emailInput.validity.typeMismatch || emailInput.validity.patternMismatch) {
+        emailInput.setCustomValidity(translations[lang].email_validation_msg);
+      } else {
+        emailInput.setCustomValidity("");
+      }
+    };
 
     const setLanguage = (lang) => {
       if (!translations[lang]) return;
@@ -493,7 +506,22 @@
           el.placeholder = translations[lang][key];
         }
       });
+
+      /* Re-evaluate custom validity text if input is currently invalid */
+      if (!emailInput.validity.valid) {
+        emailInput.setCustomValidity(translations[lang].email_validation_msg);
+      }
     };
+
+    /* Dynamic input validation event listeners */
+    emailInput.addEventListener("invalid", () => {
+      const currentLang = document.documentElement.lang || "en";
+      emailInput.setCustomValidity(translations[currentLang].email_validation_msg);
+    });
+
+    emailInput.addEventListener("input", () => {
+      emailInput.setCustomValidity("");
+    });
 
     langBtn.addEventListener("click", () => {
       const isExpanded = langMenu.classList.toggle("show");
