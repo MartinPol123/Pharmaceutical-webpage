@@ -86,14 +86,21 @@
 
 
     /* =========================================================
-       TOP NAVIGATION BAR
+       TOP NAVIGATION BAR & LANGUAGE DROPDOWN
        ========================================================= */
     .top-nav {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
       gap: 12px;
       margin-bottom: 25px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
     .nav-btn {
@@ -116,6 +123,77 @@
       transform: translateY(-2px);
       outline: 2px solid var(--heading-color);
       outline-offset: 2px;
+    }
+
+    /* Language Dropdown Container */
+    .lang-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .lang-btn {
+      background-color: var(--heading-color);
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    .lang-btn:hover,
+    .lang-btn:focus-visible {
+      background-color: var(--primary-hover);
+      transform: translateY(-2px);
+    }
+
+    .globe-icon {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .lang-menu {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 115%;
+      background-color: #ffffff;
+      min-width: 140px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      z-index: 1000;
+      overflow: hidden;
+    }
+
+    .lang-menu.show {
+      display: block;
+    }
+
+    .lang-option {
+      width: 100%;
+      padding: 10px 16px;
+      text-align: left;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      color: var(--text-color);
+      font-weight: bold;
+      transition: background-color 0.2s ease;
+    }
+
+    .lang-option:hover,
+    .lang-option:focus-visible {
+      background-color: rgba(0, 100, 0, 0.1);
+      color: var(--primary-color);
+      outline: none;
     }
 
 
@@ -291,21 +369,39 @@
 
     <!-- TOP NAVIGATION -->
     <nav class="top-nav" aria-label="Main Navigation">
-      <a href="index.html" class="nav-btn">Main page</a>
-      <a href="career.html" class="nav-btn">Career</a>
-      <a href="rules.html" class="nav-btn">Followed rules</a>
-      <a href="TurtleCampaign.html" class="nav-btn">Turtle Campaign</a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-btn" data-i18n="nav_main">Main page</a>
+        <a href="career.html" class="nav-btn" data-i18n="nav_career">Career</a>
+        <a href="rules.html" class="nav-btn" data-i18n="nav_rules">Followed rules</a>
+        <a href="TurtleCampaign.html" class="nav-btn" data-i18n="nav_campaign">Turtle Campaign</a>
+      </div>
+
+      <!-- LANGUAGE DROPDOWN BUTTON -->
+      <div class="lang-dropdown">
+        <button type="button" class="lang-btn" id="langBtn" aria-expanded="false" aria-label="Language menu">
+          <!-- Globe Symbol (SVG) -->
+          <svg class="globe-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+          </svg>
+          <span data-i18n="lang_text">Language</span> &#9660;
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <button type="button" class="lang-option" data-lang="en">English</button>
+          <button type="button" class="lang-option" data-lang="cs">Čeština</button>
+          <button type="button" class="lang-option" data-lang="de">Deutsch</button>
+        </div>
+      </div>
     </nav>
 
 
     <!-- PAGE TITLE -->
-    <h1>Turtle Conservation Campaign</h1>
+    <h1 data-i18n="page_title">Turtle Conservation Campaign</h1>
 
 
     <div class="campaign-card">
 
       <!-- INTRODUCTION -->
-      <p>
+      <p data-i18n="intro_text">
         As part of TurtlePharma's environmental initiative, we support
         sea turtle marine sanctuaries across the globe. Select a specific
         turtle species below to sponsor its protection program and receive
@@ -315,7 +411,7 @@
 
       <!-- TURTLE SPECIES SELECTOR -->
       <div class="selector-group">
-        <label for="turtleSelect">Choose a Turtle Species to Save:</label>
+        <label for="turtleSelect" data-i18n="select_label">Choose a Turtle Species to Save:</label>
 
         <select id="turtleSelect" aria-label="Select turtle species">
           <option value="0">Green Sea Turtle (Chelonia mydas)</option>
@@ -355,11 +451,11 @@
 
       <!-- SPONSORSHIP FORM -->
       <section id="sponsorshipSection">
-        <h3 style="margin-top: 30px;">Register for Sponsorship Updates</h3>
+        <h3 style="margin-top: 30px;" data-i18n="form_heading">Register for Sponsorship Updates</h3>
 
         <form id="campaignForm" novalidate>
           <div class="selector-group">
-            <label for="contactEmail">Contact Email (must contain "@"):</label>
+            <label for="contactEmail" data-i18n="email_label">Contact Email (must contain "@"):</label>
 
             <input
               type="email"
@@ -368,11 +464,11 @@
               required
               aria-describedby="emailError">
 
-            <span class="error-msg" id="emailError" role="alert">
+            <span class="error-msg" id="emailError" role="alert" data-i18n="email_error">
               Please enter a valid email address (e.g., name@example.com).
             </span>
 
-            <button type="submit" class="action-btn">
+            <button type="submit" class="action-btn" data-i18n="submit_btn">
               Confirm Sponsorship
             </button>
           </div>
@@ -381,7 +477,7 @@
 
 
       <!-- SUCCESS MESSAGE -->
-      <div class="success-msg" id="formSuccess" role="status">
+      <div class="success-msg" id="formSuccess" role="status" data-i18n="success_msg">
         Thank you for your support. Our team will contact you shortly
         with further details regarding the payment process.
       </div>
@@ -391,8 +487,8 @@
 
     <!-- FOOTER -->
     <footer class="bottom-footer">
-      <a href="contacts.html">Contacts</a> |
-      <a href="partners.html">Partners</a>
+      <a href="contacts.html" data-i18n="footer_contacts">Contacts</a> |
+      <a href="partners.html" data-i18n="footer_partners">Partners</a>
     </footer>
 
   </main>
@@ -401,12 +497,106 @@
   <!-- JAVASCRIPT -->
   <script>
     /* =========================================================
+       MULTILINGUAL TRANSLATIONS DICTIONARY
+       ========================================================= */
+    const translations = {
+      en: {
+        nav_main: "Main page",
+        nav_career: "Career",
+        nav_rules: "Followed rules",
+        nav_campaign: "Turtle Campaign",
+        lang_text: "Language",
+        page_title: "Turtle Conservation Campaign",
+        intro_text: "As part of TurtlePharma's environmental initiative, we support sea turtle marine sanctuaries across the globe. Select a specific turtle species below to sponsor its protection program and receive updates.",
+        select_label: "Choose a Turtle Species to Save:",
+        form_heading: "Register for Sponsorship Updates",
+        email_label: 'Contact Email (must contain "@"):',
+        email_error: "Please enter a valid email address (e.g., name@example.com).",
+        submit_btn: "Confirm Sponsorship",
+        success_msg: "Thank you for your support. Our team will contact you shortly with further details regarding the payment process.",
+        footer_contacts: "Contacts",
+        footer_partners: "Partners",
+        caption_prefix: "Currently displaying: ",
+        turtles: [
+          "Green Sea Turtle (Chelonia mydas)",
+          "Loggerhead Sea Turtle (Caretta caretta)",
+          "Hawksbill Turtle (Eretmochelys imbricata)",
+          "Leatherback Sea Turtle (Dermochelys coriacea)",
+          "Olive Ridley Turtle (Lepidochelys olivacea)",
+          "Galapagos Giant Tortoise (Chelonoidis niger)",
+          "Red-Eared Slider (Trachemys scripta elegans)",
+          "Eastern Box Turtle (Terrapene carolina)",
+          "Painted Turtle (Chrysemys picta)",
+          "Desert Tortoise (Gopherus agassizii)"
+        ]
+      },
+      cs: {
+        nav_main: "Hlavní strana",
+        nav_career: "Kariéra",
+        nav_rules: "Dodržovaná pravidla",
+        nav_campaign: "Želví kampaň",
+        lang_text: "Jazyk",
+        page_title: "Kampaň na ochranu želv",
+        intro_text: "V rámci environmentální iniciativy společnosti TurtlePharma podporujeme mořské rezervace pro želvy po celém světě. Vyberte konkrétní druh želvy a zasponsorujte její ochranný program.",
+        select_label: "Vyberte druh želvy k záchraně:",
+        form_heading: "Registrace k odběru novinek o sponzorství",
+        email_label: 'Kontaktní email (musí obsahovat "@"):',
+        email_error: "Zadejte prosím platnou emailovou adresu (např. jmeno@priklad.cz).",
+        submit_btn: "Potvrdit sponzorství",
+        success_msg: "Děkujeme za vaši podporu. Náš tým vás bude brzy kontaktovat s dalšími podrobnostmi ohledně platby.",
+        footer_contacts: "Kontakty",
+        footer_partners: "Partneři",
+        caption_prefix: "Aktuálně zobrazeno: ",
+        turtles: [
+          "Kareta obrovská (Chelonia mydas)",
+          "Kareta obecná (Caretta caretta)",
+          "Kareta pravá (Eretmochelys imbricata)",
+          "Kožatka velká (Dermochelys coriacea)",
+          "Kareta Lepidochelys olivacea",
+          "Želva sloní (Chelonoidis niger)",
+          "Želva nádherná (Trachemys scripta elegans)",
+          "Želva karolínská (Terrapene carolina)",
+          "Želva ozdobná (Chrysemys picta)",
+          "Želva pouštní (Gopherus agassizii)"
+        ]
+      },
+      de: {
+        nav_main: "Hauptseite",
+        nav_career: "Karriere",
+        nav_rules: "Befolgte Regeln",
+        nav_campaign: "Schildkröten-Kampagne",
+        lang_text: "Sprache",
+        page_title: "Schildkrötenschutz-Kampagne",
+        intro_text: "Im Rahmen der Umweltinitiative von TurtlePharma unterstützen wir Meeres-Schutzgebiete für Schildkröten weltweit. Wählen Sie eine Schildkrötenart aus, um deren Schutzprogramm zu sponsern.",
+        select_label: "Wählen Sie eine Schildkrötenart zum Schutz aus:",
+        form_heading: "Für Sponsoring-Updates registrieren",
+        email_label: 'Kontakt-E-Mail (muss "@" enthalten):',
+        email_error: "Bitte geben Sie eine gültige E-Mail-Adresse ein (z. B. name@beispiel.de).",
+        submit_btn: "Sponsoring bestätigen",
+        success_msg: "Vielen Dank für Ihre Unterstützung. Unser Team wird Sie Kürze mit weiteren Details bezüglich des Zahlungsvorgangs kontaktieren.",
+        footer_contacts: "Kontakte",
+        footer_partners: "Partner",
+        caption_prefix: "Aktuell angezeigt: ",
+        turtles: [
+          "Suppenschildkröte (Chelonia mydas)",
+          "Unechte Karettschildkröte (Caretta caretta)",
+          "Echte Karettschildkröte (Eretmochelys imbricata)",
+          "Lederschildkröte (Dermochelys coriacea)",
+          "Oliven-Bastardschildkröte (Lepidochelys olivacea)",
+          "Galapagos-Riesenschildkröte (Chelonoidis niger)",
+          "Rotwangen-Schmuckschildkröte (Trachemys scripta elegans)",
+          "Gewöhnliche Dosenschildkröte (Terrapene carolina)",
+          "Zierschildkröte (Chrysemys picta)",
+          "Kalifornische Gopher-Schildkröte (Gopherus agassizii)"
+        ]
+      }
+    };
+
+    let currentLang = "en";
+
+
+    /* =========================================================
        TURTLE DATA
-       Every image below is a real photograph on Wikimedia Commons,
-       verified species-by-species to show only the animal (no
-       people), served via the Special:FilePath direct-link
-       redirect. Public domain / CC-licensed; credit + source link
-       included per license terms.
        ========================================================= */
     const COMMONS_BASE = "https://commons.wikimedia.org/wiki/Special:FilePath/";
     const COMMONS_FILE_BASE = "https://commons.wikimedia.org/wiki/File:";
@@ -495,13 +685,65 @@
     const contactEmail = document.getElementById("contactEmail");
     const emailError = document.getElementById("emailError");
     const formSuccess = document.getElementById("formSuccess");
+    const langBtn = document.getElementById("langBtn");
+    const langMenu = document.getElementById("langMenu");
+    const langOptions = document.querySelectorAll(".lang-option");
 
 
-    /* DYNAMIC IMAGE CHANGE WITH SMOOTH, FLICKER-FREE TRANSITION
-       The new image is preloaded off-screen; we only fade the
-       visible <img> once the new file has actually finished
-       loading, so a slow connection never shows a half-swapped
-       or blank state. */
+    /* LANGUAGE SWITCHING LOGIC */
+    const setLanguage = (lang) => {
+      if (!translations[lang]) return;
+      currentLang = lang;
+      document.documentElement.lang = lang;
+
+      // Update static text content
+      const elementsToTranslate = document.querySelectorAll("[data-i18n]");
+      elementsToTranslate.forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+
+      // Update select options
+      Array.from(turtleSelect.options).forEach((option, index) => {
+        if (translations[lang].turtles[index]) {
+          option.textContent = translations[lang].turtles[index];
+        }
+      });
+
+      // Update current caption
+      const selectedIndex = parseInt(turtleSelect.value, 10);
+      const currentName = translations[lang].turtles[selectedIndex];
+      turtleCaption.textContent = `${translations[lang].caption_prefix}${currentName}`;
+    };
+
+    // Toggle language menu dropdown
+    langBtn.addEventListener("click", () => {
+      const isExpanded = langMenu.classList.toggle("show");
+      langBtn.setAttribute("aria-expanded", isExpanded);
+    });
+
+    // Handle language selection
+    langOptions.forEach((option) => {
+      option.addEventListener("click", () => {
+        const selectedLang = option.getAttribute("data-lang");
+        setLanguage(selectedLang);
+        langMenu.classList.remove("show");
+        langBtn.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", (event) => {
+      if (!event.target.closest(".lang-dropdown")) {
+        langMenu.classList.remove("show");
+        langBtn.setAttribute("aria-expanded", "false");
+      }
+    });
+
+
+    /* DYNAMIC IMAGE CHANGE WITH SMOOTH TRANSITION */
     const changeTurtle = () => {
       const selectedIndex = parseInt(turtleSelect.value, 10);
       const selectedTurtle = turtleData[selectedIndex];
@@ -516,7 +758,8 @@
         setTimeout(() => {
           turtlePhoto.src = newSrc;
           turtlePhoto.alt = selectedTurtle.alt;
-          turtleCaption.textContent = `Currently displaying: ${selectedTurtle.name}`;
+          const currentName = translations[currentLang].turtles[selectedIndex];
+          turtleCaption.textContent = `${translations[currentLang].caption_prefix}${currentName}`;
           turtleCredit.innerHTML =
             `Photo: <a href="${COMMONS_FILE_BASE}${selectedTurtle.fileTitle}" target="_blank" rel="noopener noreferrer">${selectedTurtle.credit}</a>`;
           turtlePhoto.style.opacity = "1";
@@ -524,14 +767,13 @@
       };
 
       preloadImg.onerror = () => {
-        // Commons hotlink failed to resolve; keep current photo rather than showing a broken image
-        turtleCaption.textContent = `Currently displaying: ${selectedTurtle.name} (image unavailable)`;
+        const currentName = translations[currentLang].turtles[selectedIndex];
+        turtleCaption.textContent = `${translations[currentLang].caption_prefix}${currentName} (image unavailable)`;
       };
 
       preloadImg.src = newSrc;
     };
 
-    /* FALLBACK IN CASE THE INITIAL IMAGE FAILS TO LOAD */
     turtlePhoto.onerror = () => {
       turtlePhoto.alt = "Image failed to load";
     };
