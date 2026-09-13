@@ -207,6 +207,77 @@
       margin: 0;
       padding: 4px 0;
     }
+
+    /* APPLICATION FORM SECTION */
+    .application-section {
+      background-color: rgba(255, 255, 255, 0.88);
+      border: 2px solid rgb(0, 100, 0);
+      border-radius: 6px;
+      padding: 24px;
+      margin-top: 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    .form-inline-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+    }
+
+    .form-label {
+      color: rgb(0, 0, 130);
+      font-weight: bold;
+      font-size: 1.05rem;
+      margin: 0;
+    }
+
+    .role-select, .email-input {
+      padding: 10px 14px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+
+    .role-select {
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .email-input {
+      width: 100%;
+      max-width: 420px;
+      display: block;
+      margin-bottom: 15px;
+    }
+
+    .apply-btn {
+      background-color: rgb(0, 100, 0);
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    .apply-btn:hover {
+      background-color: rgb(0, 140, 0);
+      transform: translateY(-2px);
+    }
+
+    .success-message {
+      color: rgb(0, 100, 0);
+      font-weight: bold;
+      font-size: 1.2rem;
+      text-align: center;
+      margin: 0;
+      padding: 12px 0;
+    }
   </style>
 </head>
 
@@ -281,6 +352,32 @@
       </p>
     </div>
 
+    <!-- APPLICATION FORM SECTION -->
+    <div class="application-section" id="appSection">
+      <form id="applyForm">
+        <div class="form-inline-row">
+          <label for="roleSelect" class="form-label" data-i18n="app_label">If you are interested in one of these roles, please leave your e-mail here:</label>
+          <select id="roleSelect" class="role-select" required>
+            <option value="QP & QA Manager" data-i18n="role_1_title">1. Qualified Person (QP) & Quality Assurance (QA) Managers</option>
+            <option value="QC Analytical Chemist" data-i18n="role_2_title">2. Quality Control (QC) Analytical Chemists</option>
+            <option value="Formulation & Process Engineer" data-i18n="role_3_title">3. Formulation & Process Validation Engineers</option>
+            <option value="RA Specialist" data-i18n="role_4_title">4. Regulatory Affairs (RA) Specialists</option>
+            <option value="PV & Medical Safety Officer" data-i18n="role_5_title">5. Pharmacovigilance (PV) & Medical Safety Officers</option>
+            <option value="Logistics Specialist" data-i18n="role_6_title">6. Cold-Chain Logistics & Supply Chain Specialists</option>
+          </select>
+        </div>
+        <input 
+          type="email" 
+          id="emailInput" 
+          class="email-input" 
+          placeholder="your.name@example.com" 
+          pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" 
+          required 
+        />
+        <button type="submit" class="apply-btn" data-i18n="app_btn">Become part of our team!</button>
+      </form>
+    </div>
+
     <footer class="bottom-footer">
       <a href="contacts.html" data-i18n="footer_contacts">Contacts</a> |
       <a href="partners.html" data-i18n="footer_partners">Partners</a>
@@ -309,6 +406,9 @@
         role_5_desc: "Medical safety officers monitor ongoing post-marketing safety by recording, evaluating, and reporting any adverse events reported by physicians or patients. Their vigilant monitoring protects patient safety throughout the complete market lifecycle of every drug product.",
         role_6_title: "6. Cold-Chain Logistics & Supply Chain Specialists",
         role_6_desc: "Logistics personnel coordinate secure, temperature-monitored storage and distribution networks. They ensure biologicals, vaccines, and sensitive oral medications remain strictly within required temperature bounds from chemical synthesis to hospital pharmacy shelf.",
+        app_label: "If you are interested in one of these roles, please leave your e-mail here:",
+        app_btn: "Become part of our team!",
+        app_success: "Our team will contact you shortly with further details regarding the position",
         footer_contacts: "Contacts",
         footer_partners: "Partners"
       },
@@ -331,6 +431,9 @@
         role_5_desc: "Pracovníci lékařské bezpečnosti sledují bezpečnost léčiv po jejich uvedení na trh zaznamenáváním a vyhodnocováním nežádoucích účinků nahlášených lékaři nebo pacienty. Jejich dohled chráni bezpečnost pacientů během celého životního cyklu produktu.",
         role_6_title: "6. Specialisté logistiky chladírenského a dodavatelského řetězce",
         role_6_desc: "Pracovníci logistiky koordinují bezpečné a teplotně sledované skladování a distribuci. Zajišťují, aby biologika, vakcíny a citlivá ústní léčiva zůstala v požadovaných teplotních mezích od syntézy až po lékárenský regál.",
+        app_label: "Pokud máte zájem o některou z těchto pozic, zanechte zde svůj e-mail:",
+        app_btn: "Staňte se součástí našeho týmu!",
+        app_success: "Náš tým vás bude brzy kontaktovat s dalšími podrobnostmi ohledně pozice",
         footer_contacts: "Kontakty",
         footer_partners: "Partneři"
       },
@@ -353,6 +456,9 @@
         role_5_desc: "Medical Safety Officers überwachen die Sicherheit nach der Markteinführung durch Erfassung und Bewertung von Nebenwirkungen. Ihre Überwachung schützt die Patientensicherheit während des gesamten Lebenszyklus des Arzneimittels.",
         role_6_title: "6. Spezialisten für Kühlketten-Logistik & Supply Chain",
         role_6_desc: "Logistikpersonal koordiniert temperaturüberwachte Lager- und Vertriebsnetze. Sie stellen sicher, dass Biologika, Impfstoffe und empfindliche Medikamente stets im erforderlichen Temperaturbereich bleiben.",
+        app_label: "Wenn Sie an einer dieser Stellen interessiert sind, hinterlassen Sie bitte hier Ihre E-Mail-Adresse:",
+        app_btn: "Werden Sie Teil unseres Teams!",
+        app_success: "Unser Team wird Sie in Kürze mit weiteren Details zur Stelle kontaktieren",
         footer_contacts: "Kontakte",
         footer_partners: "Partner"
       }
@@ -361,6 +467,8 @@
     const langBtn = document.getElementById("langBtn");
     const langMenu = document.getElementById("langMenu");
     const langOptions = document.querySelectorAll(".lang-option");
+    const applyForm = document.getElementById("applyForm");
+    const appSection = document.getElementById("appSection");
 
     const setLanguage = (lang) => {
       if (!translations[lang]) return;
@@ -394,6 +502,18 @@
         langMenu.classList.remove("show");
         langBtn.setAttribute("aria-expanded", "false");
       }
+    });
+
+    /* FORM SUBMISSION LOGIC */
+    applyForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const currentLang = document.documentElement.lang || "en";
+      
+      appSection.innerHTML = `
+        <p class="success-message" data-i18n="app_success">
+          ${translations[currentLang].app_success}
+        </p>
+      `;
     });
   </script>
 
