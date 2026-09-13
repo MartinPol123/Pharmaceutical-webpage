@@ -61,12 +61,22 @@
       text-decoration: underline;
     }
 
+    /* =========================
+       TOP NAVIGATION BAR & LANG
+      ========================= */
     .top-nav {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
       gap: 12px;
       margin-bottom: 25px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
     .nav-btn {
@@ -86,6 +96,80 @@
       transform: translateY(-2px);
     }
 
+    /* Language Dropdown Container */
+    .lang-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .lang-btn {
+      background-color: rgb(0, 0, 130);
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    .lang-btn:hover,
+    .lang-btn:focus-visible {
+      background-color: rgb(0, 140, 0);
+      transform: translateY(-2px);
+    }
+
+    .globe-icon {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .lang-menu {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 115%;
+      background-color: #ffffff;
+      min-width: 140px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border-radius: 6px;
+      border: 1px solid rgba(0, 100, 0, 0.3);
+      z-index: 1000;
+      overflow: hidden;
+    }
+
+    .lang-menu.show {
+      display: block;
+    }
+
+    .lang-option {
+      width: 100%;
+      padding: 10px 16px;
+      text-align: left;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      color: rgb(35, 45, 40);
+      font-weight: bold;
+      transition: background-color 0.2s ease;
+    }
+
+    .lang-option:hover,
+    .lang-option:focus-visible {
+      background-color: rgba(0, 100, 0, 0.1);
+      color: rgb(0, 100, 0);
+      outline: none;
+    }
+
+    /* =========================
+       BOTTOM FOOTER NAVIGATION
+      ========================= */
     .bottom-footer {
       margin-top: 40px;
       padding-top: 20px;
@@ -134,55 +218,177 @@
 <body>
 
   <div id="scrollContent">
-    <nav class="top-nav">
-      <a href="index.html" class="nav-btn">Main page</a>
-      <a href="career.html" class="nav-btn">Career</a>
-      <a href="rules.html" class="nav-btn">Followed rules</a>
-      <a href="TurtleCampaign.html" class="nav-btn">Turtle Campaign</a>
+    <!-- TOP NAVIGATION BUTTONS & LANG -->
+    <nav class="top-nav" aria-label="Main Navigation">
+      <div class="nav-links">
+        <a href="index.html" class="nav-btn" data-i18n="nav_main">Main page</a>
+        <a href="career.html" class="nav-btn" data-i18n="nav_career">Career</a>
+        <a href="rules.html" class="nav-btn" data-i18n="nav_rules">Followed rules</a>
+        <a href="TurtleCampaign.html" class="nav-btn" data-i18n="nav_campaign">Turtle Campaign</a>
+      </div>
+
+      <!-- LANGUAGE DROPDOWN BUTTON -->
+      <div class="lang-dropdown">
+        <button type="button" class="lang-btn" id="langBtn" aria-expanded="false" aria-label="Language menu">
+          <svg class="globe-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+          </svg>
+          <span data-i18n="lang_text">Language</span> &#9660;
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <button type="button" class="lang-option" data-lang="en">English</button>
+          <button type="button" class="lang-option" data-lang="cs">Čeština</button>
+          <button type="button" class="lang-option" data-lang="de">Deutsch</button>
+        </div>
+      </div>
     </nav>
 
-    <h1>Rules</h1>
+    <h1 data-i18n="page_title">Rules</h1>
+
     <div class="rule-box">
-      <h4>Good Manufacturing Practice (GMP / cGMP)</h4>
-      <p>
+      <h4 data-i18n="rule_1_title">Good Manufacturing Practice (GMP / cGMP)</h4>
+      <p data-i18n="rule_1_desc">
         Good Manufacturing Practice is a mandatory quality assurance system that ensures pharmaceutical products are consistently manufactured and tested according to strict quality standards. It minimizes health risks by requiring sterile facility environments, verified production procedures, and complete documentation for every medication batch.
       </p>
     </div>
 
     <div class="rule-box">
-      <h4>Good Laboratory Practice (GLP)</h4>
-      <p>
+      <h4 data-i18n="rule_2_title">Good Laboratory Practice (GLP)</h4>
+      <p data-i18n="rule_2_desc">
         Good Laboratory Practice outlines international guidelines for safety testing and non-clinical laboratory studies. It guarantees that laboratory experiments, analytical measurements, and safety assessments are conducted with high integrity and total data reproducibility.
       </p>
     </div>
 
     <div class="rule-box">
-      <h4>Good Distribution Practice (GDP)</h4>
-      <p>
+      <h4 data-i18n="rule_3_title">Good Distribution Practice (GDP)</h4>
+      <p data-i18n="rule_3_desc">
         Good Distribution Practice regulates the handling, storage, and transportation of medicines from manufacturing plants to community pharmacies. It guarantees that pharmaceutical products remain uncompromised, unadulterated, and temperature-controlled throughout their journey.
       </p>
-
     </div>
 
     <div class="rule-box">
-      <h4>European Pharmacopoeia Standards (Ph. Eur.)</h4>
-      <p>
+      <h4 data-i18n="rule_4_title">European Pharmacopoeia Standards (Ph. Eur.)</h4>
+      <p data-i18n="rule_4_desc">
         The European Pharmacopoeia provides legal quality standards for active pharmaceutical ingredients, excipients, and final dosages across Europe. Adhering to these monographs ensures that all raw chemical materials meet verified standards of purity, identity, and strength.
       </p>
     </div>
 
     <div class="rule-box">
-      <h4>Pharmacovigilance Legislation & Medical Device Directives</h4>
-      <p>
+      <h4 data-i18n="rule_5_title">Pharmacovigilance Legislation & Medical Device Directives</h4>
+      <p data-i18n="rule_5_desc">
         European drug safety laws require pharmaceutical distributors to maintain active monitoring systems for immediate reporting of suspected side effects. This continuous monitoring ensures rapid public health protection and transparent safety communication.
       </p>
     </div>
 
     <footer class="bottom-footer">
-      <a href="contacts.html">Contacts</a> |
-      <a href="partners.html">Partners</a>
+      <a href="contacts.html" data-i18n="footer_contacts">Contacts</a> |
+      <a href="partners.html" data-i18n="footer_partners">Partners</a>
     </footer>
   </div>
+
+  <script>
+    /* MULTILINGUAL TRANSLATIONS DICTIONARY */
+    const translations = {
+      en: {
+        nav_main: "Main page",
+        nav_career: "Career",
+        nav_rules: "Followed rules",
+        nav_campaign: "Turtle Campaign",
+        lang_text: "Language",
+        page_title: "Rules",
+        rule_1_title: "Good Manufacturing Practice (GMP / cGMP)",
+        rule_1_desc: "Good Manufacturing Practice is a mandatory quality assurance system that ensures pharmaceutical products are consistently manufactured and tested according to strict quality standards. It minimizes health risks by requiring sterile facility environments, verified production procedures, and complete documentation for every medication batch.",
+        rule_2_title: "Good Laboratory Practice (GLP)",
+        rule_2_desc: "Good Laboratory Practice outlines international guidelines for safety testing and non-clinical laboratory studies. It guarantees that laboratory experiments, analytical measurements, and safety assessments are conducted with high integrity and total data reproducibility.",
+        rule_3_title: "Good Distribution Practice (GDP)",
+        rule_3_desc: "Good Distribution Practice regulates the handling, storage, and transportation of medicines from manufacturing plants to community pharmacies. It guarantees that pharmaceutical products remain uncompromised, unadulterated, and temperature-controlled throughout their journey.",
+        rule_4_title: "European Pharmacopoeia Standards (Ph. Eur.)",
+        rule_4_desc: "The European Pharmacopoeia provides legal quality standards for active pharmaceutical ingredients, excipients, and final dosages across Europe. Adhering to these monographs ensures that all raw chemical materials meet verified standards of purity, identity, and strength.",
+        rule_5_title: "Pharmacovigilance Legislation & Medical Device Directives",
+        rule_5_desc: "European drug safety laws require pharmaceutical distributors to maintain active monitoring systems for immediate reporting of suspected side effects. This continuous monitoring ensures rapid public health protection and transparent safety communication.",
+        footer_contacts: "Contacts",
+        footer_partners: "Partners"
+      },
+      cs: {
+        nav_main: "Hlavní strana",
+        nav_career: "Kariéra",
+        nav_rules: "Dodržovaná pravidla",
+        nav_campaign: "Želví kampaň",
+        lang_text: "Jazyk",
+        page_title: "Pravidla",
+        rule_1_title: "Správná výrobní praxe (SVP / cGMP)",
+        rule_1_desc: "Správná výrobní praxe je povinný systém zajištění kvality, který garantuje, že farmaceutické produkty jsou konzistentně vyráběny a testovány podle přísných kvalitativních standardů. Minimalizuje zdravotní rizika požadavkem na sterilní prostředí zařízení, ověřené výrobní postupy a kompletní dokumentaci každé šarže léků.",
+        rule_2_title: "Správná laboratořní praxe (SLP / GLP)",
+        rule_2_desc: "Správná laboratořní praxe definuje mezinárodní pokyny pro testování bezpečnosti a neklinické laboratorní studie. Zaručuje, že laboratorní experimenty, analytická měření a bezpečnostní posouzení probíhají s vysokou integritou a úplnou reprodukovatelností dat.",
+        rule_3_title: "Správná distribuční praxe (SDP / GDP)",
+        rule_3_desc: "Správná distribuční praxe upravuje manipulaci, skladování a přepravu léčiv z výrobních závodů do veřejných lékáren. Zajišťuje, že farmaceutické výrobky zůstanou po celou dobu přepravy neporušené, neznehodnocené a uchovávané při stanovených teplotách.",
+        rule_4_title: "Standardy Evropského lékopisu (Ph. Eur.)",
+        rule_4_desc: "Evropský lékopis poskytuje závazné normy kvality pro léčivé látky, pomocné látky a konečné lékové formy v celé Evropě. Dodržování těchto článků zajišťuje, že všechny základní chemické suroviny splňují ověřené standardy čistoty, identity a obsahu.",
+        rule_5_title: "Legislativa farmakovigilance a směrnice o zdravotnických prostředcích",
+        rule_5_desc: "Evropské zákony o bezpečnosti léčiv vyžadují, aby distributoři léčiv udržovali aktivní systémy sledování pro okamžité hlášení podezření na nežádoucí účinky. Toto nepřetržité monitorování zajišťuje rychlou ochranu veřejného zdraví a transparentní komunikaci v oblasti bezpečnosti.",
+        footer_contacts: "Kontakty",
+        footer_partners: "Partneři"
+      },
+      de: {
+        nav_main: "Hauptseite",
+        nav_career: "Karriere",
+        nav_rules: "Befolgte Regeln",
+        nav_campaign: "Schildkröten-Kampagne",
+        lang_text: "Sprache",
+        page_title: "Regeln",
+        rule_1_title: "Gute Herstellungspraxis (GMP / cGMP)",
+        rule_1_desc: "Die Gute Herstellungspraxis ist ein obligatorisches Qualitätssicherungssystem, das sicherstellt, dass pharmazeutische Produkte konsequent nach strengen Qualitätsstandards hergestellt und geprüft werden. Sie minimiert Gesundheitsrisiken durch sterile Anlagenumgebungen, verifizierte Herstellungsverfahren und eine vollständige Dokumentation jeder Arzneimittelcharge.",
+        rule_2_title: "Gute Laborpraxis (GLP)",
+        rule_2_desc: "Die Gute Laborpraxis legt internationale Richtlinien für Sicherheitsprüfungen und nicht-klinische Laborstudien fest. Sie garantiert, dass Laborexperimente, analytische Messungen und Sicherheitsbewertungen mit hoher Integrität und vollständiger Datenreproduzierbarkeit durchgeführt werden.",
+        rule_3_title: "Gute Vertriebspraxis (GDP)",
+        rule_3_desc: "Die Gute Vertriebspraxis regelt die Handhabung, Lagerung und den Transport von Arzneimitteln von den Herstellungsbetrieben bis zu den Apotheken. Sie garantiert, dass pharmazeutische Produkte während des gesamten Transports unverfälscht, unbeschädigt und temperaturgeführt bleiben.",
+        rule_4_title: "Europäisches Arzneibuch (Ph. Eur.)",
+        rule_4_desc: "Das Europäische Arzneibuch bietet rechtliche Qualitätsstandards für Wirkstoffe, Hilfsstoffe und Enddosierungen in ganz Europa. Die Einhaltung dieser Monographien stellt sicher, dass alle chemischen Rohstoffe verifizierte Standards für Reinheit, Identität und Gehalt erfüllen.",
+        rule_5_title: "Pharmakovigilanz-Gesetzgebung & Medizinprodukte-Richtlinien",
+        rule_5_desc: "Die europäischen Arzneimittelsicherheitsgesetze verpflichten Arzneimittelhändler zur Aufrechterhaltung aktiver Überwachungssysteme zur unverzüglichen Meldung von Verdachtsfällen von Nebenwirkungen. Diese kontinuierliche Überwachung gewährleistet einen schnellen Schutz der öffentlichen Gesundheit und eine transparente Sicherheitskommunikation.",
+        footer_contacts: "Kontakte",
+        footer_partners: "Partner"
+      }
+    };
+
+    const langBtn = document.getElementById("langBtn");
+    const langMenu = document.getElementById("langMenu");
+    const langOptions = document.querySelectorAll(".lang-option");
+
+    const setLanguage = (lang) => {
+      if (!translations[lang]) return;
+      document.documentElement.lang = lang;
+
+      const elementsToTranslate = document.querySelectorAll("[data-i18n]");
+      elementsToTranslate.forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+    };
+
+    langBtn.addEventListener("click", () => {
+      const isExpanded = langMenu.classList.toggle("show");
+      langBtn.setAttribute("aria-expanded", isExpanded);
+    });
+
+    langOptions.forEach((option) => {
+      option.addEventListener("click", () => {
+        const selectedLang = option.getAttribute("data-lang");
+        setLanguage(selectedLang);
+        langMenu.classList.remove("show");
+        langBtn.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!event.target.closest(".lang-dropdown")) {
+        langMenu.classList.remove("show");
+        langBtn.setAttribute("aria-expanded", "false");
+      }
+    });
+  </script>
 
 </body>
 
